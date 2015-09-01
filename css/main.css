@@ -140,10 +140,10 @@ PAGE: ABOUT
 ***********************************/
 
 .profile-photo {
-  float: right;
+  float: left;
   max-width: 300px;
   margin: 0 auto 30px;
-  margin-left: 100px;
+  margin-right: 100px;
 }
 
 
