@@ -29,6 +29,7 @@ a, a.selected {
   -o-background-size: cover;
   background-size: cover;
   height: 1000px;
+  font-size: 16px;
 }
 
 #logo {
@@ -37,14 +38,8 @@ a, a.selected {
   text-align: center;
   text-decoration: none; 
 }
-.about-photo{
-  max-height: 500px;
-  max-width: 250px;
-  border-radius: 20px; 
-  opacity:0.9;
-  filter:alpha(opacity=60); /* For IE8 and earlier */
 
-}
+
 .photo {
   text-align: center;
   padding-top: 3%;
@@ -55,10 +50,10 @@ a, a.selected {
   filter:alpha(opacity=80); /* For IE8 and earlier */
 }
 
-.profile-photo{
-  max-height: 500px;
-  max-width: 250px;
-  border-radius: 125px;
+
+/* links */
+a {
+  color: #6ab47b;
 }
 
 /**********************************
@@ -92,13 +87,97 @@ nav a {
   font-weight: 800;
   /*padding: 15px 10px;*/
 }
-
-#navIndex {
-  visibility: hidden;
+/* selected nav link */
+nav li a.selected, nav li a:hover {
+  color: #32673f;
+  font-weight: 900;
+  text-decoration: none;
+  
 }
 
+/*********************************
+INDEX
+*********************************/
+ .profile-photo{
+  max-height: 500px;
+  max-width: 250px;
+  border-radius: 125px;
+}
+ 
+/*********************************
+**BLOG**
+*********************************/
+#webForecast{
+  /*visibility: hidden;*/
+  padding-bottom: 2%;
+}
+
+#wrapper .blog{
+  text-align: justify;
+}
+
+#blogList{
+  text-align: center;
+  
+}
+
+#blogList a{
+  text-decoration: none;
+}
+/*********************************
+**ABOUT
+*********************************/
+.about-photo{
+  max-height: 100%;
+  max-width: 100%;
+  border-radius: 20px; 
+  opacity:0.9;
+  filter:alpha(opacity=90); /* For IE8 and earlier */
+}
+
+#wrapper{
+  max-width: 900px;
+  margin: auto;
+  padding: 3%;
+}
+
+div .transbox{
+  background-color: white;
+  opacity:0.6;
+  filter:alpha(opacity=60); /* For IE8 and earlier */
+  padding: 3%;
+  border-radius: 5px;
+  color: black;
+  -webkit-animation-name: changeColor; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 8s; /* Chrome, Safari, Opera */
+    animation-name: changeColor;
+    animation-duration: 8s;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes changeColor {
+    0% {background-color: #abebfe;}
+    25% {background-color: #aad667;}
+    50% {background-color: #57e6ee;}
+    /*75% {background-color: #ff7ebb;}*/
+    100% {background-color: #fff;}
+}
+
+/* Standard syntax */
+@keyframes changeColor {
+     0% {background-color: #abebfe;}
+    25% {background-color: #aad667;}
+    50% {background-color: #57e6ee;}
+    /*75% {background-color: #ff7ebb;}*/
+    100% {background-color: #fff;}
+}
+ 
+
+/*********************************
+FOOTER
+*********************************/
 footer {
-  font-size: 0.75em;
+  font-size: 12px;
   text-align: center;
   clear: both;
   padding-top: 150px;
@@ -111,59 +190,15 @@ footer {
   margin: 0 5px;
 }
                           
-/* links */
-a {
-  color: #6ab47b;
-}
-
-/* selected nav link */
-nav li a.selected, nav li a:hover {
-  color: #32673f;
-  font-weight: 900;
-  text-decoration: none;
-  
-}
-
-#wrapper{
-  width: 800px;
-  margin: auto;
-  text-align: center;
-  padding: 5%;
-}
- 
-div .transbox{
-  background-color: white;
-  opacity:0.6;
-  filter:alpha(opacity=60); /* For IE8 and earlier */
-  padding: 3%;
-  border-radius: 5px;
-  color: black;
-  -webkit-animation-name: changeColor; /* Chrome, Safari, Opera */
-    -webkit-animation-duration: 14s; /* Chrome, Safari, Opera */
-    animation-name: changeColor;
-    animation-duration: 14s;
-}
-
-/* Chrome, Safari, Opera */
-@-webkit-keyframes changeColor {
-    0% {background-color: #abebfe;}
-    25% {background-color: #aad667;}
-    50% {background-color: #57e6ee;}
-    75% {background-color: #ff7ebb;}
-    100% {background-color: #fff;}
-}
-
-/* Standard syntax */
-@keyframes changeColor {
-     0% {background-color: #abebfe;}
-    25% {background-color: #aad667;}
-    50% {background-color: #57e6ee;}
-    75% {background-color: #ff7ebb;}
-    100% {background-color: #fff;}
-}
- 
 #contact{
   margin-top: 5%;
   text-align: center;
 }
 
+/**********************************
+MOBILE SCREEN
+**********************************/
+@media only screen and (max-device-width: 480px) {
+  
+  
+}
