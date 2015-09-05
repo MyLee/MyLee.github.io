@@ -129,7 +129,7 @@ INDEX
 *********************************/
 .about-photo{
   max-height: 100%;
-  max-width: 100%;
+  max-width: 98%;
   border-radius: 20px; 
   opacity:0.9;
   filter:alpha(opacity=90); /* For IE8 and earlier */
@@ -177,7 +177,7 @@ div .transbox{
 FOOTER
 *********************************/
 footer {
-  font-size: 12px;
+  font-size: 14px;
   text-align: center;
   clear: both;
   padding-top: 150px;
