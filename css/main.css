@@ -138,9 +138,32 @@ div .transbox{
   padding: 3%;
   border-radius: 5px;
   color: black;
- }
+  -webkit-animation-name: changeColor; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 14s; /* Chrome, Safari, Opera */
+    animation-name: changeColor;
+    animation-duration: 14s;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes changeColor {
+    0% {background-color: #abebfe;}
+    25% {background-color: #aad667;}
+    50% {background-color: #57e6ee;}
+    75% {background-color: #ff7ebb;}
+    100% {background-color: #fff;}
+}
+
+/* Standard syntax */
+@keyframes changeColor {
+     0% {background-color: #abebfe;}
+    25% {background-color: #aad667;}
+    50% {background-color: #57e6ee;}
+    75% {background-color: #ff7ebb;}
+    100% {background-color: #fff;}
+}
  
 #contact{
   margin-top: 5%;
   text-align: center;
 }
+
