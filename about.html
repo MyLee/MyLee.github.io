@@ -3,16 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>Mai Ly</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link href='http://fonts.googleapis.com/css?family=Changa+One|Open+Sans:400italic,700italic,400,700,800' rel='stylesheet' type='text/css'>
+     <link href='http://fonts.googleapis.com/css?family=Changa+One|Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   </head>
-  <body>
-    <header>
-      <a href="index.html" id="logo">
-        <h1>Mai Ly Thernström</h1>
-        <h2></h2>
-      </a>
+  <body style="background-color:#000">
+    <div class="containter" >
+        <a href="index.html" class="jumbotron" id="logo">
+          <h1>Mai Ly Thernström</h1>    
+          <h4>Frontend developer to be</h4>
+        </a>  
       <nav>
         <ul>
           <li><a href="index.html" >Portfolio</a></li>
@@ -20,22 +20,30 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
-    </header>
-    <div id="wrapper">
-      <section>
-        <img src="img/Kalmar.jpg" alt="Kalmar"  class="profile-photo">
-        <h3>Om mig</h3>
-        <p>
-          Jag bor i Kalmar med min man och min 7 år son. Jag jobbar som frilans tolk och vill nu kör igång med javascripts. 
-        </p> </bR>
-        <p>
-          
-        </p>
-      </section>
-      <footer>
-        Här kan du lägga in länkar till din linkedin eller twitter
-      </footer>
-    </div>
+      <div id="wrapper">       
+          <!--<img src="img/Kalmar.jpg" alt="Kalmar"  class="about-photo">-->
+          <div id="about">
+            <div class="transbox">
+              <h3>Om mig</h3>
+              <p>
+                Mai Ly heter jag och bor i Kalmar med min familj. Det är en liten och lugn stad. Nu jobbar jag som vietnamesiska
+                tolk. I mitt job är att hjälper kunder och klienter förstår vad den andra säga.
+              </p>
+              <p>Jag har läst lite grann om .Net, MVC och sån. Jag råkade ser den här kursen och ville vara
+                med för att varma upp min kärlek till koding. 
+              </p> 
+              <p>
+                På fritiden sitter jag mycket med datorn. Orkar aldrig åka till gym men jag 
+                köra lite "workout"" hemma med en app, '7 minutes'' heter det. Stark rekommendera 
+                för nån vill inte eller har inte tid till långa pass i gym. Det funkar fint fint.
+              </p> 
+          </div>
+        </div>
+        <footer>
+          Här kan du lägga in länkar till din linkedin eller twitter
+        </footer>
+      </div>
+    </div><!-- end of container--> 
   </body>
 </html>
 

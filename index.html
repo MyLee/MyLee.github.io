@@ -3,37 +3,54 @@
   <head>
     <meta charset="utf-8">
     <title>Mai Ly</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link href='http://fonts.googleapis.com/css?family=Changa+One|Open+Sans:400italic,700italic,400,700,800' rel='stylesheet' type='text/css'>
+     <link href='http://fonts.googleapis.com/css?family=Changa+One|Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script rel="text/javascript" src="script/showHide.js">
+//     $(document).ready(function()
+//         {
+// $("#indexPhoto").mouseover(function() { $("#navIndex").css('visibility','visible'); });
+// $("#navIndex").mouseover(function() { $("#navIndex").css('visibility','visible'); });
+// $("#navIndex").mouseout(function() { $("#navIndex").css('visibility','hidden'); });
+		// })</script>
   </head>
-  <body>
-    <header>
-      <a href="index.html" id="logo">
-        <h1>Mai Ly Thernström</h1>
-        <h2></h2>
-      </a>
-      <nav>
-        <ul>
-          <li><a href="index.html" class="selected">Portfolio</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-    <div id="wrapper">
-      <section>
-        <article class="">
-          <h3>Nu är jag student igen</h3>
-          <p>
-            Javascripts utvecklare ska det bli!
-          </p>
-        </article>
-
-      </section>
-      <footer>
+  <body style="background-color:#000">
+    <div class="containter" >
+        <a href="index.html" class="jumbotron" id="logo">
+          <h1>Mai Ly Thernström</h1>    
+          
+          <h4>Frontend developer to be</h4>
+          
+        </a>
+        <div id="index">
+          <section class="photo" >
+            <a href="about.html"><img src="img/ly.jpg" alt="Ly" class="profile-photo" title="About" id="indexPhoto"></a>
+          </section>
         
-      </footer>
-    </div>
+          <nav id=navIndex>
+            <div >
+            <ul>
+              <li><a href="index.html" class="selected">Portfolio</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+            </div>
+          </nav>
+      
+          <section>
+            <article class="">
+              
+              
+            </article>
+    
+          </section>
+          </div><!-- /*end of index*/-->
+        <footer>
+          <p> Under construction... </p>
+        </footer>
+      
+    </div> <!-- end of container--> 
   </body>
 </html>
