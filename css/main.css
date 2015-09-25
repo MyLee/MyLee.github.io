@@ -4,7 +4,7 @@ GENERAL
 
 body {
   font-family: 'Open Sans', sans-serif;
-  background-color: black;
+  background-color: #548CA3;
 }
 
 a, a.selected {
@@ -23,7 +23,6 @@ a, a.selected {
   width: 100%; 
   color: #ffffff;  
   background-image: url("../img/bike.jpg");
-  background-repeat: no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -107,8 +106,8 @@ INDEX
 /*********************************
 **BLOG**
 *********************************/
-#webForecast{
-  /*visibility: hidden;*/
+#webForecast, #careerPortray{
+  /*display: none;*/
   padding-bottom: 2%;
 }
 
