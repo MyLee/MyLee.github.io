@@ -4,7 +4,7 @@ GENERAL
 
 body {
   font-family: 'Open Sans', sans-serif;
-  
+  font-size: 16px;
 }
 
 a, a.selected {
@@ -105,26 +105,30 @@ INDEX
   border-radius: 125px;
 }
  
-/*********************************
-**BLOG** INDEX
-*********************************/
 #web5yrs, #careerPortray{
   display: none;
   padding-bottom: 2%;
 }
 
-#wrapper .blog{
+.wrapper {
   text-align: justify;
 }
 
 #blogList{
   text-align: center;
-  
+
 }
 
 #blogList a{
   text-decoration: none;
+  color: hotpink;
 }
+
+#blogList a:hover{
+  color: #23527C
+}
+
+
 /*********************************
 **ABOUT
 *********************************/
@@ -137,10 +141,11 @@ INDEX
   filter:alpha(opacity=90); /* For IE8 and earlier */
 }
 
-#wrapper{
+.wrapper{
   max-width: 900px;
   margin: auto;
   padding: 3%;
+  font-size: 16px;
 }
 
 div .transbox{
