@@ -1,6 +1,3 @@
-$(document).ready(function()
-        {
-			function toggleDiv(divId){
-				$("#"+divId).fadeToggle();
-			}
-		})
+function toggleDiv(id){
+	$("#"+id.id).fadeToggle();
+}

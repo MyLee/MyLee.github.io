@@ -4,7 +4,7 @@ GENERAL
 
 body {
   font-family: 'Open Sans', sans-serif;
-  background-color: #548CA3;
+  
 }
 
 a, a.selected {
@@ -29,6 +29,7 @@ a, a.selected {
   background-size: cover;
   height: 1000px;
   font-size: 16px;
+  
 }
 
 #logo {
@@ -40,8 +41,8 @@ a, a.selected {
 
 
 .photo {
-  text-align: center;
-  padding-top: 3%;
+ float:left;
+ margin-bottom: 2%;
 }
 .photo a:hover{
   background-color: #ffffff;
@@ -80,6 +81,7 @@ nav li {
   opacity:0.6;
   filter:alpha(opacity=60); /* For IE8 and earlier */
   padding: 2%;
+  padding-right: 90px;
 }
 
 nav a {
@@ -104,10 +106,10 @@ INDEX
 }
  
 /*********************************
-**BLOG**
+**BLOG** INDEX
 *********************************/
-#webForecast, #careerPortray{
-  /*display: none;*/
+#web5yrs, #careerPortray{
+  display: none;
   padding-bottom: 2%;
 }
 
@@ -127,6 +129,7 @@ INDEX
 **ABOUT
 *********************************/
 .about-photo{
+  float: left;
   max-height: 100%;
   max-width: 98%;
   border-radius: 20px; 
@@ -141,6 +144,8 @@ INDEX
 }
 
 div .transbox{
+  float: right;
+  max-width: 500px;
   background-color: white;
   opacity:0.6;
   filter:alpha(opacity=60); /* For IE8 and earlier */
@@ -151,6 +156,10 @@ div .transbox{
     -webkit-animation-duration: 8s; /* Chrome, Safari, Opera */
     animation-name: changeColor;
     animation-duration: 8s;
+}
+
+.transbox p{
+  margin:3%;
 }
 
 /* Chrome, Safari, Opera */
@@ -197,7 +206,17 @@ footer {
 /**********************************
 MOBILE SCREEN
 **********************************/
-@media only screen and (max-device-width: 480px) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px){
   
+  .photo{
+    clear:both;
+    text-align: center;
+    margin: auto;
+  }
+  
+  .transbox{
+    clear: both;
+    margin: auto;
+  }
   
 }
