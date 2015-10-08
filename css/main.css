@@ -34,84 +34,124 @@ a, a.selected {
 
 #logo {
   text-align: center;
-  margin: 0; 
   text-align: center;
   text-decoration: none; 
 }
-
-
-.photo {
- float:left;
- margin-bottom: 2%;
-}
-.photo a:hover{
-  background-color: #ffffff;
-  opacity:0.8;
-  filter:alpha(opacity=80); /* For IE8 and earlier */
-}
-
 
 /* links */
 a {
   color: #6ab47b;
 }
 
+.wrapper{
+  max-width: 900px;
+  margin: auto;
+  padding: 3%;
+  font-size: 16px;
+  text-align: justify;
+}
+
 /**********************************
 NAVIGATION
 ***********************************/
 
-nav {
+#menu {
   text-align: center;
   padding: 10px 0;
-  margin: 20px 0 0;
+  margin: auto;
+  width:auto;
 }
 
-nav ul {
+#menu ul li a {
+  background-color: #23527C;
+  display: block;
+  padding: 10%;
+  padding-right: 10px;
+  border-radius: 2px;
+}
+
+#menu ul {
   list-style: none;
-  margin: 0 10px;
+  margin: 0 ;
   padding: 0;
+  line-height: 1;
+  display: block;
 }
 
-nav li {
-  height: 100%;
-  width: 10%;
-  border-radius: 50%;
+#menu ul:after{
+  content: "";
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+#menu ul li {
   display: inline-block;
-  background-color: #ffffff;
-  opacity:0.6;
-  filter:alpha(opacity=60); /* For IE8 and earlier */
-  padding: 2%;
-  padding-right: 90px;
+  padding: 0;
+  margin: 2px;
 }
 
-nav a {
-  font-weight: 800;
-  /*padding: 15px 10px;*/
+#menu.align-right ul li{
+  float: right;
 }
-/* selected nav link */
-nav li a.selected, nav li a:hover {
-  color: #32673f;
-  font-weight: 900;
+
+#menu ul li a {
+  color: #fff;
   text-decoration: none;
-  
+  display: block;
+  padding-right: 8px;
+  padding-left: 8px;
+  font-weight: 700;
+  position: relative;
+  /*-webkit-transition: color .25s;
+  -moz-transition: color .25s;
+  -ms-transition: color .25s;
+  -o-transition: color .25s;
+  transition: color .25s;*/
 }
+
+#menu ul li a:hover, #menu a.selected {
+  color: #333;
+  background-color: #fff;
+   /*border-bottom: 3px solid #6ab47b;*/
+  -webkit-transition: width .25s;
+  -moz-transition: width .25s;
+  -ms-transition: width .25s;
+  -o-transition: width .25s;
+  transition: width .25s;
+ 
+}
+
+#menu ul li a:hover:before{
+  width:100%;
+}
+
+#menu ul li a:before{
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0;
+  background-color: #6ab47b;
+  -webkit-transition: width .25s;
+  -moz-transition: width .25s;
+  -ms-transition: width .25s;
+  -o-transition: width .25s;
+  transition: width .25s;
+}
+
 
 /*********************************
 INDEX
 *********************************/
- .profile-photo{
-  max-height: 500px;
-  max-width: 250px;
-  border-radius: 125px;
-}
  
 #web5yrs, #careerPortray{
   display: none;
   padding-bottom: 2%;
-}
-
-.wrapper {
-  text-align: justify;
 }
 
 #blogList{
@@ -121,7 +161,8 @@ INDEX
 
 #blogList a{
   text-decoration: none;
-  color: hotpink;
+  font-weight: 500;
+  /*color: hotpink;*/
 }
 
 #blogList a:hover{
@@ -132,25 +173,24 @@ INDEX
 /*********************************
 **ABOUT
 *********************************/
-.about-photo{
-  float: left;
-  max-height: 100%;
-  max-width: 98%;
-  border-radius: 20px; 
-  opacity:0.9;
-  filter:alpha(opacity=90); /* For IE8 and earlier */
+.photo {
+ float: left;
 }
 
-.wrapper{
-  max-width: 900px;
-  margin: auto;
-  padding: 3%;
-  font-size: 16px;
+.about-photo{
+  max-height: 100%;
+  max-width: 70px;
+  border-radius: 125px;
+  margin-right: 2%;
+  
 }
+
+/*.photo a:hover{
+  background-color: #ffffff;
+  opacity:0.8;
+  filter:alpha(opacity=80); /* For IE8 and earlier */
 
 div .transbox{
-  float: right;
-  max-width: 500px;
   background-color: white;
   opacity:0.6;
   filter:alpha(opacity=60); /* For IE8 and earlier */
@@ -207,21 +247,35 @@ footer {
   margin-top: 5%;
   text-align: center;
 }
+.contactInfo{
+  text-align: center;
+}
 
 /**********************************
 MOBILE SCREEN
 **********************************/
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px){
+@media only screen and (min-device-width :480px) {
   
-  .photo{
-    clear:both;
-    text-align: center;
-    margin: auto;
-  }
-  
-  .transbox{
+div .transbox{
     clear: both;
     margin: auto;
   }
   
+  .photo {
+ clear: both;
+ margin: auto;
+ text-align: center;
+ padding-bottom: 3%;
+}
+
+.photo a{
+  margin: auto;
+}
+  
+}
+
+@media screen and (max-device-width :120px){
+  .transbox{
+    max-width: 1000px;
+  }
 }

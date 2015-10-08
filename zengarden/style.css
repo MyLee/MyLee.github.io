@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,400italic');
+@import url('https://fonts.googleapis.com/css?family=Tangerine');
+
+/*Reset CSS************************/
+body,div .page-wrapper, h1, h2, h3, ui li, abbr {
+	margin:0; padding:0; font-size:100%; line-height:1; text-decoration: none;
+  }
+:link,:visited { text-decoration:none }
+
+/**********************************/  
+  body{
+    background-color: #00BFA5; 
+    color: #fcfcfc;    
+    font-family: 'Merriweather', sans-serif;  
+  }
+  
+  a{
+    color: #1498E0;
+  }
+  /* Chrome, Safari, Opera */
+@-webkit-keyframes changeColor {
+    0%   {color: #2d9;}
+    20%  {color: #1498E0;}
+    40%  {color: #942DE2;}
+    60% {color: #F9B24F;}
+    80% {color: #F14765;}
+    100% {color: #2d9;}
+}
+
+/* Standard syntax */
+@keyframes changeColor {
+    0%   {color: #2d9;}
+    20%  {color: #1498E0;}
+    40%  {color: #942DE2;}
+    60% {color: #ffff00;}
+    80% {color: #F14765;}
+    100% {color: #2d9;}
+}
+
+#zen-intro {
+  color: #fff;
+  margin:0; padding:0; font-size:100%; line-height:1;  
+  min-height: 400px;
+  padding: 3%;
+  background-image: url(img/garden.jpg);
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: cover, center bottom;
+  
+}
+
+#zen-intro header h1{
+  color: white;
+  font-size: 300%;
+  font-family: 'Merriweather';  
+}
+
+#zen-intro header h2{
+  font-size: 150%;
+  font-weight: 700;
+  margin-left: 4%;
+  font-family: 'Merriweather';  
+   -webkit-animation: changeColor 18s infinite; /* Chrome, Safari, Opera */
+  animation: changeColor 18s infinite; 
+}
+
+#zen-summary{
+  padding-left: 1%;
+  font-family: 'Tangerine';   
+  font-size: 30px;
+  font-weight: 500;
+}
+
+
+#zen-preamble{  
+  max-width: 1000px;
+  padding: 1%;
+  background: -webkit-linear-gradient(  #80CBC4, #000700); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(  #80CBC4, #000700); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(   #80CBC4, #000700); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(   #80CBC4, #000700); /* Standard syntax (must be last) */
+  opacity: .8;
+  font-family: 'Merriweather'; 
+  
+}
+
+#zen-preamble:hover{
+   background: -webkit-linear-gradient(#000700,  #80CBC4, #000700); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#000700, #80CBC4, #000700); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#000700,  #80CBC4, #000700); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#000700,   #80CBC4, #000700); /* Standard syntax (must be last) */
+  transition: 2s;
+}
+
+#zen-supporting{
+  margin:0; padding:0; font-size:100%; line-height:1;
+  overflow: hidden;
+}
+
+#zen-supporting h3{
+  font-weight: 700;
+  font-size: 140%;
+}
+
+div #zen-supporting > div{
+  padding: 1%;
+}
+#zen-explanation{
+  float: left;
+  color: #fff;
+  width: 70%;
+  text-decoration: none;
+  background:url(img/question.png) top left no-repeat, -webkit-linear-gradient(left, #000700 , #007F8D);
+  background:url(img/question.png) top left no-repeat, -o-linear-gradient(right,  #000700 , #007F8D); 
+  background:url(img/question.png) top left no-repeat, -moz-linear-gradient(right,  #000700 , #007F8D); 
+  background:url(img/question.png) top left no-repeat, linear-gradient(to right,  #000700 , #007F8D); /* Standard syntax (must be last) */
+  /*background: url(img/question_mark.png) top left no-repeat; /*,  url(img/lizzard.jpg); */
+  -webkit-background-size:70px 70px, cover;
+  -moz-background-size:70px 70px, cover;
+  -o-background-size:70px 70px, cover;
+  background-size:70px 70px, cover;
+  vertical-align: middle; 
+  display: table;;
+  background-position: 1% 10%;
+}
+
+#zen-explanation :first-child{
+  display: table-cell; 
+  vertical-align: middle;
+  padding-right: 1%; 
+} 
+
+#zen-participation, #zen-benefits{
+  float: left;
+  width: 34%;
+  height: 300px;
+}
+
+#zen-participation{
+  background: url(img/coopIcon.png) top left no-repeat #E61875;
+  background-size: 80px 50px;
+  background-position: 3% 1%;
+  /*background-image: url(img/sky.jpg);
+   -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
+  width: 45%;
+}
+#zen-participation h3{
+  text-align: center; 
+  padding-top: 2%;
+} 
+
+#zen-benefits{
+  background: url(img/gift-icon.png) top left no-repeat #F9B24F;
+  background-size: 60px 60px;
+  background-position: 3% 1%;
+  width: 23%; 
+}
+
+#zen-benefits h3{
+  /*display: table-cell; 
+  vertical-align: middle; 
+  padding-right: 1%;*/
+  text-align: center;
+  padding-top: 8%;
+}
+
+#zen-requirements{
+  float: left;
+  width:70%;
+  background: url(img/setting.png) top left no-repeat #009EE4;
+  background-size: 80px 80px;
+  background-position: 1% 1%;
+}
+
+#zen-requirements h3{
+  text-align: center;
+  padding-top: 3%;
+}
+
+/*********FOOTER****************************/
+footer{
+  clear: both;
+  padding: 1%;
+  float: left;
+  width: 100%;
+  height: 60px ;
+  background-color: #004D40  ;
+}
+footer :nth-child(1){
+  background: url(img/html5.png) top left no-repeat ;
+  background-size: 80px 50px;
+  background-position: 3% 1%;
+}
+/*****************************************/
+
+.sidebar{
+  margin-left: 600px; 
+	position: absolute; 
+	top: 580px; 
+	right: 0;
+	width: 25%;  
+}
+
+
+@media all and (max-width: 800px) {
+  transition: 2s duration timing-function delay;
+  -webkit-transition: 2s duration timing-function delay;
+  -o-transition: 2s duration timing-function delay;
+  -moz-transition: 2s duration timing-function delay;
+  #zen-supporting{
+    margin:0; padding:0; font-size:100%; line-height:1;
+    overflow: hidden;
+   
+  }
+  
+   #zen-supporting *{
+      padding: 2%;
+   }
+  div #zen-supporting > div{
+    padding: 1%;
+    width: 100%;
+  }
+  
+  #zen-explanation{
+
+  }
+  
+  #zen-participation, #zen-benefits{
+   float: left;
+  }
+  
+  #zen-participation{
+    clear: both;
+    max-width: 100%;
+    height: 100%;
+  }
+  
+  #zen-benefits{
+    clear: both;
+    max-width: 100%;
+    height: 100%;
+  }
+  
+  #zen-benefits h3{
+    padding-top: 2%;
+  }
+  
+  #zen-requirements{
+    float: left;
+    max-width: 100%;    
+  }
+  
+  footer{
+    clear: both;
+    padding: 1%;
+    float: left;
+    width: 100%;    
+  }
+  
+  .sidebar{
+    margin-left: 0; 
+    position: relative; 
+    top: 2%; 
+    margin-top:15px;
+    left: 15px;
+    width: 100%;
+    z-index: 1000;
+  }
+
+}
