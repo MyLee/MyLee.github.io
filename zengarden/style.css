@@ -13,10 +13,7 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr {
     color: #fcfcfc;    
     font-family: 'Merriweather', sans-serif;  
   }
-  
-  a{
-    color: #1498E0;
-  }
+
   /* Chrome, Safari, Opera */
 @-webkit-keyframes changeColor {
     0%   {color: #2d9;}
@@ -73,7 +70,10 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr {
   font-size: 30px;
   font-weight: 500;
 }
-
+ #zen-summary a{
+   color: #1498E0;
+   font-weight: 700;   
+ }
 
 #zen-preamble{  
   max-width: 1000px;
@@ -108,6 +108,7 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr {
 div #zen-supporting > div{
   padding: 1%;
 }
+
 #zen-explanation{
   float: left;
   color: #fff;
@@ -155,6 +156,10 @@ div #zen-supporting > div{
   padding-top: 2%;
 } 
 
+#zen-participation a {
+  color: #000700;
+}
+
 #zen-benefits{
   background: url(img/gift-icon.png) top left no-repeat #F9B24F;
   background-size: 60px 60px;
@@ -167,7 +172,7 @@ div #zen-supporting > div{
   vertical-align: middle; 
   padding-right: 1%;*/
   text-align: center;
-  padding-top: 8%;
+  padding-top: 5%;
 }
 
 #zen-requirements{
@@ -183,6 +188,10 @@ div #zen-supporting > div{
   padding-top: 3%;
 }
 
+#zen-requirements a{
+  color: #004D40;
+}
+
 /*********FOOTER****************************/
 footer{
   clear: both;
@@ -190,7 +199,12 @@ footer{
   float: left;
   width: 100%;
   height: 60px ;
+  line-height: 60px;
   background-color: #004D40  ;
+}
+
+footer a{
+  color: #fcfcfc;
 }
 footer :nth-child(1){
   background: url(img/html5.png) top left no-repeat ;
@@ -199,12 +213,57 @@ footer :nth-child(1){
 }
 /*****************************************/
 
+
+/***NAV********************************/
 .sidebar{
-  margin-left: 600px; 
 	position: absolute; 
 	top: 580px; 
 	right: 0;
 	width: 25%;  
+}
+
+.sidebar h3{
+  font-size: 120%;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+ul li{
+  list-style: none;
+  padding:0;
+  margin: 0;
+}
+
+ul{
+  padding-bottom: 2%;
+}
+
+li {
+  font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+  border-bottom: 1px solid #ccc;
+}
+ 
+li:last-child {
+  border: none;
+}
+ 
+li a {
+  text-decoration: none;
+  color: #000700;
+  display: inline;
+  border-radius: 3px;
+  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+  transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+ 
+li a:hover {
+  font-size: 25px;
+  background: #f6f6f6;
+  padding-left: 1%;
+  padding-right: 1%;
+  opacity: .8;
 }
 
 
