@@ -124,8 +124,12 @@ div #zen-supporting > div{
   -o-background-size:70px 70px, cover;
   background-size:70px 70px, cover;
   vertical-align: middle; 
-  display: table;;
+  display: table;
   background-position: 1% 10%;
+}
+
+#zen-explanation abbr {
+  text-decoration: none;  
 }
 
 #zen-explanation :first-child{
@@ -137,7 +141,8 @@ div #zen-supporting > div{
 #zen-participation, #zen-benefits{
   float: left;
   width: 34%;
-  height: 300px;
+  height: 400px;
+  display: table-cell;
 }
 
 #zen-participation{
@@ -165,12 +170,15 @@ div #zen-supporting > div{
   background-size: 60px 60px;
   background-position: 3% 1%;
   width: 23%; 
+  display: table-cell; 
+  vertical-align: middle; 
+  padding-right: 1%;
+   /*vertical-align: middle; */
+  display: table;
 }
 
 #zen-benefits h3{
-  /*display: table-cell; 
-  vertical-align: middle; 
-  padding-right: 1%;*/
+  padding-right: 1%;
   text-align: center;
   padding-top: 5%;
 }
@@ -195,21 +203,36 @@ div #zen-supporting > div{
 /*********FOOTER****************************/
 footer{
   clear: both;
-  padding: 1%;
+
   float: left;
   width: 100%;
+  padding: .5%;
   height: 60px ;
   line-height: 60px;
   background-color: #004D40  ;
+  text-align: center
 }
 
 footer a{
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  padding-left: 5%;
+  padding-right: 5%;
   color: #fcfcfc;
+   -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+  transition: font-size 0.3s ease, background-color 0.3s ease;
+  font-size: 24px;
+  opacity: .5;
 }
-footer :nth-child(1){
-  background: url(img/html5.png) top left no-repeat ;
-  background-size: 80px 50px;
-  background-position: 3% 1%;
+footer a:hover {
+  text-align: center;
+  background: #f6f6f6;
+  color: #004D40;
+  opacity: .8;
 }
 /*****************************************/
 
