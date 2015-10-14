@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Merriweather:400,400italic');
-@import url('https://fonts.googleapis.com/css?family=Tangerine');
+@import url('https://fonts.googleapis.com/css?family=Merriweather|Tangerine');
 
 /*Reset CSS************************/
 body,div .page-wrapper, h1, h2, h3, ui li, abbr {
@@ -15,14 +14,13 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr {
   }
 
   /* Chrome, Safari, Opera */
-@-webkit-keyframes changeColor {
-    0%   {color: #2d9;}
-    20%  {color: #1498E0;}
-    40%  {color: #942DE2;}
-    60% {color: #F9B24F;}
-    80% {color: #F14765;}
-    100% {color: #2d9;}
-}
+
+/***********************************************
+There are warnings but there is nothing man can do about warnings since those 
+warnings will help support browser compatibility efforts. The validator only 
+validates against valid code. 
+The vendor extensions are proprietary code. As such it will always be warning.
+**************************************************/
 
 /* Standard syntax */
 @keyframes changeColor {
@@ -45,21 +43,20 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-position: cover, center bottom;
+  background-position: center bottom;
   
 }
 
 #zen-intro header h1{
   color: white;
   font-size: 300%;
-  font-family: 'Merriweather';  
+
 }
 
 #zen-intro header h2{
   font-size: 150%;
   font-weight: 700;
   margin-left: 4%;
-  font-family: 'Merriweather';  
    -webkit-animation: changeColor 18s infinite; /* Chrome, Safari, Opera */
   animation: changeColor 18s infinite; 
 }
@@ -84,11 +81,11 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr {
   background: linear-gradient(   #80CBC4, #000700); /* Standard syntax (must be last) */
   opacity: .8;
   font-family: 'Merriweather'; 
-  
+  border-radius: 2px;
 }
 
 #zen-preamble:hover{
-   background: -webkit-linear-gradient(#000700,  #80CBC4, #000700); /* For Safari 5.1 to 6.0 */
+  background: -webkit-linear-gradient(#000700,  #80CBC4, #000700); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(#000700, #80CBC4, #000700); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(#000700,  #80CBC4, #000700); /* For Firefox 3.6 to 15 */
   background: linear-gradient(#000700,   #80CBC4, #000700); /* Standard syntax (must be last) */
@@ -146,7 +143,7 @@ div #zen-supporting > div{
 }
 
 #zen-participation{
-  background: url(img/coopIcon.png) top left no-repeat #E61875;
+  background: url(img/coopIcon.png) top left no-repeat #FF3D7F;
   background-size: 80px 50px;
   background-position: 3% 1%;
   /*background-image: url(img/sky.jpg);
@@ -224,7 +221,7 @@ footer a{
   -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
   -o-transition: font-size 0.3s ease, background-color 0.3s ease;
   -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
-  transition: font-size 0.3s ease, background-color 0.3s ease;
+  transition: font-size 0.3s ease-out, background-color .8s ease-in;
   font-size: 24px;
   opacity: .5;
 }
@@ -290,11 +287,12 @@ li a:hover {
 }
 
 
-@media all and (max-width: 800px) {
-  transition: 2s duration timing-function delay;
-  -webkit-transition: 2s duration timing-function delay;
-  -o-transition: 2s duration timing-function delay;
-  -moz-transition: 2s duration timing-function delay;
+@media all and (max-width: 800px) {  
+  #zen-preamble{
+    padding-top: 2%;
+    padding-left: 2%;
+  }
+  
   #zen-supporting{
     margin:0; padding:0; font-size:100%; line-height:1;
     overflow: hidden;
@@ -354,5 +352,4 @@ li a:hover {
     width: 100%;
     z-index: 1000;
   }
-
 }
