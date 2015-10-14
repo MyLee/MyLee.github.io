@@ -75,20 +75,21 @@ The vendor extensions are proprietary code. As such it will always be warning.
 #zen-preamble{  
   max-width: 1000px;
   padding: 1%;
-  background: -webkit-linear-gradient(  #80CBC4, #000700); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(  #80CBC4, #000700); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(   #80CBC4, #000700); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(   #80CBC4, #000700); /* Standard syntax (must be last) */
+  background: url(img/car.png) no-repeat top left 260px, url(img/flight.png) no-repeat top left 300px, -webkit-linear-gradient(  #80CBC4, #000700); /* For Safari 5.1 to 6.0 */
+  background: url(img/car.png) no-repeat top left 260px, url(img/flight.png) no-repeat top left 300px,-o-linear-gradient(  #80CBC4, #000700); /* For Opera 11.1 to 12.0 */
+  background: url(img/car.png) no-repeat top left 260px, url(img/flight.png) no-repeat top left 300px,-moz-linear-gradient(   #80CBC4, #000700); /* For Firefox 3.6 to 15 */
+  background: url(img/car.png) no-repeat top left 260px,  linear-gradient(   #80CBC4, #000700); /* Standard syntax (must be last) */
   opacity: .8;
   font-family: 'Merriweather'; 
   border-radius: 2px;
+  
 }
 
-#zen-preamble:hover{
-  background: -webkit-linear-gradient(#000700,  #80CBC4, #000700); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#000700, #80CBC4, #000700); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(#000700,  #80CBC4, #000700); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(#000700,   #80CBC4, #000700); /* Standard syntax (must be last) */
+#zen-preamble:hover{ background: url(img/road.jpg), url(img/car.png);
+ -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   transition: 2s;
 }
 
@@ -143,14 +144,8 @@ div #zen-supporting > div{
 }
 
 #zen-participation{
-  background: url(img/coopIcon.png) top left no-repeat #FF3D7F;
-  background-size: 80px 50px;
-  background-position: 3% 1%;
-  /*background-image: url(img/sky.jpg);
-   -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;*/
+  background:  url(img/group.png) top left no-repeat #FF3D7F;
+  background-position: 2% 2%;
   width: 45%;
 }
 #zen-participation h3{
@@ -164,8 +159,8 @@ div #zen-supporting > div{
 
 #zen-benefits{
   background: url(img/gift-icon.png) top left no-repeat #F9B24F;
-  background-size: 60px 60px;
-  background-position: 3% 1%;
+  background-size: 50px 50px;
+  background-position: 4% 1%;
   width: 23%; 
   display: table-cell; 
   vertical-align: middle; 
@@ -184,13 +179,13 @@ div #zen-supporting > div{
   float: left;
   width:70%;
   background: url(img/setting.png) top left no-repeat #009EE4;
-  background-size: 80px 80px;
+  background-size: 60px 60px;
   background-position: 1% 1%;
 }
 
 #zen-requirements h3{
   text-align: center;
-  padding-top: 3%;
+  padding-top: 1%;
 }
 
 #zen-requirements a{
@@ -307,10 +302,6 @@ li a:hover {
     width: 100%;
   }
   
-  #zen-explanation{
-
-  }
-  
   #zen-participation, #zen-benefits{
    float: left;
   }
@@ -319,21 +310,24 @@ li a:hover {
     clear: both;
     max-width: 100%;
     height: 100%;
+    background-position: 4% 1%;
   }
   
   #zen-benefits{
     clear: both;
     max-width: 100%;
     height: 100%;
+    background-position: 3% 1%;
   }
   
   #zen-benefits h3{
-    padding-top: 2%;
+    padding-top: 1%;
   }
   
   #zen-requirements{
     float: left;
     max-width: 100%;    
+    background-position: 2% 1%;
   }
   
   footer{
