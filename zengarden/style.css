@@ -139,11 +139,11 @@ div #zen-supporting > div{
   float: left;
   width: 70%;
   text-decoration: none;
-  background:url(img/question.png) top left no-repeat;
-  -webkit-background-size:60px 60px;
-  -moz-background-size:60px 60px;
-  -o-background-size:60px 60px;
-  background-size:60px 60px;
+  background:url(img/question.png) top left no-repeat;  
+  -webkit-background-size:50px 50px;
+  -moz-background-size:50px 50px;
+  -o-background-size:50px 50px;
+  background-size:50px 50px;
   vertical-align: middle; 
   display: table;
   background-position: 1% 10%;
@@ -162,7 +162,9 @@ div #zen-supporting > div{
  
 }
 
-#zen-participation{
+#zen-participation{  
+  background:url(img/group.png) no-repeat;
+  background-position: 5%  5%;
   width: 45%;
 }
 
@@ -172,8 +174,8 @@ div #zen-supporting > div{
 } 
 
 #zen-benefits{
-  background:url(img/gift-icon.png) top left no-repeat;
-  background-position: 4% 1%;
+  background:url(img/gift-icon.png) no-repeat;
+  background-position: 5%  5%;
   width: 23%; 
   display: table-cell; 
   vertical-align: middle; 
@@ -196,7 +198,7 @@ div #zen-supporting > div{
   background:url(img/setting.png) top left no-repeat, -o-linear-gradient(right, #007F8D, #000700, #000700, #000700,  #000700, #000700); 
   background:url(img/setting.png) top left no-repeat, -moz-linear-gradient(right,#007F8D,  #000700, #000700, #000700,  #000700, #000700); 
   background:url(img/setting.png) top left no-repeat, linear-gradient(to right,#007F8D,  #000700, #000700 , #000700, #000700, #000700); /* Standard syntax (must be last) */
-  background-position: 1% 1%;
+  background-position: 2% 2%;
 }
 
 #zen-requirements h3{
