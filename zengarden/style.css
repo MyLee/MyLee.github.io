@@ -105,13 +105,8 @@ The vendor extensions are proprietary code. As such it will always be warning.
 #zen-preamble{  
   max-width: 1000px;
   padding: 1%;
-  background: url(img/car.png) no-repeat top left 350px, url(img/flight.png) no-repeat top left 400px,url(img/subway.png) no-repeat top left 450px, -webkit-linear-gradient(  #80CBC4, #000700,#000700, #80CBC4); /* For Safari 5.1 to 6.0 */
-  background: url(img/car.png) no-repeat top left 350px, url(img/flight.png) no-repeat top left 400px,url(img/subway.png) no-repeat top left 450px,-o-linear-gradient(  #80CBC4, #000700,#000700, #80CBC4); /* For Opera 11.1 to 12.0 */
-  background: url(img/car.png) no-repeat top left 350px, url(img/flight.png) no-repeat top left 400px,url(img/subway.png) no-repeat top left 450px,-moz-linear-gradient(   #80CBC4, #000700,#000700,#80CBC4 ); /* For Firefox 3.6 to 15 */
-  background: url(img/car.png) no-repeat top left 450px, url(img/flight.png) no-repeat top left 500px,url(img/subway.png) no-repeat top left 550px,; /* Standard syntax (must be last) */
-  opacity: .8;
-  border-radius: 2px;
-  
+  background: url(img/car.png) no-repeat top left 450px, url(img/flight.png) no-repeat top left 500px,url(img/subway.png) no-repeat top left 550px; 
+  border-radius: 2px;  
 }
 
 #zen-preamble:hover{ 
