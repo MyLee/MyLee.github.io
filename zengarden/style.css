@@ -199,11 +199,20 @@ div #zen-supporting > div{
   background:url(img/setting.png) top left no-repeat, -moz-linear-gradient(right,#007F8D,  #000700, #000700, #000700,  #000700, #000700); 
   background:url(img/setting.png) top left no-repeat, linear-gradient(to right,#007F8D,  #000700, #000700 , #000700, #000700, #000700); /* Standard syntax (must be last) */
   background-position: 2% 2%;
+  display: -webkit-flex;
+  display: flex;
+
 }
 
 #zen-requirements h3{
   text-align: center;
   padding-top: 1%;
+
+  flex-shrink: .5;
+  -ms-transform: rotate(-90deg); /* IE 9 */
+    -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+    transform: rotate(-90deg);
+      min-width: 200px;
 }
 
 /*********FOOTER****************************/
