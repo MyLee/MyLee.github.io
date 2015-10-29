@@ -32,8 +32,9 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr {
  }
  
  .page-wrapper{
-   max-width: 95%; 
+   max-width: 80%; 
    margin: auto;
+   /*text-align: justify;*/
  }
 
 /***********************************************
@@ -110,7 +111,7 @@ The vendor extensions are proprietary code. As such it will always be warning.
 }
 
 #zen-preamble:hover{ 
-  background: url(img/road.jpg);
+  background: url(img/road.jpg)center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -132,7 +133,7 @@ div #zen-supporting > div{
 
 #zen-explanation{
   float: left;
-  width: 70%;
+  width: 62%;
   text-decoration: none;
   background:url(img/question.png) top left no-repeat;  
   -webkit-background-size:50px 50px;
@@ -152,7 +153,7 @@ div #zen-supporting > div{
 
 #zen-participation, #zen-benefits{
   float: left;
-  width: 34%;
+  /*width: 34%;*/
   display: table-cell;
  
 }
@@ -160,7 +161,7 @@ div #zen-supporting > div{
 #zen-participation{  
   background:url(img/group.png) no-repeat;
   background-position: 2%  5%;
-  width: 45%;
+  width: 41%;
 }
 
 #zen-participation h3{
@@ -171,7 +172,7 @@ div #zen-supporting > div{
 #zen-benefits{
   background:url(img/gift-icon.png) no-repeat;
   background-position: 5%  5%;
-  width: 23%; 
+  width: 19%; 
   padding-right: 1%; 
   /*-webkit-filter: invert(100%); filter: invert(100%);*/
 }
@@ -184,7 +185,7 @@ div #zen-supporting > div{
 
 #zen-requirements{
   float: left;
-  width:70%;
+  width:62%;
   background:url(img/setting.png) top left no-repeat, -webkit-linear-gradient(left,#007F8D, #000700, #000700, #000700,   #000700, #000700);
   background:url(img/setting.png) top left no-repeat, -o-linear-gradient(right, #007F8D, #000700, #000700, #000700,  #000700, #000700); 
   background:url(img/setting.png) top left no-repeat, -moz-linear-gradient(right,#007F8D,  #000700, #000700, #000700,  #000700, #000700); 
@@ -199,8 +200,9 @@ div #zen-supporting > div{
 
 /*********FOOTER****************************/
 footer{
-  clear: both;
-  float: left;
+  
+  /*clear: both;
+  float: left;*/
   width: 100%;
   padding: .5%;
   height: 60px ;
@@ -209,12 +211,17 @@ footer{
   background: -o-linear-gradient(right, #007F8D, #000700, #000700, #000700, #007F8D, #000700, #000700); 
   background: -moz-linear-gradient(right,#007F8D,  #000700, #000700, #000700, #007F8D, #000700, #000700); 
   background: linear-gradient(to right,#007F8D,  #000700, #000700 , #000700,#007F8D, #000700, #000700); /* Standard syntax (must be last) */
+  display: -webkit-flex; /* Safari */
+  display: flex;
+  -webkit-flex-wrap: nowrap; /* Safari */
+  flex-wrap:         nowrap;
+
 }
 
 footer a{
-  display: inline-block;
+  /*display: inline-block;
   overflow: hidden;
-  position: relative;
+  position: relative;*/
   padding-left: 6%;
   padding-right: 6%;
   background: #000700;
@@ -227,6 +234,8 @@ footer a{
   transition: font-size 0.3s ease-out, background-color .8s ease-in;
   font-size: 24px;
   opacity: .5;
+  -webkit-flex: 1;
+          flex: 1;
 }
 footer a:hover {
   text-align: center;
@@ -242,7 +251,7 @@ footer a:hover {
 	top: 580px; 
 	right: 0;
 	width: 25%;  
-  margin-right: 3%;
+  margin-right: 12.5%;
 }
 
 .sidebar h3{
@@ -290,6 +299,38 @@ li a:hover {
   opacity: .8;
 }
 
+@media all and (max-width: 1200px) {  
+  
+ .page-wrapper{
+   max-width: 95%; 
+ }
+
+ #zen-explanation{
+  width: 70%;
+  }
+  
+  #zen-participation, #zen-benefits{
+    float: left;
+    width: 34%;
+    display: table-cell;  
+  }
+  
+  #zen-participation{  
+    width: 45%;
+  }
+  
+  #zen-benefits{
+    width: 23%; 
+  }
+  
+  #zen-requirements{
+    width:70%;
+  }
+  
+  .sidebar{
+    margin-right: 3%;
+  }
+}
 
 @media all and (max-width: 800px) {  
   #zen-preamble{
