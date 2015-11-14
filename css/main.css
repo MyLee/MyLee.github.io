@@ -12,23 +12,18 @@ a, a.selected {
 }
 
 .containter{
-  height: max 100%;
-  /*background: -webkit-linear-gradient(black, white); /* For Safari 5.1 to 6.0 */
-  /*background: -o-linear-gradient(black, white);  For Opera 11.1 to 12.0 */
-  /*background: -moz-linear-gradient(black, white); /* For Firefox 3.6 to 15 */
-  /*background: linear-gradient(black, white); /* Standard syntax (must be last) */
+  height: 60em;;
   float: left;
   margin: 0 0 30px 0;
   padding: 5px 0 0 0;
   width: 100%; 
   color: #ffffff;  
-  background-image: url("../img/bike.jpg");
+  background: url("../img/forest.jpg") repeat; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  /*background-position: fixed;*/
-  height: 1000px;
+  
   font-size: 16px;
   
 }
@@ -37,11 +32,6 @@ a, a.selected {
   text-align: center;
   text-align: center;
   text-decoration: none; 
-}
-
-/* links */
-a {
-  color: #6ab47b;
 }
 
 .wrapper{
@@ -137,7 +127,7 @@ NAVIGATION
   bottom: 0;
   height: 3px;
   width: 0;
-  background-color: #6ab47b;
+  background-color: #23527C;
   -webkit-transition: width .25s;
   -moz-transition: width .25s;
   -ms-transition: width .25s;
@@ -163,11 +153,12 @@ INDEX
 #blogList a{
   text-decoration: none;
   font-weight: 500;
-  /*color: hotpink;*/
+  color: #fff;
 }
 
 #blogList a:hover{
-  color: #23527C
+  color: #23527C;
+  font-weight: 700;
 }
 
 
