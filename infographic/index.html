@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>Why does jellyfisk sting?</title>
 	<link rel="stylesheet" type="text/css" href="style.css">	
-	 <!-- Compiled and minified CSS -->
+	 <!-- Compiled and minified CSS -->	 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/css/materialize.min.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="Infographic">
@@ -14,18 +14,20 @@
 
 <body >
 	<div id="wrapper">
-		<section id="intro">			
-			<h3 class="col-4"> How does a jellyfish sting? </h3>
-			<img src="img/fisk.png" alt="jellyfisk" class="fisk"/>
-			
+		<section id="intro">	
+			<div id="island"><img src="img/intro.png"/></div>		
+			<div id="title">
+				<h3 class="col-4"> How does a jellyfish sting? </h3>
+				<div class="col-4 fisk"><img src="img/fisk.png" alt="jellyfisk" /></div>
+			</div>
 		</section>
 		<section id="jellyinfo">
 			<div class="row">
-				<div class="col-2 swimmingfish"><img src="img/fishes1.png" alt="fishes" class="fishes"/></div>
-				<div class="col-8 "><img src="img/uboat.png" alt="uboat" id="boat"/></div>
+				<div class=" swimmingfish"><img src="img/fishes1.png" alt="fishes" class="fishes"/></div>
+				<div class="swing"><img src="img/uboat.png" alt="uboat" id="boat"/></div>
 			</div>
-			<div class="col-4 swimmer" ><img src="img/swimmer.png" alt="swimmer"/></div>
-			<div class="col-8 swimmer">
+			<div id="swimmer" class="col-4 swimmer swing rotate" ><img src="img/swimmer.png" alt="swimmer"/></div>
+			<div id="describe" class="col-8">
 				<h4> Have you ever been stung by a jellyfish?</h4>
 				<p>You are simming in the ocean when something brushed your leg. When the tingling
 					sets in, you realieze you've been stung by a jellyfish.
@@ -35,19 +37,19 @@
 			</div>
 			<div id="weapon">
 				<section class="col-4 jellyfish">
-					<p><img src="img/fisk.png" alt="jellyfisk" class="fish jelly"/></p>
+					<p><img src="img/fisk.png" alt="jellyfisk" class= "jelly"/></p>
 					<p>They are <span class="big"> 95% </span>water
 					<br>No bones
 					<br>No brain </p>
 				</section>
 				<section class="col-4 jellyfish">
-					<p><img src="img/mesoglea.png" alt="mesoglea" class="fish jelly"/></p>
+					<p><img src="img/mesoglea.png" alt="mesoglea" class="jelly"/></p>
 					<p>They are mostly made of a translucent gel-like substance called
 						<span class="big">mesoglea </span>water
 					</p>
 				</section>
 				<section class="col-4 jellyfish ">
-					<p><img src="img/cnydocytes.png" alt="cnidocytes" class="fish jelly"/></p>
+					<p><img src="img/cnydocytes.png" alt="cnidocytes" class=" jelly"/></p>
 					<p>With such dedicate bodies, they rely on thounsands of venom-containing
 						stinging cells called <span class="big"> cnidocytes </span>water
 					</p>
@@ -57,30 +59,53 @@
 				<section class="col-4 jellyfish" id="sanho">
 				</section>
 				<section class="col-4 jellyfish">
-					<p><img src="img/ephyrae.png" alt="jellyfisk" class="fish jelly"/></p>
+					<p><img src="img/ephyrae.png" alt="ephyrae" class="jelly"/></p>
 					<p>Larvaljellyfish, <span class="big">ephyrae, </span>look like tiny flowers pulsating in the sea
 					</p>
 				</section>
 				<section class="col-4 jellyfish">
-					<p><img src="img/fisk1.png" alt="mesoglea" class="fish jelly"/></p>
+					<p><img src="img/fisk1.png" alt="jellyfish" class="jelly"/></p>
 					<p>They become umbrella-shaped with a bell at the top when they grow.
 					</p>
 				</section>
 			</div>
 			<div id="giant">
-				<section >
 					<h3>Lion's mane</h3>
-					<span id="lionMane"></span>
 					<p>The largest jellyfish,<span class="big"> lion's mane</span>, is longer than a blue whale. </p>
-					<div id="lionMane"><img src="img/lionMane.png" alt="mesoglea" class="fish"/></div>
-				</section>
+					<div id="lionMane"><img src="img/lionMane.png" alt="Lion's' Mane"/></div>
 			</div>
 			<div id="poison">
 				<section >
-					<h3>What do tentacles contain?</h3>
-					<span id="lionMane"></span>
-					<p>The largest jellyfish,<span class="big"> lion's mane</span>, is longer than a blue whale. </p>
-					<div id="lionMane"><img src="img/lionMane.png" alt="mesoglea" class="fish"/></div>
+					<h3>Why is that sooo painful?</h3>
+					<div class="nematocyst">
+						<div class="grow leftPic">
+							<img src="img/xuctu.png" alt="nematocyst"/>
+						</div>						
+						<div class="rightDescribe">
+							<p>	Venom is ejected via a <span class="big">nematocyst</span>, 
+								a whip-like hollow tubule, which lies coiled under high osmotic pressure.
+							</p>
+						</div>
+					</div>	
+					<div class="mechanic">	
+						<div class="col-4 tentacles">
+							<img src="img/nematocyst11.png" alt="nematocyst" class="fish"/>
+							<p> When mechanical or chemical stimuli activate an external trigger, </p>
+						</div>
+						<div class="col-4 tentacles">
+							<img src="img/nematocyst2.png" alt="nematocyst" class="fish"/>
+							<p> the lid of the cell pops open and sea water rushed in.</p>
+						</div>
+						<div class="col-4 tentacles">
+							<img src="img/nematocyst3.png" alt="nematocyst" class="fish"/>
+							<p> This forces a microscopic barbed harpoon to shoot out, penetrate and inject venom into its victim.</p>
+						</div>
+						<div id="speed"> <span class="bigger">0.000001s</span>
+							<p>Nematocyst discharge can orccur in less than a millionth of a second, making it one of nature's 
+								fastest biomechanical processes.
+							</p>
+						</div>
+					</div>
 				</section>
 			</div>	
 		</section>	
@@ -88,6 +113,6 @@
 	</div>
 	<!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/js/materialize.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/js/materialize.min.js"></script>	 
 </body>
 </html>

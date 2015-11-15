@@ -19,7 +19,6 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
   body{
     font-family: 'Averia Gruesa Libre','Chewy', 'sans-serif';
     background-color: #25231D;
-
   }
   
   .big{
@@ -27,28 +26,41 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
     font-weight: 700;
     text-transform: capitalize;
   }
+  
   #wrapper{
     max-width: 1022px;
     margin: auto;
     width: auto;
     background-color: #2F778C;
-    height: 2000px;
     font-size: 1.4rem;
   }
  /*------------INTRO------------*/
  
  #intro{
-   background: url(img/intro.png) no-repeat top left ;
    background-color: #2F778C;
-   width: 1022px;
-   height: 456px;
+   max-height: 456px;
    float: right;
    text-align: center;
  }
  
+ #island img{
+   max-width: 100%;
+ }
+ 
+ #title{
+   position: absolute;
+   top: 10px;
+   left: 35%;
+ }
  .fisk{
-   display: inline-block;
    float: right;
+   margin: auto;
+   max-height: 100%;
+   border-radius: 10px;
+ }
+ 
+ .fisk:hover{
+   opacity: .5;
  }
  
  #intro h3{
@@ -56,41 +68,47 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
    color:#123646;
  }
  
-  /*------------Jellyfish INFO------------*/
+  /*------------Jellyfish INFO------------*/  
  #jellyinfo{
-   max-width: 95%;
    margin: auto;
    padding-top:2rem;
+   color: #FFF;
  }
  .fishes{
- 
   float: left;
 }
 
 .swimmingfish{
-   animation: 
-    3s nudge infinite alternate;
+   animation: 3s nudge infinite alternate;
 }
 
-.swimmingboat{
-  animation: 
-    3s boat infinite alternate;
+.swing{
+  animation: 1s swing infinite alternate;
 }
-@keyframes boat {
+@keyframes swing {
   0%, 100% {transform: translate(0, 0);} 
-  50% {transform: translate(-10px, 0);}  
-  80% {transform: translate(80px, 0);}
+  50% {transform: translate(-1px, -2px);}  
+  80% {transform: translate(1px, 2px);}
 }
 
 @keyframes nudge {
   0%, 100% {transform: translate(0, 0);} 
   50% {transform: translate(190px, 0);}
 }
- .boat{
-   float: right;
-   margin: 0;
- }
- 
+
+.rotate{
+  animation: 2s rotate infinite alternate;
+}
+@keyframes rotate {
+  /*0%, 100% {transform: translate(0, 0);} */
+  50% {transform: rotate(7deg);}  
+  100% {transform: rotate(-10deg);}
+}
+
+#jellyinfo{
+    text-align: center;
+}
+
  #jellyinfo .col-8{
    display: block;
    margin: auto;
@@ -99,53 +117,23 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
  .info{
    float: left;
    display: block;
+ }
 
- }
- #boat{
-   position: relative;
-   left: 20rem;
- }
  .swimmer{
    float: left;
    margin: auto;
-   padding-left: 50px;
-   text-align: right;
+   padding-left: 4rem;
+   text-align: center;   
  }
  
  .smilling img{
    border-radius: 10px;
  }
- 
-#aniphoto {
-    width: 200px;
-    height: 200px;
-    position: relative;
-    border-radius: 10px;
-    -webkit-animation-name: bite; /* Chrome, Safari, Opera */
-    -webkit-animation-duration: 6s; /* Chrome, Safari, Opera */
-    -webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
-    animation-name: bite;
-    animation-duration: 6s;
-    animation-iteration-count: infinite;
-}
 
 .swimmer img{
   width: 200px;
   position: relative;
   left:-3rem;
-}
-/* Chrome, Safari, Opera */
-@-webkit-keyframes bite {
-    0%   {background:url(img/smillingman.png);}
-    40%  {background:url(img/swimmer3.png);}
-    100%  {background:url(img/swimmer3.png);}
-}
-
-/* Standard syntax */
-@keyframes bite {
-    0%   {background:url(img/smillingman.png);}
-    50%  {background:url(img/swimmer3.png);}
-    100%  {background:url(img/swimmer3.png);}
 }
 
 /*-------------WEAPON------------------*/
@@ -168,6 +156,11 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
   display: block;
   text-align: center;
 }
+
+.jellyfish:last-child{
+  padding-right: 2rem;
+}
+
 .jelly:hover {
   animation: animation 1000ms linear both;
 }
@@ -214,42 +207,115 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
   height: 150px;
   border-radius: 10px;
   border: 6px solid #7CA7BA;
-
 }
 
 #growUp p{
   position: relative;
-  top:10rem;
+  top:5rem;
 }
 #sanho{
   background: url(img/sanho.png) no-repeat right;
   width: 280px;
-  height: 500px;
-  left:-1.6rem;
+  height: 450px;
   position: relative;
 }
 
 #giant{
   clear: both;
-    text-align: center;
-    background: #266B7F;
-    padding-top: 1%;
-    padding-bottom: 1%;
-    width: 1022px;
-    left: -1.7rem;
-    position: relative;
+  text-align: center;
+  background: #266B7F;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  max-width: 1022px;
+  position: relative;
+  
 }
 #lionMane img{
-  width: 1022px;
+  max-width: 100%;
 }
 
+/*---------Poison--------*/
+#poison{
+  clear: both;
+  clear: inherit;
+  margin: 0;
+  padding:0;
+  position: relative;
+  max-width: 1022px;
+  background: #123646;
+  /*margin-left: -1.7rem;*/
+  margin-top:-1rem;
+  padding:2rem;
+}
 
+#poison h3 {
+  text-align: center;
+}
 
+.nematocyst{
+  max-width: 60%;
+  margin: auto;
+}
 
+.leftPic{
+  float: left;
+}
 
+.rightDescribe{
+  text-align: center;
+  top: 50px;
+  position: relative;
+}
 
+.grow{  
+  display: inline-block;
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 10px;
+  border: 6px solid #7CA7BA;
+  overflow: hidden;
+  margin-right: 2rem; 
 
+}
+.grow img{
+   -webkit-transition:all  1s ease;
+   -moz-transition: all 1s ease;
+   -o-transition: all 1s ease;
+   -ms-transition: all 1s ease;
+   transition: all 5s ease;
+}
 
+.grow img:hover{
+  width: 400px;
+  height: 400px;
+}
+
+.mechanic{
+  clear: both;
+  text-align: center;
+  margin-top: 3rem;
+  position: relative;
+  display: inline-block; 
+  background: url(img/arrow.png) no-repeat 290px 65px,  url(img/arrow.png)no-repeat 600px 65px;
+}
+.tentacles img{
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  border: 6px solid #7CA7BA;
+}
+
+.tentacles{
+  float: left;
+  padding-right: 1rem;
+}
+
+  .bigger{
+    font-size: 4.5rem;
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+/*------------GRID---------*/
  .col-1 {
       width: calc(100% / 12);
     }
@@ -277,12 +343,47 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
     .col-8 {
       width: calc(100% / 12 * 8);
     } 
+
+/*------- Screen size ----------------*/
+@media all and (max-width: 1200px) {  
+  #title{
+   position: absolute;
+   top: 10px;
+   left: 20%;
+  }
+}
+
+@media all and (max-width: 768px) {  
+  .fisk{
+    display: none;
+  }
+  
+  #boat, #swimmer{
+    display: none;
+  }
+  
+  #title{
+   position: absolute;
+   top: 10px;
+   left: 5%;
+  }
+  #describe{
+    clear: both;
+    display: inline;
+  }
+  
+  #growUp p{
+  top:.5rem;
+  }
+
+  .rightDescribe{  
+  top: 0px;
+}
+}
+   
     
- /*------------JellyInfo----------*/
- #jellyinfo{
-   background-color: #2F778C;
-   color: #fff;
- }     
+
+   
 
 
 
