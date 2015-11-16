@@ -3,71 +3,74 @@
 <head>
 	<meta charset="utf-8">
 	<title>Why does jellyfisk sting?</title>
-	<link rel="stylesheet" type="text/css" href="style.css">	
+	<link rel="stylesheet" type="text/css" href="css/style.css">	
 	 <!-- Compiled and minified CSS -->	 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/css/materialize.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<!--http://getbootstrap.com/customize/?id=8f1b6d8db2904295d6db*/-->
+	<link href='https://fonts.googleapis.com/css?family=Averia+Gruesa+Libre' rel='stylesheet' type='text/css'>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="Infographic">
 	<meta name="description" content="lek med materializecss">
-	<meta name="robots" content="all">
+	<meta name="robots" content="all">		
 </head>
 
 <body >
 	<div id="wrapper">
 		<section id="intro">	
-			<div id="island"><img src="img/intro.png"/></div>		
+			<div id="island"><img src="img/intro.png" alt="island"/></div>		
 			<div id="title">
-				<h3 class="col-4"> How does a jellyfish sting? </h3>
-				<div class="col-4 fisk"><img src="img/fisk.png" alt="jellyfisk" /></div>
-			</div>
+				 <h1>How does a jellyfish sting? </h1>
+				<div id="fish" class="col-md-8 target "><img src="img/fisk.png" alt="jellyfisk" /></div>
+				</div>
 		</section>
 		<section id="jellyinfo">
 			<div class="row">
-				<div class=" swimmingfish"><img src="img/fishes1.png" alt="fishes" class="fishes"/></div>
-				<div class="swing"><img src="img/uboat.png" alt="uboat" id="boat"/></div>
+				<div id ="swimmingfish" class="col-md-4 swimmingfish"><img src="img/fishes1.png" alt="fishes" class="fishes"/></div>
+				<div id="swimmingjelly" class="col-md-2 swing1"><img src="img/fish11.png" alt="jellyfish"/></div>
+				<div id="boat" class="col-md-4 swing"><img src="img/uboat.png" alt="uboat"/></div>
 			</div>
-			<div id="swimmer" class="col-4 swimmer swing rotate" ><img src="img/swimmer.png" alt="swimmer"/></div>
-			<div id="describe" class="col-8">
-				<h4> Have you ever been stung by a jellyfish?</h4>
+			<div class="col-md-5 col-xs-2 swimmer swing rotate" ><img src="img/swimmer.png" alt="swimmer" id="swimmer"></div>
+			<div id="describe" class="col-md-5">
+				<h2> Have you ever been stung by a jellyfish?</h2>
 				<p>You are simming in the ocean when something brushed your leg. When the tingling
-					sets in, you realieze you've been stung by a jellyfish.
-				</p>
-				<p>How do these beautiful, gelatinous creatures pack such a painful punch?
+					sets in, you realieze you've been stung by a jellyfish.				
+				<br>How do these beautiful, gelatinous creatures pack such a painful punch?
 				</p>
 			</div>
-			<div id="weapon">
-				<section class="col-4 jellyfish">
+			<div id="weapon" class="row">
+				<div class="col-md-4 jellyfish">
 					<p><img src="img/fisk.png" alt="jellyfisk" class= "jelly"/></p>
 					<p>They are <span class="big"> 95% </span>water
 					<br>No bones
 					<br>No brain </p>
-				</section>
-				<section class="col-4 jellyfish">
+				</div>
+				<div class="col-md-4 jellyfish">
 					<p><img src="img/mesoglea.png" alt="mesoglea" class="jelly"/></p>
 					<p>They are mostly made of a translucent gel-like substance called
 						<span class="big">mesoglea </span>water
 					</p>
-				</section>
-				<section class="col-4 jellyfish ">
+				</div>
+				<div class="col-md-4 jellyfish ">
 					<p><img src="img/cnydocytes.png" alt="cnidocytes" class=" jelly"/></p>
 					<p>With such dedicate bodies, they rely on thounsands of venom-containing
 						stinging cells called <span class="big"> cnidocytes </span>water
 					</p>
-				</section>
+				</div>
 			</div>
-			<div id="growUp">
-				<section class="col-4 jellyfish" id="sanho">
-				</section>
-				<section class="col-4 jellyfish">
+			<div id="growUp" class="row sanho">	
+				<div class="col-md-4 jellyfish">
+				</div>				
+				<div class="col-md-4 jellyfish">
 					<p><img src="img/ephyrae.png" alt="ephyrae" class="jelly"/></p>
 					<p>Larvaljellyfish, <span class="big">ephyrae, </span>look like tiny flowers pulsating in the sea
 					</p>
-				</section>
-				<section class="col-4 jellyfish">
+				</div>
+				<div class="col-md-4 jellyfish">
 					<p><img src="img/fisk1.png" alt="jellyfish" class="jelly"/></p>
 					<p>They become umbrella-shaped with a bell at the top when they grow.
 					</p>
-				</section>
+				</div>
 			</div>
 			<div id="giant">
 					<h3>Lion's mane</h3>
@@ -78,8 +81,8 @@
 				<section >
 					<h3>Why is that sooo painful?</h3>
 					<div class="nematocyst">
-						<div class="grow leftPic">
-							<img src="img/xuctu.png" alt="nematocyst"/>
+						<div id="grow" class="leftPic">
+							<img src="img/xuctu.png" data-zoom-imgae="img/xuctu3.ong" alt="nematocyst"/>
 						</div>						
 						<div class="rightDescribe">
 							<p>	Venom is ejected via a <span class="big">nematocyst</span>, 
@@ -87,7 +90,7 @@
 							</p>
 						</div>
 					</div>	
-					<div class="mechanic">	
+					<div class="mechanic row">	
 						<div class="col-4 tentacles">
 							<img src="img/nematocyst11.png" alt="nematocyst" class="fish"/>
 							<p> When mechanical or chemical stimuli activate an external trigger, </p>
@@ -113,6 +116,11 @@
 	</div>
 	<!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/js/materialize.min.js"></script>	 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/js/materialize.min.js"></script>
+	  <script src="script/jquery.elevatezoom.js"></script>	
+	  <script>$(document).ready(function(){
+		$("#grow").elevateZoom({tint:true, tintColour:'#F90', tintOpacity:0.5});
+			});
+	</script>
 </body>
 </html>
