@@ -33,6 +33,12 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
     font-size: 20px;
   }
   
+  .bigger{
+    font-size: 4.5rem;
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+  
  /*------------INTRO------------*/
  
  #intro{
@@ -251,8 +257,8 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
 }
 
 .grow{
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   margin: auto;
   overflow: hidden;
   border-radius: 10px;
@@ -260,8 +266,8 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
 }
 
 .grow img{
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   overflow: hidden;
   
    -webkit-transition: all 1s ease;
@@ -274,7 +280,7 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
 .grow img:hover{
   width: 400px;
   height: 400px;
-  margin-top: -100px;
+  margin-top: -50px;
 }
 
 .row{
@@ -290,16 +296,73 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
   display: inline-block; 
 }
 
-.mechanic div:nth-child(-n+2){
+/*.mechanic div:nth-child(-n+2){
   background: url(../img/arrow.png) no-repeat 250px 
   50px;
-}
+}*/
 
 .tentacles img{
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   border-radius: 10px;
   border: 6px solid #7CA7BA;
+}
+
+.aniPic{
+   width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  border: 6px solid #7CA7BA;
+  margin:auto;
+  
+}
+
+#nematocyst1{
+  background: url(../img/nematocyst11.png) no-repeat;
+}
+
+#nematocyst3{
+  background: url(../img/nematocyst3.png) no-repeat;
+}
+
+#nematocyst1:hover{
+  -webkit-animation-name: step1; /* Chrome, Safari, Opera */
+  -webkit-animation-duration: 2s; /* Chrome, Safari, Opera */
+  animation-name: step1;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes step1 {
+    0%   {background: url(../img/nematocyst1.png) no-repeat;}
+    100%  {background: url(../img/nematocyst11.png) no-repeat;}
+}
+
+/* Standard syntax */
+@keyframes step3 {
+    0%   {background: url(../img/nematocyst1.png) no-repeat;}
+    100%  {background: url(../img/nematocyst11.png) no-repeat;}
+}
+
+#nematocyst3:hover{
+  -webkit-animation-name: step3; /* Chrome, Safari, Opera */
+  -webkit-animation-duration: 2s; /* Chrome, Safari, Opera */
+  animation-name: step3;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes step3 {
+    0%   {background: url(../img/nematocyst33.png) no-repeat;}
+    100%  {background: url(../img/nematocyst3.png) no-repeat;}
+}
+
+/* Standard syntax */
+@keyframes step3 {
+    0%   {background: url(../img/nematocyst33.png) no-repeat;}
+    100%  {background: url(../img/nematocyst3.png) no-repeat;}
 }
 
 .tentacles{
@@ -313,11 +376,7 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
   margin-bottom: 1rem;
 }
 
-  .bigger{
-    font-size: 4.5rem;
-    font-weight: 700;
-    text-transform: capitalize;
-  }
+  
 /*------------GRID---------*/
  .col-1 {
       width: calc(100% / 12);
@@ -403,9 +462,9 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
     width: 100%;
   }
   
-  .mechanic div:nth-child(-n+2){
+  /*.mechanic div:nth-child(-n+2){
   background: url(../img/downarrow.png) no-repeat 180px 220px ;
-  }
+  }*/
   .mechanic div{
     position: relative;
     padding-bottom: 80px;
@@ -413,9 +472,9 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
 }
 
 @media all and (max-width: 456px) {  
-  .mechanic div:nth-child(-n+2){
+  /*.mechanic div:nth-child(-n+2){
   background: url(../img/downarrow.png) no-repeat 130px 220px ;
-  }
+  }*/
   
   #swimmer{
     position: relative;
@@ -429,7 +488,9 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
     top:-50px;
   }
 }
-   
+ 
+ 
+  
     
 
    
