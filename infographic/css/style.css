@@ -423,6 +423,11 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
     left:-10px;
     max-width:150px;
   }
+  
+  #describe{
+    position: relative;
+    top:-50px;
+  }
 }
    
     
