@@ -32,6 +32,10 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
     background-color: #2F778C;
     font-size: 20px;
   }
+.wrapper{
+    max-width: 90%;
+    margin: auto;
+  }
   
   .bigger{
     font-size: 4.5rem;
@@ -39,6 +43,26 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
     text-transform: capitalize;
   }
   
+  .slim{
+    position: relative;
+    max-width: 70%;
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+
+  .roundPic{
+    width: 150px;
+    height: 150px;
+    border-radius: 100px;
+    border: 6px solid #7CA7BA;
+  }
+  
+  .squarePic{
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    border: 6px solid #7CA7BA;
+  }
  /*------------INTRO------------*/
  
  #intro{
@@ -143,18 +167,16 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
 #weapon{
   clear: both;
   padding-top:5rem;
-  background:url(../img/fishes1.png) no-repeat 10px 0px, url(../img/fishes.png) no-repeat 600px ;
+  background:url(../img/fishes1.png) no-repeat 20px 0px, url(../img/fishes.png) no-repeat 600px ;
 }
 
 #weapon img{
-  width: 150px;
-  height: 150px;
-  border-radius: 100px;
-  border: 6px solid #7CA7BA;
+
 }
 
-.jellyfish:last-child{
-  padding-right: 2rem;
+#growUp .jellyfish{
+  position: relative;
+  top:100px;
 }
 
 .jelly:hover {
@@ -203,13 +225,6 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
   z-index: 2;
 }
 
-#growUp img{
-  width: 150px;
-  height: 150px;
-  border-radius: 10px;
-  border: 6px solid #7CA7BA;
-}
-
 #growUp p{
   position: relative;
   top:5rem;
@@ -221,9 +236,6 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
   background: #266B7F;
   padding-top: 1%;
   padding-bottom: 1%;
-  max-width: 1022px;
-  top:-2rem;
-  
 }
 #lionMane img{
   max-width: 100%;
@@ -231,45 +243,21 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
 
 /*---------Poison--------*/
 #poison{
-  clear: both;
-  clear: inherit;
-  margin: 0;
-  padding:0;
   position: relative;
-  max-width: 1022px;
   background: #123646;
   margin-top:-3rem;
   padding:2rem;
 }
 
-#poison h3 {
-  text-align: center;
-}
-
-.nematocyst{
-  max-width: 60%;
-  margin: auto;
-}
-
-.rightDescribe{
-  text-align: center;
-  position: relative;
-}
-
 .grow{
-  width: 200px;
-  height: 200px;
   margin: auto;
   overflow: hidden;
-  border-radius: 10px;
-  border: 6px solid #7CA7BA; 
 }
 
 .grow img{
-  width: 200px;
-  height: 200px;
-  overflow: hidden;
-  
+  width: 150px;
+  height: 150px;
+  overflow: hidden;  
    -webkit-transition: all 1s ease;
      -moz-transition: all 1s ease;
        -o-transition: all 1s ease;
@@ -280,7 +268,7 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
 .grow img:hover{
   width: 400px;
   height: 400px;
-  margin-top: -50px;
+  margin-top: -100px;
 }
 
 .row{
@@ -291,7 +279,7 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
 .mechanic{
   clear: both;
   text-align: center;
-  margin-top: 3rem;
+  margin-top: 1rem;
   position: relative;
   display: inline-block; 
 }
@@ -301,26 +289,17 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
   50px;
 }*/
 
-.tentacles img{
-  width: 200px;
-  height: 200px;
-  border-radius: 10px;
-  border: 6px solid #7CA7BA;
-}
-
 .aniPic{
-   width: 200px;
-  height: 200px;
-  border-radius: 10px;
-  border: 6px solid #7CA7BA;
-  margin:auto;
-  
+  margin:auto; 
+  margin-bottom: 1rem;
 }
 
 #nematocyst1{
   background: url(../img/nematocyst11.png) no-repeat;
 }
-
+#nematocyst2{
+  background: url(../img/nematocyst2.png) no-repeat;
+}
 #nematocyst3{
   background: url(../img/nematocyst3.png) no-repeat;
 }
@@ -334,10 +313,10 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
 }
 
 /* Chrome, Safari, Opera */
-@-webkit-keyframes step1 {
+/*@-webkit-keyframes step1 {
     0%   {background: url(../img/nematocyst1.png) no-repeat;}
     100%  {background: url(../img/nematocyst11.png) no-repeat;}
-}
+}*/
 
 /* Standard syntax */
 @keyframes step3 {
@@ -354,10 +333,10 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
 }
 
 /* Chrome, Safari, Opera */
-@-webkit-keyframes step3 {
+/*@-webkit-keyframes step3 {
     0%   {background: url(../img/nematocyst33.png) no-repeat;}
     100%  {background: url(../img/nematocyst3.png) no-repeat;}
-}
+}*/
 
 /* Standard syntax */
 @keyframes step3 {
@@ -366,45 +345,9 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
 }
 
 .tentacles{
-  float: left;
-  padding-right: 1rem;
   padding-bottom: 1rem;
 }
 
-.tentacles .fish{
-  position: relative;
-  margin-bottom: 1rem;
-}
-
-  
-/*------------GRID---------*/
- .col-1 {
-      width: calc(100% / 12);
-    }
-
-    .col-2 {
-      width: calc(100% / 12 * 2);
-    }
-
-    .col-3 {
-      width: calc(100% / 12 * 3);
-    }
-
-    .col-4 {
-      width: calc(100% / 12 * 4);
-    }
-
-    .col-5 {
-      width: calc(100% / 12 * 5);
-    }  
-    
-    .col-6 {
-      width: calc(100% / 12 * 6);
-    }  
-    
-    .col-8 {
-      width: calc(100% / 12 * 8);
-    } 
 
 /*------- Screen size ----------------*/
 @media all and (max-width: 1200px) {  
@@ -415,9 +358,19 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
   }
 }
 
-@media all and (max-width: 768px) {  
+/*@media all and (max-width:992px) {  
+  #growUp .jellyfish{
+  top:0;
+ 
+  }
+}*/
+
+@media all and (max-width: 768px) { 
+  #growUp .jellyfish{
+    top:-40px;
+  } 
   .wrapper{
-    max-width: 90%;
+    max-width: 80%;
     margin: auto;
   }
   #swimmingfish, #fish, #boat{
@@ -441,34 +394,17 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
    top: 10px;
    left: 5%;
   }
-  #describe{
-    clear: both;
-    display: inline;
-  }
-  
-  #growUp p{
-  top:.5rem;
-  }
 
   .rightDescribe{  
   top: 0px;
   }
   
-  .col-4{
-    width: 100%;
+  .slim{
+    max-width: 90%;
   }
-  
-  .col-5{
-    width: 100%;
-  }
-  
   /*.mechanic div:nth-child(-n+2){
   background: url(../img/downarrow.png) no-repeat 180px 220px ;
   }*/
-  .mechanic div{
-    position: relative;
-    padding-bottom: 80px;
-  }
 }
 
 @media all and (max-width: 456px) {  
@@ -486,6 +422,9 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
   #describe{
     position: relative;
     top:-50px;
+  }  
+    .slim{
+    max-width: 100%;
   }
 }
  
