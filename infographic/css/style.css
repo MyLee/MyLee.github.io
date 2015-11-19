@@ -1,7 +1,6 @@
 /*-----------Main Colors-------------
 #7CA7BA: light blue
 #2F778C: light water blue
-#2F778C: ocean blue
 #123646: dark ocean
 #99E4FA: blue sky
 #79796F: soil
@@ -319,7 +318,7 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
 }*/
 
 /* Standard syntax */
-@keyframes step3 {
+@keyframes step1 {
     0%   {background: url(../img/nematocyst1.png) no-repeat;}
     100%  {background: url(../img/nematocyst11.png) no-repeat;}
 }
