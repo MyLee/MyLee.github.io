@@ -15,7 +15,7 @@
 	<meta name="robots" content="all">		
 </head>
 
-<body cz-shortcut-listen="true">
+<body >
 	<div id="pagewrapper">
 		<section id="intro">	
 			<div id="island"><img src="img/intro.png" alt="island"/></div>		
@@ -122,23 +122,18 @@
 		</section>		
 	</div>
 	<!--Import jQuery before materialize.js-->
-      <!--<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>-->
-	  <script async type="text/javascript" src="script/jquery.min.js"></script>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	  <!--<script async type="text/javascript" src="script/jquery.min.js"></script>-->
 	  <script type="text/javascript" src="script/jquery.ripples.js"></script>
 	  <script type="text/javascript">
-	  	$(document).ready(function(){
-			  try{
+	  	$(document).ready(function(){			 
 				  $('body').ripples({
 					  resolution: 512,
 					//   dropRadius:20,
 					  perturbance:0.04,
 					  interactive:true
 				  });
-			  }
-			  catch(e){
-				  $('.error').show().text(e);
-			  }
-		  })
+			  })			 
 	  </script>
       <!--<script async src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/js/materialize.min.js"></script>-->
 </body>
