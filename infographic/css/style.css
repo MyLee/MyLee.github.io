@@ -15,7 +15,7 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
 /*------------------GENERAL-------------*/  
   body{
     font-family: 'Averia Gruesa Libre', 'sans-serif';
-    background: url(../img/water.jpg);
+    background: url(../img/water.jpg) fixed;
      /*background-color: #25231D !important; Adding !important forces the browser to overwrite the default style applied by Bootstrap */
   }
   
