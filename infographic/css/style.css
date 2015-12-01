@@ -5,6 +5,7 @@
 #99E4FA: blue sky
 #79796F: soil
 #D9C69E: sand
+#25231D
 
 http://ed.ted.com/lessons/how-does-a-jellyfish-sting-neosha-s-kashef#review
 --------------------------------------*/
@@ -15,8 +16,8 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
 /*------------------GENERAL-------------*/  
   body{
     font-family: 'Averia Gruesa Libre', 'sans-serif';
-    background: url(../img/water.jpg) fixed;
-     /*background-color: #25231D !important; Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+    background: url(../img/pattern.png) fixed;
+     /*background-color: #054A91!important; Adding !important forces the browser to overwrite the default style applied by Bootstrap */
   }
   
   .big{
