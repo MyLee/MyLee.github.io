@@ -15,9 +15,8 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
   }
 /*------------------GENERAL-------------*/  
   body{
-    font-family: 'Averia Gruesa Libre', 'sans-serif';
-    background: url(../img/pattern.png) repeat #123646 fixed;
-     /*background-color: #054A91!important; Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+    font-family: 'Averia Gruesa Libre', 'sans-serif';  
+    background-color: #123646 !important;/* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
   }
   
   .big{
@@ -249,7 +248,7 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
 /*---------Poison--------*/
 #poison{
   position: relative;
-  background: #123646;
+  background: url(../img/pattern.png);
   margin-top:-3rem;
   padding:2rem;
 }

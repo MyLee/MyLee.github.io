@@ -19,9 +19,6 @@
 </head>
 
 <body class=" box-wrapper ">	
-	<!--<div id="large-header" class="large-header">
-		<canvas id="demo-canvas"></canvas>					
-	</div>-->
 	<div id="pagewrapper" >		
 		<section id="intro">				
 			<div id="island"><img src="img/intro.png" alt="island"/></div>		
@@ -131,7 +128,7 @@
 	<script>
 		$(document).ready(function() {
 			try {
-				$('#pagewrapper').ripples({
+				$('#pagewrapper, #poison').ripples({
 					resolution: 512,					
 					perturbance: 0.05,
 				});				
@@ -141,16 +138,16 @@
 			}
 		
 			$('.js-ripples-disable').on('click', function() {
-				$('#pagewrapper').ripples('destroy');
+				$('#pagewrapper, #poison').ripples('destroy');
 				$(this).hide();
 			});
 		
 			$('.js-ripples-play').on('click', function() {
-				$('#pagewrapper').ripples('play');
+				$('#pagewrapper, #poison').ripples('play');
 			});
 		
 			$('.js-ripples-pause').on('click', function() {
-				$('#pagewrapper').ripples('pause');
+				$('#pagewrapper, #poison').ripples('pause');
 			});					
 		});
 	</script>
