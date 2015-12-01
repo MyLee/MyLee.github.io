@@ -10,6 +10,7 @@
 	<link href='https://fonts.googleapis.com/css?family=Averia+Gruesa+Libre' rel='stylesheet' type='text/css'>			
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script async src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script type='text/javascript' src='js/ripple.js'></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="Infographic">
 	<meta name="description" content="lek med jquery, css animation">
@@ -17,25 +18,29 @@
 	
 </head>
 
-<body class="jquery-ripples" cz-shortcut-listen="true">
-	<div id="pagewrapper" class="jquery-ripples">
-		<section id="intro">	
+<body class=" box-wrapper ">	
+	<div id="large-header" class="large-header">
+		<canvas id="demo-canvas"></canvas>					
+	</div>
+	<div id="content">	
+	<div id="pagewrapper" >		
+		<section id="intro">				
 			<div id="island"><img src="img/intro.png" alt="island"/></div>		
 			<div id="title">						
-				 <h1>How does a jellyfish sting? </h1>
-				<div id="fish" class="col-md-8 target "><img src="img/fisk.png" alt="jellyfisk" /></div>
-				</div>
+				<h1>How does a jellyfish sting? </h1>
+				<div id="fish" class="col-md-8 target ripple-effect" data-ripple-limit=".box-wrapper"><img src="img/fisk.png" alt="jellyfisk" /></div>
+			</div>
 		</section>
-		<section id="jellyinfo">
+		<section id="jellyinfo" >
 			<div class="wrapper">
 				<div class="row">
-					<div id ="swimmingfish" class="col-md-4 swimmingfish"><img src="img/fishes1.png" alt="fishes" class="fishes"/></div>
-					<div id="swimmingjelly" class="col-md-2 swing1"><img src="img/fish11.png" alt="jellyfish"/></div>
+					<div id ="swimmingfish" class="col-md-4 swimmingfish "><img src="img/fishes1.png" alt="fishes" class="fishes"/></div>
+					<div id="swimmingjelly" class="col-md-2 swing1 ripple-effect" data-ripple-limit=".box-wrapper"><img src="img/fish11.png" alt="jellyfish"/></div>
 					<div id="boat" class="col-md-4 swing"><img src="img/uboat.png" alt="uboat"/></div>
 				</div>
 				<div class="col-md-4 col-xs-1 swimmer swing rotate" ><img src="img/swimmer.png" alt="swimmer" id="swimmer"></div>
 				<div class="col-md-8 ">
-					<div class="slim">
+					<div class="slim ripple-effect" data-ripple-limit=".box-wrapper">
 						<h2> Have you ever been stung by a jellyfish?</h2>
 						<p>You are simming in the ocean when something brushed your leg. <span class="lead">Eeeeeeek!</span> You realieze you've been stung by a jellyfish.				
 						<br>How do these beautiful, gelatinous creatures pack such a painful punch?
@@ -82,8 +87,8 @@
 			</div>				
 			<div id="giant">
 				<div class="wrapper">
-					<h3>Lion's mane</h3>
-					<p>The largest jellyfish,<span class="big"> lion's mane</span>, is longer than a blue whale. </p>
+					<h3 class="ripple-effect" data-ripple-limit=".box-wrapper">Lion's mane</h3>
+					<p class="ripple-effect" data-ripple-limit=".box-wrapper">The largest jellyfish,<span class="big"> lion's mane</span>, is longer than a blue whale. </p>
 				</div>
 				<div id="lionMane"><img src="img/lionMane.png" alt="Lion's' Mane"/></div>				
 			</div>							
@@ -112,7 +117,7 @@
 								<p class="slim"> This forces a microscopic barbed harpoon to shoot out, penetrate and inject venom into its victim.</p>
 							</div>							
 						</div>
-						<div class="slim"> <span class="bigger">0.000001s</span>
+						<div class="slim ripple-effect" data-ripple-limit=".box-wrapper""> <span class="bigger">0.000001s</span>
 							<p >Nematocyst discharge can orccur in less than a <span class="lead">millionth</span> of a second, making it one of nature's 
 								fastest biomechanical processes.
 							</p>
@@ -121,37 +126,11 @@
 				</div>
 			</div>	
 		</section>		
-	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-	<script src="js/jquery.ripples.js"></script>
-	<script>
-		$(document).ready(function() {
-			try {
-				$('body').ripples({
-					resolution: 512,
-					dropRadius: 20, //px
-					perturbance: 0.04,
-				});
-				
-			}
-			catch (e) {
-				$('.error').show().text(e);
-			}
-		
-			$('.js-ripples-disable').on('click', function() {
-				$('body').ripples('destroy');
-				$(this).hide();
-			});
-		
-			$('.js-ripples-play').on('click', function() {
-				$('body').ripples('play');
-			});
-		
-			$('.js-ripples-pause').on('click', function() {
-				$('body').ripples('pause');
-			});
-			
-		});
-	</script>
+	</div>  </div>
+	<script src="js/reveal.js"></script>
+	<script src="js/TweenLite.min.js"></script>
+	<script src="js/EasePack.min.js"></script>
+	<script src="js/rAF.js"></script>
+	<script src="js/demo-1.js"></script>
 </body>
 </html>
