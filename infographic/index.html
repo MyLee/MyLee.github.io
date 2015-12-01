@@ -33,7 +33,7 @@
 		</section>
 		<section id="jellyinfo" >
 			<div class="wrapper">
-				<div class="row">
+				<div id="water" class="row">
 					<div id ="swimmingfish" class="col-md-4 swimmingfish "><img src="img/fishes1.png" alt="fishes" class="fishes"/></div>
 					<div id="swimmingjelly" class="col-md-2 swing1 ripple-effect" data-ripple-limit=".box-wrapper"><img src="img/fish11.png" alt="jellyfish"/></div>
 					<div id="boat" class="col-md-4 swing"><img src="img/uboat.png" alt="uboat"/></div>
@@ -132,7 +132,7 @@
 	<script>
 		$(document).ready(function() {
 			try {
-				$('body').ripples({
+				$('#water').ripples({
 					resolution: 512,					
 					perturbance: 0.05,
 				});				
@@ -142,16 +142,16 @@
 			}
 		
 			$('.js-ripples-disable').on('click', function() {
-				$('body').ripples('destroy');
+				$('#water').ripples('destroy');
 				$(this).hide();
 			});
 		
 			$('.js-ripples-play').on('click', function() {
-				$('body').ripples('play');
+				$('#water').ripples('play');
 			});
 		
 			$('.js-ripples-pause').on('click', function() {
-				$('body').ripples('pause');
+				$('#water').ripples('pause');
 			});					
 		});
 	</script>
