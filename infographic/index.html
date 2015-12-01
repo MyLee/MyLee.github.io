@@ -132,7 +132,7 @@
 	<script>
 		$(document).ready(function() {
 			try {
-				$('#water').ripples({
+				$('#pagewrapper').ripples({
 					resolution: 512,					
 					perturbance: 0.05,
 				});				
@@ -142,16 +142,16 @@
 			}
 		
 			$('.js-ripples-disable').on('click', function() {
-				$('#water').ripples('destroy');
+				$('#pagewrapper').ripples('destroy');
 				$(this).hide();
 			});
 		
 			$('.js-ripples-play').on('click', function() {
-				$('#water').ripples('play');
+				$('#pagewrapper').ripples('play');
 			});
 		
 			$('.js-ripples-pause').on('click', function() {
-				$('#water').ripples('pause');
+				$('#pagewrapper').ripples('pause');
 			});					
 		});
 	</script>

@@ -30,7 +30,7 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
     max-width: 1022px;
     margin: auto;
     width: auto;
-    background-color: #2F778C;
+    background: url(../img/texture.png) repeat;
     font-size: 20px;
   }
 .wrapper{
@@ -96,9 +96,6 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
  }
  
   /*------------Jellyfish INFO------------*/  
- #water{
-   background: url(../img/texture.png) repeat;
- }
  #jellyinfo{
    margin: auto;
    padding-top:2rem;
