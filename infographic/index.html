@@ -21,9 +21,9 @@
 
 <body class=" box-wrapper ">
 	<div class="control">
-		<button class="js-ripples-pause" type="button"> <span class="glyphicon glyphicon-pause"></span> </button><br>
-		<button class="js-ripples-play" type="button"><span class="glyphicon glyphicon-play"></span></button>	<br>
-		<button class="js-ripples-disable disable"><span class="glyphicon glyphicon-remove"></span></button>
+		<button class="js-ripples-pause btn btn-default"  type="button" data-toggle="tooltip" data-placement="right" title="Pause ripples effect"> <span class="glyphicon glyphicon-pause"></span> </button><br>
+		<button class="js-ripples-play btn btn-default" type="button" data-toggle="tooltip" data-placement="right" title="Play ripples effect"><span class="glyphicon glyphicon-play"></span></button>	<br>
+		<button class="js-ripples-disable disable btn btn-default" type="button" data-toggle="tooltip" data-placement="right" title="Remove ripples effect"><span class="glyphicon glyphicon-remove"></span></button>
 	</div>
 	<div id="pagewrapper" >		
 		<section id="intro">				
@@ -133,6 +133,7 @@
 	<script src="js/jquery.ripples.js"></script>
 	<script>
 		$(document).ready(function() {
+			$('[data-toggle="tooltip"]').tooltip()
 			try {
 				$('#pagewrapper, #poison').ripples({
 					resolution: 512,					
