@@ -132,8 +132,8 @@
 	<script>
 		$(document).ready(function() {
 			try {
-				$('growUp').ripples({
-					resolution: 512,					
+				$('body').ripples({
+					resolution: 112,					
 					perturbance: 0.04,
 				});				
 			}
@@ -142,16 +142,16 @@
 			}
 		
 			$('.js-ripples-disable').on('click', function() {
-				$('growUp').ripples('destroy');
+				$('body').ripples('destroy');
 				$(this).hide();
 			});
 		
 			$('.js-ripples-play').on('click', function() {
-				$('growUp').ripples('play');
+				$('body').ripples('play');
 			});
 		
 			$('.js-ripples-pause').on('click', function() {
-				$('growUp').ripples('pause');
+				$('body').ripples('pause');
 			});					
 		});
 	</script>
