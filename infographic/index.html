@@ -19,9 +19,9 @@
 </head>
 
 <body class=" box-wrapper ">	
-	<div id="large-header" class="large-header">
+	<!--<div id="large-header" class="large-header">
 		<canvas id="demo-canvas"></canvas>					
-	</div>
+	</div>-->
 	<div id="content">	
 	<div id="pagewrapper" >		
 		<section id="intro">				
@@ -128,9 +128,36 @@
 		</section>		
 	</div>  </div>
 	<script src="js/reveal.js"></script>
-	<script src="js/TweenLite.min.js"></script>
+	<!--<script src="js/TweenLite.min.js"></script>
 	<script src="js/EasePack.min.js"></script>
 	<script src="js/rAF.js"></script>
-	<script src="js/demo-1.js"></script>
+	<script src="js/demo-1.js"></script>-->
+	<script src="js/jquery.ripples.js"></script>
+	<script>
+		$(document).ready(function() {
+			try {
+				$('body').ripples({
+					resolution: 512,					
+					perturbance: 0.04,
+				});				
+			}
+			catch (e) {
+				$('.error').show().text(e);
+			}
+		
+			$('.js-ripples-disable').on('click', function() {
+				$('body').ripples('destroy');
+				$(this).hide();
+			});
+		
+			$('.js-ripples-play').on('click', function() {
+				$('body').ripples('play');
+			});
+		
+			$('.js-ripples-pause').on('click', function() {
+				$('body').ripples('pause');
+			});					
+		});
+	</script>
 </body>
 </html>

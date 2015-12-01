@@ -15,7 +15,8 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
 /*------------------GENERAL-------------*/  
   body{
     font-family: 'Averia Gruesa Libre', 'sans-serif';
-    background-color: #25231D !important; /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+    background: url(../img/water1.jpg);
+     /*background-color: #25231D !important; Adding !important forces the browser to overwrite the default style applied by Bootstrap */
   }
   
   .big{
@@ -63,10 +64,10 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
     border: 6px solid #7CA7BA;
   }
  /*------------INTRO------------*/
- #content{
+ /*#content{
    position: relative;
    top: -970px;
- }
+ }*/
  #intro{
    background-color: #2F778C;
    max-height: 456px;
