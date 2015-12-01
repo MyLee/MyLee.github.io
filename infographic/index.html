@@ -7,19 +7,21 @@
 	 <!-- Compiled and minified CSS -->	 
 	<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/css/materialize.min.css">-->
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<!--http://getbootstrap.com/customize/?id=8f1b6d8db2904295d6db*/-->
-	<link href='https://fonts.googleapis.com/css?family=Averia+Gruesa+Libre' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Averia+Gruesa+Libre' rel='stylesheet' type='text/css'>			
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script async src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="Infographic">
-	<meta name="description" content="lek med materializecss">
+	<meta name="description" content="lek med jquery, css animation">
 	<meta name="robots" content="all">		
+	
 </head>
 
-<body >
-	<div id="pagewrapper">
+<body class="jquery-ripples" cz-shortcut-listen="true">
+	<div id="pagewrapper" class="jquery-ripples">
 		<section id="intro">	
 			<div id="island"><img src="img/intro.png" alt="island"/></div>		
-			<div id="title">
+			<div id="title">						
 				 <h1>How does a jellyfish sting? </h1>
 				<div id="fish" class="col-md-8 target "><img src="img/fisk.png" alt="jellyfisk" /></div>
 				</div>
@@ -63,10 +65,9 @@
 					</div>
 				</div>
 			</div>		
-			<div id="growUp" class="row sanho">	
+			<div id="growUp" class="row sanho ">	
 				<div class="wrapper">
-					<div class="col-md-4 jellyfish">
-					</div>				
+					<div class="col-md-4 jellyfish"></div>				
 					<div class="col-md-4 col-sm-6 jellyfish">
 						<p><img src="img/ephyrae.png" alt="ephyrae" class="jelly squarePic"/></p>
 						<p>Larvaljellyfish, <span class="big">ephyrae, </span>look like tiny flowers pulsating in the sea
@@ -83,7 +84,7 @@
 				<div class="wrapper">
 					<h3>Lion's mane</h3>
 					<p>The largest jellyfish,<span class="big"> lion's mane</span>, is longer than a blue whale. </p>
-				</div>	
+				</div>
 				<div id="lionMane"><img src="img/lionMane.png" alt="Lion's' Mane"/></div>				
 			</div>							
 			<div id="poison">
@@ -121,20 +122,36 @@
 			</div>	
 		</section>		
 	</div>
-	<!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	  <!--<script async type="text/javascript" src="script/jquery.min.js"></script>-->
-	  <script type="text/javascript" src="script/jquery.ripples.js"></script>
-	  <script type="text/javascript">
-	  	$(document).ready(function(){			 
-				  $('body').ripples({
-					  resolution: 512,
-					//   dropRadius:20,
-					  perturbance:0.04,
-					  interactive:true
-				  });
-			  })			 
-	  </script>
-      <!--<script async src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/js/materialize.min.js"></script>-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<script src="../js/jquery.ripples.js"></script>
+	<script>
+		$(document).ready(function() {
+			try {
+				$('body').ripples({
+					resolution: 512,
+					dropRadius: 20, //px
+					perturbance: 0.04,
+				});
+				
+			}
+			catch (e) {
+				$('.error').show().text(e);
+			}
+		
+			$('.js-ripples-disable').on('click', function() {
+				$('body').ripples('destroy');
+				$(this).hide();
+			});
+		
+			$('.js-ripples-play').on('click', function() {
+				$('body').ripples('play');
+			});
+		
+			$('.js-ripples-pause').on('click', function() {
+				$('body').ripples('pause');
+			});
+			
+		});
+	</script>
 </body>
 </html>

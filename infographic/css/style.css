@@ -14,7 +14,7 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
   }
 /*------------------GENERAL-------------*/  
   body{
-    font-family: 'Averia Gruesa Libre','Chewy', 'sans-serif';
+    font-family: 'Averia Gruesa Libre', 'sans-serif';
     background-color: #25231D !important; /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
   }
   
@@ -96,6 +96,7 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
    padding-top:2rem;
    color: #FFF;
  }
+
  .fishes{
   float: left;
 }
@@ -169,8 +170,8 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
   background:url(../img/fishes1.png) no-repeat 20px 0px, url(../img/fishes.png) no-repeat 600px ;
 }
 
-#weapon img{
-
+#weapon p{
+  z-index: 20;
 }
 
 #growUp .jellyfish{
@@ -427,8 +428,7 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
   }
 }
  
- 
-  
+
     
 
    
