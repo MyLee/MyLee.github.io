@@ -406,9 +406,9 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
   .slim{
     max-width: 90%;
   }
-  /*.mechanic div:nth-child(-n+2){
-  background: url(../img/downarrow.png) no-repeat 180px 220px ;
-  }*/
+ .control{
+   display: none;
+ }
 }
 
 @media all and (max-width: 456px) {  
