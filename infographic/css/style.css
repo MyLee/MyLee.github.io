@@ -64,10 +64,10 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
     border: 6px solid #7CA7BA;
   }
  /*------------INTRO------------*/
- /*#content{
-   position: relative;
-   top: -970px;
- }*/
+.control{
+  position: fixed;
+  bottom: 10px;
+}
  #intro{
    background-color: #2F778C;
    max-height: 456px;

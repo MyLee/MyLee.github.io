@@ -8,8 +8,7 @@
 	<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/css/materialize.min.css">-->
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Averia+Gruesa+Libre' rel='stylesheet' type='text/css'>			
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script async src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>	
 	<script type='text/javascript' src='js/ripple.js'></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="Infographic">
@@ -18,7 +17,12 @@
 	
 </head>
 
-<body class=" box-wrapper ">	
+<body class=" box-wrapper ">
+	<div class="control">
+		<button class="js-ripples-pause" type="button"> <span class="glyphicon glyphicon-pause"></span> </button><br>
+		<button class="js-ripples-play" type="button"><span class="glyphicon glyphicon-play"></span></button>	<br>
+		<button class="js-ripples-disable disable"><span class="glyphicon glyphicon-stop"></span></button>
+	</div>
 	<div id="pagewrapper" >		
 		<section id="intro">				
 			<div id="island"><img src="img/intro.png" alt="island"/></div>		
