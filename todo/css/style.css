@@ -1,0 +1,32 @@
+/*--------GENERAL------*/
+#container{
+	max-width: 1000px;
+	margin: auto;
+	background: #FFF;
+}
+body{
+	background: steelblue;
+	font-weight: 600;
+}
+.material-icons{
+	font-size: 20px !important;
+}
+#doneTick, .finish #doneTick:hover, #edit, #deleteTick{
+	color:#bdbdbd;
+}
+#doneTick:hover{
+	color:teal;
+}
+.finish #doneTick{
+	color: #4db6ac;
+}
+#edit:hover{
+	color: teal;
+}
+#deleteTick:hover{
+	color: #d50000;
+}
+#edit, #deleteTick, #doneTick{
+	position: relative;
+	top:4px;
+}
