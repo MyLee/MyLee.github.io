@@ -10,23 +10,22 @@ body{
 }
 .material-icons{
 	font-size: 20px !important;
+    color: #bdbdbd;
 }
-#doneTick, .finish #doneTick:hover, #edit, #deleteTick{
-	color:#bdbdbd;
+
+.doneBtn:hover{
+	color: #008080;
 }
-#doneTick:hover{
-	color:teal;
+.done .doneBtn{
+    color: #008080;
 }
-.finish #doneTick{
-	color: #4db6ac;
+.editBtn:hover{
+	color: #008080;
 }
-#edit:hover{
-	color: teal;
-}
-#deleteTick:hover{
+.delBtn:hover{
 	color: #d50000;
 }
-#edit, #deleteTick, #doneTick{
+.editBtn, .delBtn, .doneBtn{
 	position: relative;
 	top:4px;
 }

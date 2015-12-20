@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+  <html>
+    <head>  
+      <link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body>
+    <div id="container">      
+      <div class="row">
+        <div class="col s12">
+            <!--<ul class="tabs">
+            <li class="tab col s3" onclick="Materialize.showStaggeredList('#todo1')"><a class="active" href="#todo1">To Do</a></li>
+            <li class="tab col s3" onclick="Materialize.showStaggeredList('#done1')"><a  href="#done1">Done</a></li>                               
+            </ul>-->
+            <form action="#" method="post" id="form">
+            <div id="create">
+                <label for="newitem">Add item</label>
+                <input type="text" name="newitem" id="newitem" placeholder="new item" required>
+                <input type="submit" value="Add">
+            </div>
+            </form>
+            </div>  
+            <ul id="todolist">
+            <li>Shopping
+                <i class="small material-icons editBtn" title="Edit">mode_edit</i> 
+                <i class="small material-icons doneBtn" title="Done">done</i>           
+                <i class="small material-icons delBtn" title="Delete">delete</i> 
+            </li>                       
+            
+            <li class="finish">Finish item  
+                <i class="small material-icons editBtn" title="Edit">mode_edit</i> 
+                <i class="small material-icons doneBtn" title="Done">done</i>           
+                <i class="small material-icons delBtn" title="Delete">delete</i> 
+            </li>                  
+            </ul>   
+      
+        </div>       
+    </div>
+     
+    <button class="btn-floating waves-effect waves-light fixed right bottom" onclick="Materialize.showStaggeredList('#create1')" id="createList">+</button>  
+    </div> <!--container-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/todo.js"></script>
+    <script>
+      $(document).ready(function(){
+        //Materialize
+        $('ul.tabs').tabs();
+        $('ul.tabs').tabs('select_tab', 'tab_id');
+        var options = [
+        {selector: '.class', offset: 200, callback: 'globalFunction()' },
+        {selector: '.other-class', offset: 200, callback: 'globalFunction()' },         
+      ];
+      Materialize.scrollFire(options);         
+    })   
+    </script>
+    
+    </body>
+  </html>
