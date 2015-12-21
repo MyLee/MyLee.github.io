@@ -10,37 +10,50 @@
     <body>
     <div id="container">      
       <div class="row">
-        <div class="col s12">
-            <!--<ul class="tabs">
-            <li class="tab col s3" onclick="Materialize.showStaggeredList('#todo1')"><a class="active" href="#todo1">To Do</a></li>
-            <li class="tab col s3" onclick="Materialize.showStaggeredList('#done1')"><a  href="#done1">Done</a></li>                               
-            </ul>-->
-            <form action="#" method="post" id="form">
-            <div id="create">
-                <label for="newitem">Add item</label>
-                <input type="text" name="newitem" id="newitem" placeholder="new item" required>
-                <input type="submit" value="Add">
-            </div>
-            </form>
-            </div>  
-            <ul id="todolist">
-            <li>Shopping
-                <i class="small material-icons editBtn" title="Edit">mode_edit</i> 
-                <i class="small material-icons doneBtn" title="Done">done</i>           
-                <i class="small material-icons delBtn" title="Delete">delete</i> 
-            </li>                       
+          
+        <!--<ul class="tabs">
+        <li class="tab col s3" onclick="Materialize.showStaggeredList('#todo1')"><a class="active" href="#todo1">To Do</a></li>
+        <li class="tab col s3" onclick="Materialize.showStaggeredList('#done1')"><a  href="#done1">Done</a></li>                               
+        </ul>-->
+        <div  class="nav-wrapper">
+        <a href="#" class="brand-logo center"><h1>To do list</h1></a>         
+        </div>
+        
+        <form action="#" method="post" id="form">
+        <div id="create" class="input-field col s12">
+            <label for="newitem">Add item</label>
+            <input type="text" name="newitem" id="newitem" required>
+            <button class="waves-effect waves-light btn" type="submit" value="Add">Add</button>
+        </div>
+        </form>
+        </div>  
+        <ul id="todolist">
             
-            <li class="finish">Finish item  
-                <i class="small material-icons editBtn" title="Edit">mode_edit</i> 
-                <i class="small material-icons doneBtn" title="Done">done</i>           
-                <i class="small material-icons delBtn" title="Delete">delete</i> 
-            </li>                  
-            </ul>   
-      
-        </div>       
+        <!--<li>Shopping
+            <i class="small material-icons editBtn" title="Edit">mode_edit</i> 
+            <i class="small material-icons doneBtn" title="Done">done</i>           
+            <i class="small material-icons delBtn" title="Delete">delete</i> 
+        </li>                       
+        
+        <li class="finish">Finish item  
+            <i class="small material-icons editBtn" title="Edit">mode_edit</i> 
+            <i class="small material-icons doneBtn" title="Done">done</i>           
+            <i class="small material-icons delBtn" title="Delete">delete</i> 
+        </li>                  -->
+        </ul>   
     </div>
-     
-    <button class="btn-floating waves-effect waves-light fixed right bottom" onclick="Materialize.showStaggeredList('#create1')" id="createList">+</button>  
+    <a  class="waves-effect waves-light btn modal-trigger" href="#modal1">Clear All</a> 
+    <button class="btn-floating waves-effect waves-light fixed right bottom" onclick="Materialize.showStaggeredList('#create1')" id="createList">+</button> 
+    <div id="modal1" class="modal center-align">
+        <div class="modal-content">
+        <h5>Are you sure?</h5>
+        <p>All tasks will be deleted!!!</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat ">Noooo</a>
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat " id="clearAll">Yes</a>         
+        </div>
+   </div> 
     </div> <!--container-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
@@ -49,12 +62,13 @@
       $(document).ready(function(){
         //Materialize
         $('ul.tabs').tabs();
+        $('.modal-trigger').leanModal();
         $('ul.tabs').tabs('select_tab', 'tab_id');
         var options = [
         {selector: '.class', offset: 200, callback: 'globalFunction()' },
         {selector: '.other-class', offset: 200, callback: 'globalFunction()' },         
       ];
-      Materialize.scrollFire(options);         
+      Materialize.scrollFire(options);      
     })   
     </script>
     
