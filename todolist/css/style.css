@@ -29,3 +29,9 @@ body{
 	position: relative;
 	top:4px;
 } 
+
+.editTask{
+    height: auto;
+    width: 100px;
+    height: 2em;
+}

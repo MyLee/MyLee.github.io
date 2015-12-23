@@ -12,10 +12,6 @@ var createNewItem = function(taskStr){
     var taskDescrible= document.createElement('span'); 
     //mark as doneButton (checkbox)
     var doneBtn= document.createElement('i');
-    //input (txt)
-    // var editInput=document.createElement('span');
-    //button edit
-    var editBtn = document.createElement('i')
     //button delete
     var delBtn = document.createElement('i');
     
@@ -26,12 +22,6 @@ var createNewItem = function(taskStr){
     
     taskDescrible.innerHTML= taskStr;
     taskDescrible.className='editable';
-    // editInput.type='text';
-    // editInput.className="col s9 editInput";
-        
-    editBtn.className="col s1 small material-icons editBtn";
-    editBtn.title="Edit";
-    editBtn.innerText="mode_edit";
     
     delBtn.className="col s1 small material-icons delBtn";
     delBtn.title="Delete";
@@ -39,22 +29,15 @@ var createNewItem = function(taskStr){
     
     //append to list    
     listItem.appendChild(doneBtn); 
-    // listItem.appendChild(input); 
     listItem.appendChild(taskDescrible);  
-    listItem.appendChild(editBtn);
     listItem.appendChild(delBtn);
-       
+    
+    //add eventListener to buttons
+    taskDescrible.addEventListener('click', editTask)
+    delBtn.addEventListener('click', deleteTask);        
+    doneBtn.addEventListener('click', toggleDone);
+           
     return listItem;  
-}
-
-//fetch data
-var getlist = function(){
-      var tasklist = new Array;
-      var taskstr=localStorage.getItem('todo');
-      if(taskstr !=null){
-            tasklist = JSON.parse(taskstr);
-      }
-      return tasklist;
 }
 
 // create item       
@@ -63,17 +46,7 @@ form.addEventListener('submit', function(ev){
       if(taskStr != null){
         var listItem=createNewItem(taskStr);
         //add the new task to list
-        todo.appendChild(listItem);
-        var editBtn=listItem.querySelector('.editBtn');
-        var delBtn=listItem.querySelector('.delBtn');
-        var doneBtn=listItem.querySelector('.doneBtn');  
-        var inputTask=listItem.getElementsByTagName('span')[0];
-        //add EventListener to buttons      
-        editBtn.addEventListener('click', editTask);
-        inputTask.addEventListener('click', editTask)
-        delBtn.addEventListener('click', deleteTask);        
-        doneBtn.addEventListener('click', toggleDone);
-        //empty and refocus to input text
+        todo.appendChild(listItem);    
         field.value = '';
         field.focus();
         //save the new task to local storage
@@ -85,37 +58,22 @@ form.addEventListener('submit', function(ev){
 //Edit existing task
 var editTask = function(ev){
     console.log("edit task...");
-     $('.editable').editable(storestate());
-    // var listItem = this.parentNode;
-    // var editTaskInput=listItem.getElementsByTagName('span')[1];
-    // var existingTask= listItem.getElementsByTagName('span')[0];
-    // editTaskInput.innerHTML = existingTask.innerHTML;
-    // existingTask.style.visibility = 'hidden';
-    // listItem.blur(function(){
-    //     if(editTaskInput.innerHTML!=null){
-    //         existingTask.innerHTML= editTaskInput.innerHTML;
-    //         storestate();
-    //     }else{
-    //         existingTask.style.visibility = 'visible';
+    // $('.editable').editable(function(value, settings){               
+    //     storestate();
+    //     console.log(settings);
+    //     return(value);},
+    //     {
+    //         cssclass: 'editTask' 
     //     }
-    //});
-    // var listItem = this.parentNode;    
-    // console.log("edit task...");        
-    // var containsEditClass= listItem.classList.contains('editMode');
-    // var editInput= listItem.querySelector('.editInput');
-    // var taskStr=listItem.innerHTML;    
-    //if the class of the listItem is .editMode
-    // if(containsEditClass){
-        //Switch from .editMode, task become input's value 
-        // taskStr= editInput.value;                      
-    // }else{
-        //Switch to .editMode, input value becomes task's text        
-    //     editInput.value=taskStr; 
-    // }    
-    //Toggle .editMode on the listItem
-    // listItem.classList.toggle('editMode');
+    //    );   
+    $('.editable').editable({
+    success: function(response, newValue) {
+        if(response.status == 'error') return response.msg; //msg will be shown in editable form
+        storestate();
+    }
+});
+                                  
 };
-
 
 //delete item
 var deleteTask = function(ev){ 
@@ -135,6 +93,29 @@ var toggleDone= function(ev){
     storestate();
 };         
 
+
+//fetch data
+var getlist = function(){
+      var tasklist = new Array;
+      var taskstr=localStorage.getItem('todo');
+      if(taskstr !=null){
+            tasklist = JSON.parse(taskstr);
+      }
+      return tasklist;
+}
+
+var addEvents = function(listItem){
+    var editBtn=listItem.querySelector('.editBtn');
+    var delBtn=listItem.querySelector('.delBtn');
+    var doneBtn=listItem.querySelector('.doneBtn');  
+    var inputTask=listItem.getElementsByTagName('span')[0];
+    //add EventListener to buttons      
+    editBtn.addEventListener('click', editTask);
+    inputTask.addEventListener('click', editTask)
+    delBtn.addEventListener('click', deleteTask);        
+    doneBtn.addEventListener('click', toggleDone); 
+}
+
 //local save
  document.addEventListener( 'DOMContentLoaded', retrievestate, false );
   
@@ -144,9 +125,14 @@ var toggleDone= function(ev){
 
   function retrievestate() {
     if ( localStorage.tasklist ) {
-        
-      todo.innerHTML = localStorage.tasklist;
-    }
+        todo.innerHTML = localStorage.tasklist;
+        var listArray = todo.children;
+        var listLength=listArray.length;
+        for(var i=0; i <listLength; i++){
+            var listItem= listArray[i];
+            addEvents(listItem);
+        }
+       };
   };
 
  var deleteAllTasks = function(){ 
