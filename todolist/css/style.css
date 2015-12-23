@@ -1,7 +1,7 @@
 /*--------GENERAL------*/
 #container{
 	max-width: 800px;
-	margin: auto;
+	margin:0 auto;
 	background: #FFF;
 }
 body{
@@ -29,9 +29,3 @@ body{
 	position: relative;
 	top:4px;
 } 
-   
-/* label focus color */
-   .input-field input[type=text]:focus + label {
-     color: red;
-     background-color: lightpink !important;
-   }

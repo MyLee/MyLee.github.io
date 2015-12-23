@@ -5,6 +5,8 @@
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title>To do list</title>
+      <meta charset="utf-8">
     </head>
 
     <body>
@@ -28,19 +30,9 @@
         </form>
         </div>  
         <ul id="todolist">
-            
-        <!--<li>Shopping
-            <i class="small material-icons editBtn" title="Edit">mode_edit</i> 
-            <i class="small material-icons doneBtn" title="Done">done</i>           
-            <i class="small material-icons delBtn" title="Delete">delete</i> 
-        </li>                       
+                  
+        </ul>  
         
-        <li class="finish">Finish item  
-            <i class="small material-icons editBtn" title="Edit">mode_edit</i> 
-            <i class="small material-icons doneBtn" title="Done">done</i>           
-            <i class="small material-icons delBtn" title="Delete">delete</i> 
-        </li>                  -->
-        </ul>   
     </div>
     <a  class="waves-effect waves-light btn modal-trigger" href="#modal1">Clear All</a> 
     <button class="btn-floating waves-effect waves-light fixed right bottom" onclick="Materialize.showStaggeredList('#create1')" id="createList">+</button> 
@@ -68,9 +60,9 @@
         {selector: '.class', offset: 200, callback: 'globalFunction()' },
         {selector: '.other-class', offset: 200, callback: 'globalFunction()' },         
       ];
-      Materialize.scrollFire(options);      
+      Materialize.scrollFire(options);           
     })   
-    </script>
-    
+    </script>  
+    <script src="js/jeditable.js" type="text/javascript" charset="utf-8"></script>
     </body>
   </html>

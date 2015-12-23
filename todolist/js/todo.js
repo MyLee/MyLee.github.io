@@ -9,11 +9,11 @@ var createNewItem = function(taskStr){
     //create listItem
     var listItem= document.createElement('li');  
     //task describe
-    var input= document.createElement('span'); 
+    var taskDescrible= document.createElement('span'); 
     //mark as doneButton (checkbox)
     var doneBtn= document.createElement('i');
     //input (txt)
-    var editInput=document.createElement('span');
+    // var editInput=document.createElement('span');
     //button edit
     var editBtn = document.createElement('i')
     //button delete
@@ -21,26 +21,26 @@ var createNewItem = function(taskStr){
     
     //modifies each element
     doneBtn.type="checkbox";
-    doneBtn.className="col s1 tooltipped small material-icons doneBtn";
+    doneBtn.className="col s1 small material-icons doneBtn";
     doneBtn.innerText='done';
     
-    input.innerHTML= '&nbsp' + '&nbsp'  + taskStr + '&nbsp' + '&nbsp';
-    
-    editInput.type='text';
-    editInput.className="col s9 editInput";
-
-    editBtn.className="col s1 tooltipped small material-icons editBtn";
+    taskDescrible.innerHTML= taskStr;
+    taskDescrible.className='editable';
+    // editInput.type='text';
+    // editInput.className="col s9 editInput";
+        
+    editBtn.className="col s1 small material-icons editBtn";
     editBtn.title="Edit";
     editBtn.innerText="mode_edit";
     
-    delBtn.className="col s1 tooltipped small material-icons delBtn";
+    delBtn.className="col s1 small material-icons delBtn";
     delBtn.title="Delete";
     delBtn.innerText="delete";
     
     //append to list    
     listItem.appendChild(doneBtn); 
-    listItem.appendChild(input); 
-    listItem.appendChild(editInput);  
+    // listItem.appendChild(input); 
+    listItem.appendChild(taskDescrible);  
     listItem.appendChild(editBtn);
     listItem.appendChild(delBtn);
        
@@ -61,20 +61,22 @@ var getlist = function(){
 form.addEventListener('submit', function(ev){
       var taskStr=field.value;
       if(taskStr != null){
-        // var taskStr=field.value;
         var listItem=createNewItem(taskStr);
+        //add the new task to list
         todo.appendChild(listItem);
         var editBtn=listItem.querySelector('.editBtn');
         var delBtn=listItem.querySelector('.delBtn');
         var doneBtn=listItem.querySelector('.doneBtn');  
-        var inputTask=listItem.querySelector('.editInput')
+        var inputTask=listItem.getElementsByTagName('span')[0];
         //add EventListener to buttons      
         editBtn.addEventListener('click', editTask);
-        inputTask.addEventListener('input propertychange', editTask)
+        inputTask.addEventListener('click', editTask)
         delBtn.addEventListener('click', deleteTask);        
         doneBtn.addEventListener('click', toggleDone);
+        //empty and refocus to input text
         field.value = '';
         field.focus();
+        //save the new task to local storage
         storestate();
       };     
       ev.preventDefault();
@@ -82,8 +84,21 @@ form.addEventListener('submit', function(ev){
 
 //Edit existing task
 var editTask = function(ev){
-    
-    storestate();
+    console.log("edit task...");
+     $('.editable').editable(storestate());
+    // var listItem = this.parentNode;
+    // var editTaskInput=listItem.getElementsByTagName('span')[1];
+    // var existingTask= listItem.getElementsByTagName('span')[0];
+    // editTaskInput.innerHTML = existingTask.innerHTML;
+    // existingTask.style.visibility = 'hidden';
+    // listItem.blur(function(){
+    //     if(editTaskInput.innerHTML!=null){
+    //         existingTask.innerHTML= editTaskInput.innerHTML;
+    //         storestate();
+    //     }else{
+    //         existingTask.style.visibility = 'visible';
+    //     }
+    //});
     // var listItem = this.parentNode;    
     // console.log("edit task...");        
     // var containsEditClass= listItem.classList.contains('editMode');
