@@ -10,6 +10,10 @@ var createNewItem = function(taskStr){
     var listItem= document.createElement('li');  
     //task describe
     var taskDescrible= document.createElement('span'); 
+    //edit task input(text)
+    var editForm = document.createElement('form');
+    var editInput = document.createElement('input');
+    var editSubmit= document.createElement('button');
     //mark as doneButton (checkbox)
     var doneBtn= document.createElement('i');
     //button delete
@@ -20,20 +24,34 @@ var createNewItem = function(taskStr){
     doneBtn.className="col s1 small material-icons doneBtn";
     doneBtn.innerText='done';
     
+    editForm.className='hide editDiv';
+    editForm.setAttribute('action', '#');
+    editForm.setAttribute('method', 'post');
+    editInput.type='text';
+    editInput.className='editInput';
+    editSubmit.className='waves-effect waves-light btn'
+    editSubmit.type='submit';
+    editSubmit.value='Change';
+    editSubmit.innerHTML='Change';
+    
     taskDescrible.innerHTML= taskStr;
-    taskDescrible.className='editable';
     
     delBtn.className="col s1 small material-icons delBtn";
     delBtn.title="Delete";
     delBtn.innerText="delete";
     
-    //append to list    
+    //append to list  
+    editForm.appendChild(editInput);
+    editForm.appendChild(editSubmit);     
+        
     listItem.appendChild(doneBtn); 
-    listItem.appendChild(taskDescrible);  
+    listItem.appendChild(taskDescrible);
+    listItem.appendChild(editForm);
     listItem.appendChild(delBtn);
     
     //add eventListener to buttons
-    taskDescrible.addEventListener('click', editTask)
+    taskDescrible.addEventListener('click', editTask);
+    editInput.addEventListener('submit', editTask);
     delBtn.addEventListener('click', deleteTask);        
     doneBtn.addEventListener('click', toggleDone);
            
@@ -58,21 +76,23 @@ form.addEventListener('submit', function(ev){
 //Edit existing task
 var editTask = function(ev){
     console.log("edit task...");
-    // $('.editable').editable(function(value, settings){               
-    //     storestate();
-    //     console.log(settings);
-    //     return(value);},
-    //     {
-    //         cssclass: 'editTask' 
-    //     }
-    //    );   
-    $('.editable').editable({
-    success: function(response, newValue) {
-        if(response.status == 'error') return response.msg; //msg will be shown in editable form
-        storestate();
-    }
-});
-                                  
+    var listItem = this.parentNode;
+    var editDiv=listItem.querySelector('.editForm');
+    var editInput= listItem.querySelector('input');
+    var taskDescrible = listItem.querySelector('span');
+    
+    editInput.value= taskDescrible.innerText;     
+    taskDescrible.classList.toggle('hide');
+    editDiv.classList.toggle('hide');
+    editInput.focus();   
+    //detech user click enter
+    editDiv.addEventListener('submit', function(ev){
+            taskDescrible.innerText= editInput.value;
+            taskDescrible.classList.toggle('hide');
+            editDiv.classList.toggle('hide');
+            storestate();
+            ev.preventDefault();
+        });
 };
 
 //delete item
@@ -105,12 +125,12 @@ var getlist = function(){
 }
 
 var addEvents = function(listItem){
-    var editBtn=listItem.querySelector('.editBtn');
+    // var editBtn=listItem.querySelector('.editBtn');
     var delBtn=listItem.querySelector('.delBtn');
     var doneBtn=listItem.querySelector('.doneBtn');  
     var inputTask=listItem.getElementsByTagName('span')[0];
     //add EventListener to buttons      
-    editBtn.addEventListener('click', editTask);
+    // editBtn.addEventListener('click', editTask);
     inputTask.addEventListener('click', editTask)
     delBtn.addEventListener('click', deleteTask);        
     doneBtn.addEventListener('click', toggleDone); 
