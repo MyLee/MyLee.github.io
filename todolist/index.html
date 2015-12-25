@@ -12,15 +12,14 @@
     <body>
     <div id="container">      
       <div class="row">
-          
-        <!--<ul class="tabs">
-        <li class="tab col s3" onclick="Materialize.showStaggeredList('#todo1')"><a class="active" href="#todo1">To Do</a></li>
-        <li class="tab col s3" onclick="Materialize.showStaggeredList('#done1')"><a  href="#done1">Done</a></li>                               
-        </ul>-->
         <div  class="nav-wrapper">
-        <a href="#" class="brand-logo center"><h1>To do list</h1></a>         
+            <a href="#" class="brand-logo center"><h1>To do list</h1></a>         
         </div>
-        
+        <!--<ul class="tabs">
+        <li class="tab col s3" onclick="Materialize.showStaggeredList('#todo')"><a class="active" href="#todo">To Do</a></li>
+        <li class="tab col s3" onclick="Materialize.showStaggeredList('#completed')"><a  href="#completed">Done</a></li>                               
+        </ul>-->
+               
         <form action="#" method="post" id="form">
         <div id="create" class="input-field col s12">
             <label for="newitem">Add item</label>
@@ -29,9 +28,15 @@
         </div>
         </form>
         </div>  
-        <ul id="todolist">
-                  
-        </ul>  
+        <div id="todo">
+            <h5 >To do</h5>
+            <ul id="todolist"></ul> 
+        </div>
+        <div id="completed">
+            <h5 >Completed task</h5>
+            <ul id="completedlist"></ul>
+        </div>
+        
         
     </div>
     <a  class="waves-effect waves-light btn modal-trigger" href="#modal1">Clear All</a> 
@@ -60,7 +65,8 @@
         {selector: '.class', offset: 200, callback: 'globalFunction()' },
         {selector: '.other-class', offset: 200, callback: 'globalFunction()' },         
       ];
-      Materialize.scrollFire(options);           
+      Materialize.scrollFire(options);    
+            
     })   
     </script>  
     <!--<script src="js/jeditable.js" type="text/javascript" charset="utf-8"></script>-->
