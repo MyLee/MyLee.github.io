@@ -1,23 +1,29 @@
 //declare variants
 var todo=  document.querySelector('#todolist');
-var dones = document.querySelector('#completed');
+var completed = document.querySelector('#completedlist');
 var form = document.querySelector('form');
 var input = document.querySelector('#add');
 var field=document.querySelector('#newitem');
 
 //fetch data
-var getlist = function(savelist){
+var tasklist = function(){
       var tasklist = new Array;
-      var item = savelist.tostring();
-      var taskstr=localStorage.getItem(item);
+      var taskstr=localStorage.getItem('todo');
       if(taskstr !=null){
             tasklist = JSON.parse(taskstr);
       }
       return tasklist;
 }
 
-var tasklist = getlist(todo);
-var donelist= getlist(dones);
+var donelist = function(){
+      var donelist = new Array;
+      var donestr=localStorage.getItem('donelist');
+      if(donestr !=null){
+            donelist = JSON.parse(donestr);
+      }
+      return donelist;
+}
+
 
 var addEvents = function(listItem){
     var delBtn=listItem.querySelector('.delBtn');
@@ -33,37 +39,58 @@ document.addEventListener( 'DOMContentLoaded', retrievestate, false );
 
 function storestate() {
 localStorage.tasklist = todo.innerHTML;
-localStorage.donelist= dones.innerHTML;
+localStorage.donelist= completed.innerHTML;
 };
 
-var retrievestate= function(localSavedList, target){
-    if(localStorage.localSavedList){
-        target.innerHTML = localStorage.localSavedList;
-        var listArray = todo.children;
-    var listLength=listArray.length;
-    for(var i=0; i <listLength; i++){
-        var listItem= listArray[i];
-        addEvents(listItem);
-        }
-    }
-};
-
-var restoreStage = function(){
-    retrievestate(tasklist, todo);
-    retrievestate(donelist, dones);
-}
-
-// function retrievestate() {
-// if ( localStorage.tasklist ) {
-//     todo.innerHTML = localStorage.tasklist;
-//     var listArray = todo.children;
+//restrieve todo list in localStorage and add function to buttons
+// var retrievestate= function(){
+//     if(localStorage.tasklist){
+//         todo.innerHTML = localStorage.tasklist;
+//         var listArray = todo.children;
 //     var listLength=listArray.length;
 //     for(var i=0; i <listLength; i++){
 //         var listItem= listArray[i];
 //         addEvents(listItem);
-//     }
-//     };
+//         }
+//     }   
+//     if(localStorage.dones){
+//         completed.innerHTML = localStorage.dones;
+//         var donesArray = completed.children;
+//     var donesLength=listArray.length;
+//     for(var i=0; i <donesLength; i++){
+//         var doneItem= donesArray[i];
+//         addEvents(doneItem);
+//         }
+//     }     
 // };
+//retrieve todolist and completed list
+// function restoreStages(){
+//     retrievestate(tasklist, todo);
+//     retrievestate(donelist, completed);
+// }
+
+function retrievestate() {
+if ( localStorage.tasklist ) {
+    //show list form memory
+    todo.innerHTML = localStorage.tasklist;
+    //add events to buttons
+    var listArray = todo.children;
+    var listLength=listArray.length;
+    for(var i=0; i <listLength; i++){
+        var listItem= listArray[i];
+        addEvents(listItem);
+    }
+    };
+    if(localStorage.donelist){
+        completed.innerHTML = localStorage.donelist;
+        var donesArray = completed.children;
+        var donesLength=donesArray.length;
+        for(var i=0; i <donesLength; i++){
+            var doneItem= donesArray[i];
+            addEvents(doneItem);
+            }
+    }     
+};
      
 //option buttons
 var createNewItem = function(taskStr){
@@ -80,15 +107,16 @@ var createNewItem = function(taskStr){
     
     //modifies each element
     doneBtn.type="checkbox";
-    doneBtn.className="col s1 small material-icons doneBtn";
+    doneBtn.className="col s1 small material-icons left doneBtn";
     doneBtn.innerText='done';
     
     editInput.type='text';
     editInput.className='hide editInput';
     
     taskDescrible.innerHTML= taskStr;
+    taskDescrible.className='flow-text';
     
-    delBtn.className="col s1 small material-icons delBtn";
+    delBtn.className="col s1 small material-icons right delBtn";
     delBtn.title="Delete";
     delBtn.innerText="delete";
     
@@ -152,14 +180,6 @@ var editTask = function(ev){
     // })
 };
 
-// var switchback= function(editInput, taskDescribe, ev){
-//     $(editInput).blur(function(ev){  
-//         if (!ev) ev = window.event;      
-//         console.log('user lose its focus to edit input');
-//         taskDescribe.classList.toggle('hide');
-//         editInput.classList.toggle('hide');
-//     });
-// }
 //delete item
 var deleteTask = function(ev){ 
     var listItem = this.parentNode;
@@ -174,7 +194,17 @@ var deleteTask = function(ev){
 //Mark as done  
 var toggleDone= function(ev){
     console.log("mark as done task...");
+    var listItem = this.parentNode;
+    var listId= $(listItem).parent().attr('id');
     this.classList.toggle('done');
+    //move completed task to completedlist and reverse
+    if(listId=='todolist'){
+       todo.removeChild(listItem);
+       completed.appendChild(listItem); 
+    }else{
+       completed.removeChild(listItem);
+       todo.appendChild(listItem); 
+    }
     storestate();
 };         
 

@@ -12,9 +12,11 @@
     <body>
     <div id="container">      
       <div class="row">
-        <div  class="nav-wrapper">
-            <a href="#" class="brand-logo center"><h1>To do list</h1></a>         
+          <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo center">To do list</a>         
         </div>
+        </nav>
         <!--<ul class="tabs">
         <li class="tab col s3" onclick="Materialize.showStaggeredList('#todo')"><a class="active" href="#todo">To Do</a></li>
         <li class="tab col s3" onclick="Materialize.showStaggeredList('#completed')"><a  href="#completed">Done</a></li>                               
@@ -27,17 +29,16 @@
             <button class="waves-effect waves-light btn" type="submit" value="Add">Add</button>
         </div>
         </form>
-        </div>  
-        <div id="todo">
+        
+        <div id="todo" class="col m6 s12 nav-wrapper center">
             <h5 >To do</h5>
             <ul id="todolist"></ul> 
         </div>
-        <div id="completed">
+        <div id="completed" class="col m6 s12 center">
             <h5 >Completed task</h5>
             <ul id="completedlist"></ul>
-        </div>
-        
-        
+        </div> 
+         </div>                
     </div>
     <a  class="waves-effect waves-light btn modal-trigger" href="#modal1">Clear All</a> 
     <button class="btn-floating waves-effect waves-light fixed right bottom" onclick="Materialize.showStaggeredList('#create1')" id="createList">+</button> 
@@ -69,6 +70,5 @@
             
     })   
     </script>  
-    <!--<script src="js/jeditable.js" type="text/javascript" charset="utf-8"></script>-->
     </body>
   </html>
