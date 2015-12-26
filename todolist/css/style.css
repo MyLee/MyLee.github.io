@@ -72,7 +72,7 @@ span.left,  span.right{
     font-size: 14px;
 }
 
-ul li:nth-child(odd){
+#completed li:nth-child(odd), #todolist li:nth-child(odd){
     background-color: #F5F2F0;    
 }
 ul li{
@@ -81,7 +81,7 @@ ul li{
     padding-right: 10px;
 }
 
-ul li:hover{
+#todolist ul li:hover, #completed ul li:hover{
     background-color: ghostwhite; ;
 }
 
@@ -101,4 +101,3 @@ ul li:hover{
     top: 0px !important;
     left: 10px !important;
 }
-/*create Button show in small screen only*/
