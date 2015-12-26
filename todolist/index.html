@@ -1,60 +1,67 @@
 <!DOCTYPE html>
   <html>
     <head>  
-      <link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/>
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="css/style.css"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <title>To do list</title>
       <meta charset="utf-8">
     </head>
 
-    <body>
-    <div id="container">      
-      <div class="row">
-          <nav>
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo center">To do list</a>         
-        </div>
+<body>
+<div id="container">      
+    <div class="row">
+        <nav >
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo center ">To do list</a>                
+            </div>
         </nav>
-        <!--<ul class="tabs">
-        <li class="tab col s3" onclick="Materialize.showStaggeredList('#todo')"><a class="active" href="#todo">To Do</a></li>
-        <li class="tab col s3" onclick="Materialize.showStaggeredList('#completed')"><a  href="#completed">Done</a></li>                               
-        </ul>-->
-               
+              
         <form action="#" method="post" id="form">
-        <div id="create" class="input-field col s12">
-            <label for="newitem">Add item</label>
-            <input type="text" name="newitem" id="newitem" required>
-            <button class="waves-effect waves-light btn" type="submit" value="Add">Add</button>
-        </div>
+            <div id="create" class="input-field col s12">
+                <label for="newitem">Add item</label>
+                <input type="text" name="newitem" id="newitem" required>
+                <button class="waves-effect waves-light teal lighten-2 btn" type="submit" value="Add">Add</button>
+            </div>
         </form>
-        
         <div id="todo" class="col m6 s12 nav-wrapper center">
-            <h5 >To do</h5>
+            <h5 ><span class='left'>Done</span>To do<span class='right'>Delete</span></h5>
+
             <ul id="todolist"></ul> 
         </div>
         <div id="completed" class="col m6 s12 center">
-            <h5 >Completed task</h5>
+            <h5 ><span class='left'>Done</span>Completed<span class='right'>Delete</span></h5>
             <ul id="completedlist"></ul>
         </div> 
-         </div>                
-    </div>
-    <a  class="waves-effect waves-light btn modal-trigger" href="#modal1">Clear All</a> 
-    <button class="btn-floating waves-effect waves-light fixed right bottom" onclick="Materialize.showStaggeredList('#create1')" id="createList">+</button> 
+    </div>                        
+    
+  <div class="fixed-action-btn click-to-toggle">
+    <a class="btn-floating waves-effect waves-light">
+      <i class="material-icons mdi-navigation-menu"></i>
+    </a>
+    <ul>      
+      <li><a href='#completed' class="btn-floating green darken-1"><i class="material-icons">done_all</i></a></li>
+      <li><a href='#todo' class="btn-floating red darken-1"><i class="material-icons">today</i></a></li>
+      <li><a href='#create' class="btn-floating blue"><i class="material-icons" >add</i></a></li>
+    </ul>
+  </div>
+    
+  <a  id="deleteAll" class="waves-effect waves-light  btn modal-trigger" href="#modal1">Clear All</a> 
+  </div>  
+    <!--Dialog to user-->
     <div id="modal1" class="modal center-align">
         <div class="modal-content">
         <h5>Are you sure?</h5>
-        <p>All tasks will be deleted!!!</p>
+        <p>All tasks in the memory will be deleted!!!</p>
         </div>
         <div class="modal-footer">
             <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat ">Noooo</a>
-            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat " id="clearAll">Yes</a>         
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat active " id="clearAll">Yes</a>         
         </div>
-   </div> 
-    </div> <!--container-->
+   </div> <!--container-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>    
     <script type="text/javascript" src="js/todo.js"></script>
     <script>
       $(document).ready(function(){
@@ -63,12 +70,15 @@
         $('.modal-trigger').leanModal();
         $('ul.tabs').tabs('select_tab', 'tab_id');
         var options = [
-        {selector: '.class', offset: 200, callback: 'globalFunction()' },
-        {selector: '.other-class', offset: 200, callback: 'globalFunction()' },         
+        {selector: '.class', offset: 100, callback: 'globalFunction()' },
+        {selector: '.other-class', offset: 100, callback: 'globalFunction()' },         
       ];
-      Materialize.scrollFire(options);    
-            
-    })   
+      Materialize.scrollFire(options);                
+      function setFocus(){
+           document.getElementById("newitem").focus();
+       }     
+    })         
+  
     </script>  
     </body>
-  </html>
+</html>

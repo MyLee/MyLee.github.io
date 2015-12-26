@@ -1,10 +1,12 @@
 //declare variants
 var todo=  document.querySelector('#todolist');
+var clearAllBtn = document.querySelector("#clearAll");
 var completed = document.querySelector('#completedlist');
 var form = document.querySelector('form');
 var input = document.querySelector('#add');
 var field=document.querySelector('#newitem');
-
+var $toastContent = $('<span>Input can not be empty</span>');
+var Materialize;
 //fetch data
 var tasklist = function(){
       var tasklist = new Array;
@@ -24,121 +26,88 @@ var donelist = function(){
       return donelist;
 }
 
-
 var addEvents = function(listItem){
     var delBtn=listItem.querySelector('.delBtn');
     var doneBtn=listItem.querySelector('.doneBtn');  
+    var editBtn= listItem.querySelector('.editBtn');
     var inputTask=listItem.getElementsByTagName('span')[0];
     inputTask.addEventListener('click', editTask)
     delBtn.addEventListener('click', deleteTask);        
     doneBtn.addEventListener('click', toggleDone); 
+    editBtn.addEventListener('click', editTask);   
 }
 
-//local save
-document.addEventListener( 'DOMContentLoaded', retrievestate, false );
+var createEditBtn = function(){
+    var editBtn= document.createElement('i');
+    editBtn.type='checkbox';
+    editBtn.className='col s1 small material-icons right editBtn';
+    editBtn.innerText='edit';
+    editBtn.title='Edit';
+    editBtn.addEventListener('click', editTask);    
+    return editBtn;
+}
+var createEditInput = function(){
+    var editInput = document.createElement('input');              
+    editInput.type='text';
+    editInput.className='hideme editInput';
+    // $(editInput).prop('required',true);         
+    return editInput;  
+}   
 
-function storestate() {
-localStorage.tasklist = todo.innerHTML;
-localStorage.donelist= completed.innerHTML;
-};
-
-//restrieve todo list in localStorage and add function to buttons
-// var retrievestate= function(){
-//     if(localStorage.tasklist){
-//         todo.innerHTML = localStorage.tasklist;
-//         var listArray = todo.children;
-//     var listLength=listArray.length;
-//     for(var i=0; i <listLength; i++){
-//         var listItem= listArray[i];
-//         addEvents(listItem);
-//         }
-//     }   
-//     if(localStorage.dones){
-//         completed.innerHTML = localStorage.dones;
-//         var donesArray = completed.children;
-//     var donesLength=listArray.length;
-//     for(var i=0; i <donesLength; i++){
-//         var doneItem= donesArray[i];
-//         addEvents(doneItem);
-//         }
-//     }     
-// };
-//retrieve todolist and completed list
-// function restoreStages(){
-//     retrievestate(tasklist, todo);
-//     retrievestate(donelist, completed);
-// }
-
-function retrievestate() {
-if ( localStorage.tasklist ) {
-    //show list form memory
-    todo.innerHTML = localStorage.tasklist;
-    //add events to buttons
-    var listArray = todo.children;
-    var listLength=listArray.length;
-    for(var i=0; i <listLength; i++){
-        var listItem= listArray[i];
-        addEvents(listItem);
-    }
-    };
-    if(localStorage.donelist){
-        completed.innerHTML = localStorage.donelist;
-        var donesArray = completed.children;
-        var donesLength=donesArray.length;
-        for(var i=0; i <donesLength; i++){
-            var doneItem= donesArray[i];
-            addEvents(doneItem);
-            }
-    }     
-};
-     
-//option buttons
-var createNewItem = function(taskStr){
-    //create listItem
-    var listItem= document.createElement('li');  
-    //task describe
-    var taskDescrible= document.createElement('span'); 
-    //edit task input(text)
-    var editInput = document.createElement('input');
+var createDoneBtn = function(){
     //mark as doneButton (checkbox)
     var doneBtn= document.createElement('i');
-    //button delete
-    var delBtn = document.createElement('i');
-    
     //modifies each element
     doneBtn.type="checkbox";
     doneBtn.className="col s1 small material-icons left doneBtn";
     doneBtn.innerText='done';
-    
-    editInput.type='text';
-    editInput.className='hide editInput';
-    
-    taskDescrible.innerHTML= taskStr;
-    taskDescrible.className='flow-text';
-    
+    doneBtn.title='Completed'    
+    doneBtn.addEventListener('click', toggleDone);    
+    return doneBtn;
+}
+  
+var createDeleteBtn = function(){
+    var delBtn = document.createElement('i');
     delBtn.className="col s1 small material-icons right delBtn";
     delBtn.title="Delete";
-    delBtn.innerText="delete";
+    delBtn.innerText="delete";    
+    delBtn.addEventListener('click', deleteTask);
     
+    return delBtn;
+}  
+var createTaskDecribe = function(taskStr){    
+    //task describe
+    var taskDescrible= document.createElement('span');
+    taskDescrible.className='flow-text';
+    taskDescrible.innerHTML= taskStr;    
+    taskDescrible.addEventListener('click', editTask);
+    
+    return taskDescrible;
+}
+
+//option buttons
+var createNewItem = function(taskStr){
+    //create listItem
+    var listItem= document.createElement('li');  
+    var editInput = createEditInput();
+    var doneBtn = createDoneBtn();
+    var delBtn = createDeleteBtn();
+    var taskDescrible= createTaskDecribe(taskStr);
+    var editBtn = createEditBtn();
+ 
     listItem.appendChild(doneBtn); 
     listItem.appendChild(taskDescrible);
-    listItem.appendChild(editInput);
+    listItem.appendChild(editInput);    
     listItem.appendChild(delBtn);
-    
-    //bind actions to buttons
-    taskDescrible.addEventListener('click', editTask);
-    delBtn.addEventListener('click', deleteTask);        
-    doneBtn.addEventListener('click', toggleDone);
-           
+    listItem.appendChild(editBtn);
+             
     return listItem;  
 }
 
-// create item       
-form.addEventListener('submit', function(ev){
-      var taskStr=field.value;
+var saveItem= function(ev){
+    var taskStr=field.value;
       if(taskStr != null){
         var listItem=createNewItem(taskStr);
-        //add the new task to list
         todo.appendChild(listItem);    
         field.value = '';
         field.focus();
@@ -146,47 +115,50 @@ form.addEventListener('submit', function(ev){
         storestate();
       };     
       ev.preventDefault();
-}, false);
-
+};
+ 
+var toggleClass = function(list1, list2, classname){
+    list1.classList.toggle(classname);
+    list2.classList.toggle(classname);
+}   
 //Edit existing task
 var editTask = function(ev){
-    console.log("edit task...");
     var listItem = this.parentNode;
     var editInput= listItem.querySelector('input');
     var taskDescribe = listItem.querySelector('span');
-    //hide the task describe
     editInput.value= taskDescribe.innerText;     
-    taskDescribe.classList.toggle('hide');
-    editInput.classList.toggle('hide');
+    toggleClass(editInput, taskDescribe, 'hideme');
     editInput.focus();   
-    //update task    
+    //update if user click enter
     editInput.onkeypress= function(ev){  
         if (!ev) ev = window.event;     
         if(ev.which==13){    
-            editInput.focus();  
-            taskDescribe.innerText= editInput.value;
-            taskDescribe.classList.toggle('hide');
-            editInput.classList.toggle('hide');            
-            storestate();        
+            if(editInput.value==null || editInput.value==""){
+               Materialize.toast($toastContent, 3000, 'center');
+               ev.preventDefault();
+            }else{
+                taskDescribe.innerText= editInput.value;
+                toggleClass(editInput, taskDescribe, 'hideme');            
+                storestate();  
+            }      
         }
-        
-    };
-    //if user click outside edit box, restore task
-    // editInput.addEventListener("focusout", function(){
-    //     console.log('user lose its focus to edit input');
-    //     if (!ev) ev = window.event;
-    //     taskDescribe.classList.toggle('hide');
-    //     editInput.classList.toggle('hide');
-    // })
-};
+        // else{
+        //     $(listItem).blur(function(){
+        //     if(ev.which != 13){
+        //     console.log('user lose its focus to edit input');
+        //     toggleClass(editInput, taskDescribe, 'hide');
+        //     }
+    // });          
+    // }; 
+}};
 
 //delete item
 var deleteTask = function(ev){ 
-    var listItem = this.parentNode;
+    var child = this.parentNode;
     console.log("delete task...");
-    var ul = listItem.parentNode;    
+    var parent = child.parentNode;    
     //Remove the parent list from the ul
-    ul.removeChild(listItem);
+    parent.removeChild(child);
     storestate();
     ev.preventDefault();
 };
@@ -208,14 +180,49 @@ var toggleDone= function(ev){
     storestate();
 };         
 
+var removeAllChild = function(list){
+    while(list.firstChild){
+        list.removeChild(list.firstChild);
+    }
+};
+
 var deleteAllTasks = function(){ 
-    var tasklist=document.getElementById('todolist');
-    while(tasklist.firstChild){
-        tasklist.removeChild(tasklist.firstChild);
-    }     
+    var tasklist=document.getElementById('todolist');    
+    var donelist=document.getElementById('completedlist') ;
+    removeAllChild(tasklist);
+    removeAllChild(donelist);
     storestate();
 };
 
-var clearAllBtn = document.querySelector("#clearAll");
 clearAllBtn.addEventListener('click', deleteAllTasks);
-   
+form.addEventListener('submit', saveItem);  
+document.addEventListener( 'DOMContentLoaded', retrievestate, false );
+
+//save och load local
+function storestate() {
+localStorage.tasklist = todo.innerHTML;
+localStorage.donelist= completed.innerHTML;
+};
+
+function retrievestate() {
+if ( localStorage.tasklist ) {
+    //show list form memory
+    todo.innerHTML = localStorage.tasklist;
+    //add events to buttons
+    var listArray = todo.children;
+    var listLength=listArray.length;
+    for(var i=0; i <listLength; i++){
+        var listItem= listArray[i];
+        addEvents(listItem);
+    }
+    };
+if(localStorage.donelist){
+    completed.innerHTML = localStorage.donelist;
+    var donesArray = completed.children;
+    var donesLength=donesArray.length;
+    for(var i=0; i <donesLength; i++){
+        var doneItem= donesArray[i];
+        addEvents(doneItem);
+        }
+    }     
+};

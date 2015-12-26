@@ -10,12 +10,12 @@ h1{
     margin:0;
 }
 body{
-	background: steelblue;
+	background: #4682b4;
 	font-weight: 600;
 }
 .material-icons{
 	font-size: 20px !important;
-    color: #eeeeee;
+    color: #ccc;
 }
 
 .doneBtn:hover{
@@ -30,9 +30,9 @@ body{
 .delBtn:hover{
 	color: #d50000;
 }
-.editBtn, .delBtn, .doneBtn{
+.doneBtn, .delBtn, .editBtn{
 	position: relative;
-	top:8px;
+	top: .15ch;
 } 
 
 .editTask{
@@ -41,16 +41,14 @@ body{
     height: 2em;
 }
 
-.hide{
+.hideme{
     display: none;
 }
 
 .editInput {
-    width: 300px ;
+    width: 65%!important ;
     height: auto!important;
     padding:2px!important;
-    border: 1px 2px solid red!important;
-    box-shadow: 2px #008080!important;
 }
 
 #completed{
@@ -67,19 +65,40 @@ body{
 }
 
 h5{
-        color: #039BE5;
+    color: #EE6E73  ;
+}
+
+span.left,  span.right{
+    font-size: 14px;
 }
 
 ul li:nth-child(odd){
-    background-color: #ccc;
+    background-color: #F5F2F0;    
 }
 ul li{
-    /*background-color: #D9EDF7;*/
-    border-bottom: 1px #000!important;
+    /*background-color: #D9EDF7;*/  
     border-radius: 2px;
+    padding-right: 10px;
 }
-
 
 ul li:hover{
-    background-color: #b3e5fc ;
+    background-color: ghostwhite; ;
 }
+
+#modal1{
+    height:200px ;
+    width:400px;
+}
+
+#deleteAll{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+#toast-container {
+    position: fixed !important;
+    top: 0px !important;
+    left: 10px !important;
+}
+/*create Button show in small screen only*/
