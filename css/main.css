@@ -199,18 +199,18 @@ div .transbox{
 
 /* Chrome, Safari, Opera */
 @-webkit-keyframes changeColor {
-    0% {background-color: #abebfe;}
+    0% {background-color: #23527C;}
     25% {background-color: #aad667;}
-    50% {background-color: #57e6ee;}
+    50% {background-color: lightcoral;}
     /*75% {background-color: #ff7ebb;}*/
     100% {background-color: #fff;}
 }
 
 /* Standard syntax */
 @keyframes changeColor {
-     0% {background-color: #abebfe;}
+    0% {background-color: #23527C;}
     25% {background-color: #aad667;}
-    50% {background-color: #57e6ee;}
+    50% {background-color: lightcoral;}
     /*75% {background-color: #ff7ebb;}*/
     100% {background-color: #fff;}
 }

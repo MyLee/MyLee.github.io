@@ -3,6 +3,7 @@
 	max-width: 800px;
 	margin:0 auto;
 	background: #FFF;
+    min-height: 100vh;
 }
 
 h1{
@@ -18,21 +19,16 @@ body{
     color: #ccc;
 }
 
-.doneBtn:hover{
+.doneBtn:hover, .done, .editBtn:hover{
 	color: #008080;
 }
-.done{
-    color: #008080;
-}
-.editBtn:hover{
-	color: #008080;
-}
+
 .delBtn:hover{
 	color: #d50000;
 }
 .doneBtn, .delBtn, .editBtn{
 	position: relative;
-	top: .15ch;
+	top: .2ch;
 } 
 
 .editTask{
