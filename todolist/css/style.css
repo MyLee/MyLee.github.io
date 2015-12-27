@@ -105,3 +105,9 @@ ul li{
     top: 0px !important;
     left: 10px !important;
 }
+
+#reflex{
+    padding: 10%;
+    max-width: 60%;
+    color: #FFF;
+}
