@@ -73,16 +73,20 @@ span.left,  span.right{
 }
 
 #completed li:nth-child(odd), #todolist li:nth-child(odd){
-    background-color: #F5F2F0;    
+    background-color: #F5F2F0 ;    
 }
+#completed li, #todolist li{
+    overflow: auto;
+}
+
 ul li{
     /*background-color: #D9EDF7;*/  
     border-radius: 2px;
-    padding-right: 10px;
+    padding-right: 10px;    
 }
 
-#todolist ul li:hover, #completed ul li:hover{
-    background-color: ghostwhite; ;
+#todolist li:hover, #completed li:hover{
+    background-color: #fffaf0; 
 }
 
 #modal1{

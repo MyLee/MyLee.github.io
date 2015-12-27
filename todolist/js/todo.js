@@ -75,7 +75,6 @@ var createDeleteBtn = function(){
     return delBtn;
 }  
 var createTaskDecribe = function(taskStr){    
-    //task describe
     var taskDescrible= document.createElement('span');
     taskDescrible.className='flow-text';
     taskDescrible.innerHTML= taskStr;    
@@ -102,7 +101,7 @@ var createNewItem = function(taskStr){
 }
 
 var saveItem= function(ev){
-    var taskStr=field.value;
+    var taskStr=field.value.replace(/</g, "&lt;").replace(/>/g, "&gt;");
       if(taskStr != null){
         var listItem=createNewItem(taskStr);
         todo.appendChild(listItem);    
@@ -143,6 +142,7 @@ var editTask = function(ev){
                Materialize.toast($toastContent, 3000, 'center');
                ev.preventDefault();
             }else{
+                editInput.value.replace(/</g, "&lt;").replace(/>/g, "&gt;"); 
                 taskDescribe.innerText= editInput.value;
                 toggleClass(editInput, taskDescribe, 'hideme');  
                 editBtn.innerText= 'edit'; 
