@@ -71,8 +71,7 @@ var createDeleteBtn = function(){
     delBtn.className="col s1 small material-icons right delBtn";
     delBtn.title="Delete";
     delBtn.innerText="delete";    
-    delBtn.addEventListener('click', deleteTask);
-    
+    delBtn.addEventListener('click', deleteTask);    
     return delBtn;
 }  
 var createTaskDecribe = function(taskStr){    
@@ -80,8 +79,7 @@ var createTaskDecribe = function(taskStr){
     var taskDescrible= document.createElement('span');
     taskDescrible.className='flow-text';
     taskDescrible.innerHTML= taskStr;    
-    taskDescrible.addEventListener('click', editTask);
-    
+    taskDescrible.addEventListener('click', editTask);    
     return taskDescrible;
 }
 
@@ -99,8 +97,7 @@ var createNewItem = function(taskStr){
     listItem.appendChild(taskDescrible);
     listItem.appendChild(editInput);    
     listItem.appendChild(delBtn);
-    listItem.appendChild(editBtn);
-             
+    listItem.appendChild(editBtn);             
     return listItem;  
 }
 
@@ -126,8 +123,17 @@ var editTask = function(ev){
     var listItem = this.parentNode;
     var editInput= listItem.querySelector('input');
     var taskDescribe = listItem.querySelector('span');
+    var editBtn= listItem.querySelector('.editBtn');
     editInput.value= taskDescribe.innerText;     
     toggleClass(editInput, taskDescribe, 'hideme');
+    if(editBtn.innerText != 'settings_backup_restore'){
+        editBtn.innerText= 'settings_backup_restore';
+        editBtn.title="Unchange";
+    }else{
+        editBtn.innerText= 'edit';
+        editBtn.title="Edit";
+    }
+
     editInput.focus();   
     //update if user click enter
     editInput.onkeypress= function(ev){  
@@ -138,7 +144,9 @@ var editTask = function(ev){
                ev.preventDefault();
             }else{
                 taskDescribe.innerText= editInput.value;
-                toggleClass(editInput, taskDescribe, 'hideme');            
+                toggleClass(editInput, taskDescribe, 'hideme');  
+                editBtn.innerText= 'edit'; 
+                editBtn.title='Edit';         
                 storestate();  
             }      
         }

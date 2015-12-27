@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+  <html>
+    <head>  
+      <link type="text/css" rel="stylesheet" href="css/style.css"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title>To do list</title>
+      <meta charset="utf-8">
+    </head>
+
+<body>
+<div id="container">      
+    Jag använd Materializecss för den här projekt.
+    Koden utgår från <a href="https://teamtreehouse.com/library/interactive-web-pages-with-javascript">Team Tree House</a> med funktioner t.ex spara funktion, clicka direkt 
+    på en task för att ändra content och ett annat utseende som passar bätter till olika skärmarstolek. 
+</div> <!--container-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>    
+    <script type="text/javascript" src="js/todo.js"></script>
+    <script>
+      $(document).ready(function(){
+        //Materialize
+        $('ul.tabs').tabs();
+        $('.modal-trigger').leanModal();
+        $('ul.tabs').tabs('select_tab', 'tab_id');
+        var options = [
+        {selector: '.class', offset: 100, callback: 'globalFunction()' },
+        {selector: '.other-class', offset: 100, callback: 'globalFunction()' },         
+      ];
+      Materialize.scrollFire(options);                
+      function setFocus(){
+           document.getElementById("newitem").focus();
+       }     
+    })         
+  
+    </script>  
+    </body>
+</html>

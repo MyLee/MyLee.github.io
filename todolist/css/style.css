@@ -3,7 +3,8 @@
 	max-width: 800px;
 	margin:0 auto;
 	background: #FFF;
-    min-height: 100vh;
+    min-height: 100vh; 
+    /*background: url(../img/paper.png) repeat;*/
 }
 
 h1{
@@ -12,6 +13,7 @@ h1{
 }
 body{
 	background: #4682b4;
+    background: url(../img/stardust.png) repeat;
 	font-weight: 600;
 }
 .material-icons{
@@ -21,10 +23,12 @@ body{
 
 .doneBtn:hover, .done, .editBtn:hover{
 	color: #008080;
+    cursor: pointer;
 }
 
 .delBtn:hover{
 	color: #d50000;
+    cursor: pointer;
 }
 .doneBtn, .delBtn, .editBtn{
 	position: relative;
