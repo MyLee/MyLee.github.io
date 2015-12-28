@@ -1,0 +1,18 @@
+.white{
+    background-color: teal;
+}
+
+.black{
+    background-color: lightseagreen;
+}
+
+table{
+    width: 80vh;
+    height: 80vh;
+    border: 2px solid #d3d3d3;
+    color: #FFF;
+}
+
+table td:hover{
+    opacity: .7;
+}

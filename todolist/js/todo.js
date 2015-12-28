@@ -127,7 +127,7 @@ var editTask = function(ev){
     toggleClass(editInput, taskDescribe, 'hideme');
     if(editBtn.innerText != 'settings_backup_restore'){
         editBtn.innerText= 'settings_backup_restore';
-        editBtn.title="Unchange";
+        editBtn.title="Undo changes";
     }else{
         editBtn.innerText= 'edit';
         editBtn.title="Edit";

@@ -13,7 +13,7 @@ h1{
 }
 body{
 	background: #4682b4;
-    background: url(../img/stardust.png) repeat;
+    /*background: url(../img/stardust.png) repeat;*/
 	font-weight: 600;
 }
 .material-icons{
