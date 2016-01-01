@@ -1,11 +1,14 @@
 .white{
-    background-color: teal;
+    background-color: #008080;
 }
 
 .black{
     background-color: lightseagreen;
 }
-
+#container{
+    padding:0;
+    margin: 0 auto;
+}
 table{
     min-width: 100vh;
     height: 100vh;
@@ -15,4 +18,19 @@ table{
 
 table td:hover{
     opacity: .7;
+}
+
+table td{
+    height: 11vh;
+    width: 11vh;
+    color: #fff;
+    vertical-align: bottom;
+}
+
+.flag{
+    background: url(../img/flag1.png) top 5px left 5px  no-repeat lightskyblue;
+}
+
+.opened {
+    background-color: dimgrey;
 }
