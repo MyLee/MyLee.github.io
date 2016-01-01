@@ -7,8 +7,8 @@
 }
 
 table{
-    width: 80vh;
-    height: 80vh;
+    min-width: 100vh;
+    height: 100vh;
     border: 2px solid #d3d3d3;
     color: #FFF;
 }
