@@ -9,8 +9,11 @@
     padding:0;
     margin: 0 auto;
 }
+#chessBoard{
+   
+}
 table{
-    min-width: 100vh;
+     min-width: 100vh;
     height: 100vh;
     border: 2px solid #d3d3d3;
     color: #FFF;
@@ -18,19 +21,20 @@ table{
 
 table td:hover{
     opacity: .7;
+    cursor: pointer;
 }
 
 table td{
-    height: 11vh;
-    width: 11vh;
+    height: 5vh;
+    width: 5vh;
     color: #fff;
     vertical-align: bottom;
 }
 
 .flag{
-    background: url(../img/flag1.png) top 5px left 5px  no-repeat lightskyblue;
+    background: url(../img/flag1.png)center  no-repeat lightskyblue;
 }
 
 .opened {
-    background-color: dimgrey;
+    background-color: slategrey;
 }

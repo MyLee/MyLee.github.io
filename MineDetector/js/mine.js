@@ -1,5 +1,5 @@
-const column=8;
-const row=8;
+const column=9;
+const row=9;
 var mineQty;
 var minelist = new Array;
 
@@ -42,11 +42,11 @@ chessBoard.appendChild(table);
 // $('#chessBoardd td').addEventlistener
 var createMines= function(){
     var cells=row*column;    
-    var mineQty= Math.round(cells/8+1);
+    var mineQty= Math.round(cells/row+1);
     //if mines in the list is not enough, create more
     while(minelist.length<mineQty){
         //create ramdom mine   
-        var mine=Math.floor(Math.random()*(cells+1));              
+        var mine=Math.floor(Math.random()*(cells)+1);              
         if(minelist.indexOf(mine)==-1){
             minelist.push(mine);
         }
@@ -55,7 +55,8 @@ var createMines= function(){
 }
 createMines();
 
-var hasMine = function(cellNr){
+var hasMine = function(cellId){
+    var cellnr=parseInt(cellId);
     if(minelist.indexOf(cellnr)==-1){
         return false;
     }else {
@@ -65,17 +66,26 @@ var hasMine = function(cellNr){
 
 var findmyNeighbor = function(cellnr){
     var myNeighbor= new Array;
-    var temp = [cellnr+1, cellnr-1, cellnr-column,  cellnr-column-1,  cellnr-column+1,  cellnr+column, cellnr+column-1, cellnr+column+1];
-    for(var el in temp){
-        if(el>0 && el <= row*column ){
+    var temp;
+    for(var i=0; i<row+1; i++){
+        var postition=i*row;
+        if(cellnr==postition+1){ //if cell from first column
+           temp = [cellnr+1, cellnr-column,   cellnr-column+1,  cellnr+column, cellnr+column+1]; 
+        }else if(cellnr==postition){//if cell from last column
+            temp = [cellnr-1, cellnr-column,  cellnr-column-1,  cellnr+column, cellnr+column-1];
+        }else{
+            temp = [cellnr+1, cellnr-1, cellnr-column,  cellnr-column-1,  cellnr-column+1,  cellnr+column, cellnr+column-1, cellnr+column+1];
+            }            
+        } 
+    temp.forEach(function(el){ if(el>0 && el <= row*column ){
             myNeighbor.push(el);
-        }
-    }
+        }})      
     return myNeighbor;    
 };
 
-var countMines = function(cellnr, myNeighbor){
+var countMines = function(cellnr){
     var numberofMine = 0;
+    var myNeighbor=findmyNeighbor(cellnr);
     for(var i = 0; i<myNeighbor.lenght; i++){
         if(minelist.indexOf(i)!=-1){
             numberofMine++;
@@ -84,13 +94,50 @@ var countMines = function(cellnr, myNeighbor){
     return numberofMine;
 }
 
+var minetest=function(){
+    
+}
+var markCellasOpened = function(cellId){
+    $('#'+cellId).addClass('opened');
+    document.getElementById(cellId).style.pointerEvents ='none';
+}
+
 var openCell = function(cellnr){   
     console.log('left mouse on cell nummer ' + cellnr);
     var cellId = cellnr.toString();
-    if(hasMine(cellId)){ //animation explorate, reveal all mines and end the game       
-    }else{ //doesnt has mine, open empty cells and show mine number 
-          f
-        }       
+    if(hasMine(cellId)){ //animation explorate, reveal all mines and end the game
+    console.log('Boooom!');       
+    }
+    //the cell is empty
+    else{
+        //opend empty cell
+         markCellasOpened(cellId);
+       //show the mines number  
+       var inspectlist= findmyNeighbor(cellnr);      
+    //    while(inspectlist.length!=0){         
+           for(var i=0; i<=inspectlist.length; i++){
+               var value= inspectlist[i];               
+               var nrOfmine=countMines(value);
+               var id=value.toString();
+               var index=inspectlist.indexOf(value);
+               if(nrOfmine==0){                                 
+                    markCellasOpened(id);
+                    var newInspectList= new Array;
+                    newInspectList=findmyNeighbor(value);
+                    // inspectlist.splice(index, 1);                  
+                    for(var j=0; j<newInspectList.length; j++){
+                        var newitem=newInspectList[j];
+                        if(inspectlist.indexOf(newitem)==-1 && newitem!=value){
+                            inspectlist.push(newitem);
+                        }
+                    }                     
+               }else{
+                    $('#'+id).innerText=nrOfmine;
+                    // inspectlist.splice(index, 1);
+               }
+           }//end of FOR loop                     
+    //    }//end of while loop
+    }//end of else the cell is empty       
 };
 
 var markCell = function(cellnr){
