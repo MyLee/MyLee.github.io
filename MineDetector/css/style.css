@@ -13,8 +13,8 @@
    
 }
 table{
-     min-width: 100vh;
-    height: 100vh;
+     min-width: 80vh;
+    height: 80vh;
     border: 2px solid #d3d3d3;
     color: #FFF;
 }
@@ -38,3 +38,11 @@ table td{
 .opened {
     background-color: slategrey;
 }
+
+.bomb{
+    background: url(../img/bomb.png)center  no-repeat;
+}
+
+canvas{
+      border: 1px solid black;
+    }

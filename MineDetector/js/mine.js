@@ -2,6 +2,7 @@ const column=9;
 const row=9;
 var mineQty;
 var minelist = new Array;
+var inspectedlist= new Array;
 
 var chessBoard = document.querySelector('#chessBoard')
 //add function to users left or right click
@@ -67,76 +68,82 @@ var hasMine = function(cellId){
 var findmyNeighbor = function(cellnr){
     var myNeighbor= new Array;
     var temp;
-    for(var i=0; i<row+1; i++){
-        var postition=i*row;
-        if(cellnr==postition+1){ //if cell from first column
-           temp = [cellnr+1, cellnr-column,   cellnr-column+1,  cellnr+column, cellnr+column+1]; 
-        }else if(cellnr==postition){//if cell from last column
-            temp = [cellnr-1, cellnr-column,  cellnr-column-1,  cellnr+column, cellnr+column-1];
+    var rownr=Math.floor(cellnr/column);   
+    //find cells arround  
+    if(cellnr==(rownr*column)+1){ //if cell from first column
+        temp = [cellnr+1, cellnr-column,   cellnr-column+1,  cellnr+column, cellnr+column+1]; 
+        }else if(cellnr==rownr*column){//if cell from last column
+            temp = [cellnr-1, cellnr-column,  cellnr-column-1,  cellnr+column, cellnr+column-1]; 
         }else{
             temp = [cellnr+1, cellnr-1, cellnr-column,  cellnr-column-1,  cellnr-column+1,  cellnr+column, cellnr+column-1, cellnr+column+1];
-            }            
         } 
-    temp.forEach(function(el){ if(el>0 && el <= row*column ){
-            myNeighbor.push(el);
-        }})      
-    return myNeighbor;    
+    //add cell to neighbor list
+    temp.forEach(function(el){ if(el>0 && el <= row*column ){ //eliminate cells outside the board
+        //prevent re-inspect
+        if(inspectedlist.length>0){
+            if(inspectedlist.indexOf(el)==-1){//doesnot push cell which has already inspected
+               myNeighbor.push(el);
+            }
+        }else {myNeighbor.push(el);}           
+    }});     
+    myNeighbor.sort(function(a, b){return a-b}); 
+return myNeighbor;    
 };
 
 var countMines = function(cellnr){
     var numberofMine = 0;
     var myNeighbor=findmyNeighbor(cellnr);
-    for(var i = 0; i<myNeighbor.lenght; i++){
-        if(minelist.indexOf(i)!=-1){
-            numberofMine++;
-        }
-    }
+    myNeighbor.forEach(function(cell){
+        if(minelist.indexOf(cell)!=-1){
+        numberofMine++;
+        }});    
     return numberofMine;
-}
+};
 
-var minetest=function(){
-    
-}
 var markCellasOpened = function(cellId){
     $('#'+cellId).addClass('opened');
     document.getElementById(cellId).style.pointerEvents ='none';
-}
+};
 
 var openCell = function(cellnr){   
     console.log('left mouse on cell nummer ' + cellnr);
-    var cellId = cellnr.toString();
+    var cellId = cellnr.toString();    
     if(hasMine(cellId)){ //animation explorate, reveal all mines and end the game
+    minelist.forEach((function(cellnr){
+        var id= cellnr.toString();
+        $('#'+id).addClass('bomb');
+    }));
     console.log('Boooom!');       
     }
     //the cell is empty
     else{
         //opend empty cell
-         markCellasOpened(cellId);
+         markCellasOpened(cellId);      
        //show the mines number  
        var inspectlist= findmyNeighbor(cellnr);      
-    //    while(inspectlist.length!=0){         
-           for(var i=0; i<=inspectlist.length; i++){
-               var value= inspectlist[i];               
-               var nrOfmine=countMines(value);
-               var id=value.toString();
-               var index=inspectlist.indexOf(value);
-               if(nrOfmine==0){                                 
-                    markCellasOpened(id);
-                    var newInspectList= new Array;
-                    newInspectList=findmyNeighbor(value);
-                    // inspectlist.splice(index, 1);                  
-                    for(var j=0; j<newInspectList.length; j++){
-                        var newitem=newInspectList[j];
-                        if(inspectlist.indexOf(newitem)==-1 && newitem!=value){
-                            inspectlist.push(newitem);
-                        }
-                    }                     
-               }else{
-                    $('#'+id).innerText=nrOfmine;
-                    // inspectlist.splice(index, 1);
-               }
-           }//end of FOR loop                     
-    //    }//end of while loop
+       while(inspectlist.length!=0){                   
+            var inspectingCell= inspectlist[0];               
+            var nrOfmine=countMines(inspectingCell);
+            var id=inspectingCell.toString();
+            //add cellnr to inspected list
+            inspectedlist.push(inspectingCell);
+            inspectedlist.sort(function(a, b){return a-b});  
+            //remove from inspectlist
+            inspectlist.splice(0, 1);   
+            markCellasOpened(id);       
+            if(nrOfmine==0){                                                 
+                var newInspectList= new Array;
+                newInspectList=findmyNeighbor(inspectingCell);                                                 
+                for(var j=0; j<newInspectList.length; j++){
+                    var newitem=newInspectList[j];
+                    if(inspectlist.indexOf(newitem)==-1 && newitem!=inspectingCell){
+                        inspectlist.push(newitem);
+                    }
+                }                     
+            }else{
+                $('#'+id).text(nrOfmine);
+            }                   
+       }//end of while loop
     }//end of else the cell is empty       
 };
 
@@ -145,12 +152,71 @@ var markCell = function(cellnr){
 //add a flag to the cell and do nothing  
     var cellId = cellnr.toString();
     $('#'+cellId).toggleClass('flag');  
-}
+};
 
 //disable default right click's menu in chessBoard
 $(chessBoard).bind('contextmenu', function(e){
     e.preventDefault();
-    console.log('right click is not allowed here!');
 }, false);
 console.log(minelist);
 console.log(table);
+
+// var exBomb= new Image();
+// exBomb.src="img/explosion.png";
+// 
+// function sprite(options){
+//     var that = {},
+//     frameIndex=0,
+//     tickCount=0,
+//     ticksPerFrame = 0,
+//     numberOfFrames = options.numberOfFrames ||1;
+//     
+//     that.context= options.context;
+//     that.width=options.width;
+//     that.height=options.height;
+//     that.image=options.image;
+//     that.loop = options.loop;
+//     
+//     that.render=function(){
+//         //Draw the animation
+//         that.context.drawImage(
+//             that.image,
+//             frameIndex*that.width/numberOfFrames,        
+//             0,
+//             0,
+//             that.width/numberOfFrames,
+//             that.height,
+//             0,
+//             0,
+//             that.width/numberOfFrames,
+//             that.height);
+//     };
+//     
+//     that.update=function(){
+//         tickCount +=1;
+//         //if the current frame index is in range
+//         if(tickCount>ticksPerFrame){
+//             tickCount=0;
+//             //go to next frame
+//             frameIndex ++;
+//         }else if(that.loop){
+//             frameIndex=0;
+//         }
+//     };
+//         
+//     return that;
+// }
+// 
+// var canvas=document.getElementById('explostion');
+// canvas.width=200;
+// canvas.heigh=200;
+// 
+// var bomb= sprite({
+//     context: canvas.getContext("2d"),
+//     width:200,
+//     heigh:200,
+//     image:exBomb
+// });
+// 
+// bomb.render();
+
