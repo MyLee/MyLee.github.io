@@ -1,3 +1,8 @@
+body{
+    margin: 0, auto;
+     align-items: center;
+    justify-content: center; 
+}
 .white{
     background-color: #008080;
 }
@@ -13,8 +18,8 @@
    
 }
 table{
-     min-width: 80vh;
-    height: 80vh;
+    min-width: 100vh;
+    height: 100vh;
     border: 2px solid #d3d3d3;
     color: #FFF;
 }
@@ -27,8 +32,7 @@ table td:hover{
 table td{
     height: 5vh;
     width: 5vh;
-    color: #fff;
-    vertical-align: bottom;
+   
 }
 
 .flag{
@@ -40,7 +44,8 @@ table td{
 }
 
 .bomb{
-    background: url(../img/bomb.png)center  no-repeat;
+    max-height: 100%;
+   
 }
 
 canvas{

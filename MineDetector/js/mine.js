@@ -5,17 +5,23 @@ var minelist = new Array;
 var inspectedlist= new Array;
 
 var chessBoard = document.querySelector('#chessBoard')
+var refreshBtn = document.getElementById('start');
+var refreshPage = function(){
+    window.location.reload();
+}
+refreshBtn.addEventListener('click', refreshPage);
+
 //add function to users left or right click
-var userClick = function(e){  e.preventDefault();  
-    e = e || window.event;   
+var userClick = function(e){   
+    // e = e || window.event;   
     var cellNr= parseInt(e.toElement.id);   
     switch (e.which) {
         //left click
         case 1: openCell(cellNr); break;
         //right click
-        case 3:        
-            markCell(cellNr);                        
-            break;                             
+        case 3:      
+           e.preventDefault();   
+           setFlag(cellNr); break;                             
         }      
 };
 
@@ -38,12 +44,20 @@ for (var i = 1; i < row+1 ; i++) {
     table.appendChild(tr);
 }
 chessBoard.appendChild(table);
-
+// <img src="img/fishes1.png" alt="fishes" class="fishes"/>
+var showMines=function(id){
+    var bomb=document.createElement('img');
+    bomb.setAttribute('src', 'img/bomb.png');
+    bomb.setAttribute('alt', 'bomb');
+    bomb.className='bomb';
+    document.getElementById(id).appendChild(bomb);
+};
+    
 
 // $('#chessBoardd td').addEventlistener
 var createMines= function(){
     var cells=row*column;    
-    var mineQty= Math.round(cells/row+1);
+    var mineQty= Math.round(cells/row+3);
     //if mines in the list is not enough, create more
     while(minelist.length<mineQty){
         //create ramdom mine   
@@ -51,7 +65,13 @@ var createMines= function(){
         if(minelist.indexOf(mine)==-1){
             minelist.push(mine);
         }
-    }
+    }    
+     minelist.forEach((function(cellnr){
+        var id= cellnr.toString();
+        showMines(id);
+    }));
+    
+    minelist.sort(function(a, b){return a-b});  
     return minelist;
 }
 createMines();
@@ -65,34 +85,63 @@ var hasMine = function(cellId){
     }   
 };
 
-var findmyNeighbor = function(cellnr){
+var findMineNeighbor = function(cellnr){
     var myNeighbor= new Array;
-    var temp;
     var rownr=Math.floor(cellnr/column);   
     //find cells arround  
     if(cellnr==(rownr*column)+1){ //if cell from first column
-        temp = [cellnr+1, cellnr-column,   cellnr-column+1,  cellnr+column, cellnr+column+1]; 
+        myNeighbor = [cellnr+1, cellnr-column,   cellnr-column+1,  cellnr+column, cellnr+column+1]; 
         }else if(cellnr==rownr*column){//if cell from last column
-            temp = [cellnr-1, cellnr-column,  cellnr-column-1,  cellnr+column, cellnr+column-1]; 
+            myNeighbor = [cellnr-1, cellnr-column,  cellnr-column-1,  cellnr+column, cellnr+column-1]; 
         }else{
-            temp = [cellnr+1, cellnr-1, cellnr-column,  cellnr-column-1,  cellnr-column+1,  cellnr+column, cellnr+column-1, cellnr+column+1];
+            myNeighbor = [cellnr+1, cellnr-1, cellnr-column,  cellnr-column-1,  cellnr-column+1,  cellnr+column, cellnr+column-1, cellnr+column+1];
         } 
-    //add cell to neighbor list
-    temp.forEach(function(el){ if(el>0 && el <= row*column ){ //eliminate cells outside the board
-        //prevent re-inspect
-        if(inspectedlist.length>0){
-            if(inspectedlist.indexOf(el)==-1){//doesnot push cell which has already inspected
-               myNeighbor.push(el);
-            }
-        }else {myNeighbor.push(el);}           
-    }});     
+    for(var i = 0; i<myNeighbor.length; i++){
+        if(myNeighbor[i]<=0 || myNeighbor[i] > row*column ){ //eliminate cells outside the board
+        myNeighbor.splice(i, 1);
+        }
+    }    
     myNeighbor.sort(function(a, b){return a-b}); 
 return myNeighbor;    
 };
 
+
+var findmyNeighbor = function(cellnr){
+    var myNeighbor= new Array;
+    var rownr=Math.floor(cellnr/column);   
+    //find cells arround  
+    if(cellnr==(rownr*column)+1){ //if cell from first column
+        myNeighbor = [cellnr+1, cellnr-column,  cellnr+column]; 
+        }else if(cellnr==rownr*column){//if cell from last column
+            myNeighbor = [cellnr-1, cellnr-column, cellnr+column]; 
+        }else{
+            myNeighbor = [cellnr+1, cellnr-1, cellnr-column,  cellnr+column];
+        }
+    for(var i = 0; i<myNeighbor.length; i++){
+        if(myNeighbor[i]<=0 || myNeighbor[i] > row*column ){ //eliminate cells outside the board
+        myNeighbor.splice(i, 1);
+        }
+    }    
+    myNeighbor.sort(function(a, b){return a-b}); 
+return myNeighbor;    
+};
+
+var removeDuplicate = function(duplicateArray, temp){
+    var wantedArray = new Array;
+    temp.forEach(function(el){ if(el>0 && el <= row*column ){ //eliminate cells outside the board
+        //prevent re-inspect
+        if(duplicateArray.length>0){
+            if(duplicateArray.indexOf(el)==-1){//doesnot push cell which has already inspected
+               wantedArray.push(el);
+            }
+        }else {wantedArray.push(el);}           
+    }});  
+    return wantedArray;   
+};
+
 var countMines = function(cellnr){
     var numberofMine = 0;
-    var myNeighbor=findmyNeighbor(cellnr);
+    var myNeighbor=findMineNeighbor(cellnr);
     myNeighbor.forEach(function(cell){
         if(minelist.indexOf(cell)!=-1){
         numberofMine++;
@@ -105,22 +154,31 @@ var markCellasOpened = function(cellId){
     document.getElementById(cellId).style.pointerEvents ='none';
 };
 
+var neighborHasMine = function(id, neigborlist){
+    neigborlist.forEach((function(cellnr){
+        var nrOfBomb=countMines(cellnr);
+        if(nrOfBomb!=0){
+            return true;
+        }
+
+    }));
+};
+
 var openCell = function(cellnr){   
     console.log('left mouse on cell nummer ' + cellnr);
     var cellId = cellnr.toString();    
-    if(hasMine(cellId)){ //animation explorate, reveal all mines and end the game
-    minelist.forEach((function(cellnr){
-        var id= cellnr.toString();
-        $('#'+id).addClass('bomb');
-    }));
+    if(hasMine(cellId)){ //animation explorate, reveal all mines and end the game  
     console.log('Boooom!');       
     }
-    //the cell is empty
     else{
-        //opend empty cell
-         markCellasOpened(cellId);      
-       //show the mines number  
-       var inspectlist= findmyNeighbor(cellnr);      
+        //the cell is empty, opend empty cell
+        var inspectlist= findmyNeighbor(cellnr);
+        var mines= countMines(cellnr);
+        if(countMines(cellnr)>0){
+            $('#'+cellId).text(mines);
+        }
+            markCellasOpened(cellId);            
+       //show the mines number               
        while(inspectlist.length!=0){                   
             var inspectingCell= inspectlist[0];               
             var nrOfmine=countMines(inspectingCell);
@@ -129,25 +187,29 @@ var openCell = function(cellnr){
             inspectedlist.push(inspectingCell);
             inspectedlist.sort(function(a, b){return a-b});  
             //remove from inspectlist
-            inspectlist.splice(0, 1);   
-            markCellasOpened(id);       
-            if(nrOfmine==0){                                                 
-                var newInspectList= new Array;
-                newInspectList=findmyNeighbor(inspectingCell);                                                 
-                for(var j=0; j<newInspectList.length; j++){
-                    var newitem=newInspectList[j];
-                    if(inspectlist.indexOf(newitem)==-1 && newitem!=inspectingCell){
-                        inspectlist.push(newitem);
+            inspectlist.splice(0, 1);
+            if(hasMine(inspectingCell)==false){                                                
+                if(nrOfmine==0){                                                                 
+                    var newInspectList= new Array;
+                    var temp=findmyNeighbor(inspectingCell); 
+                    newInspectList = removeDuplicate(inspectedlist, temp);                                                
+                    for(var j=0; j<newInspectList.length; j++){
+                        var newitem=newInspectList[j];
+                        if(inspectlist.indexOf(newitem)==-1){
+                            inspectlist.push(newitem);
+                        }
                     }
-                }                     
-            }else{
-                $('#'+id).text(nrOfmine);
+                    markCellasOpened(id);                     
+                }else{
+                    $('#'+id).text(nrOfmine);
+                    markCellasOpened(id);  
+                }
             }                   
        }//end of while loop
     }//end of else the cell is empty       
 };
 
-var markCell = function(cellnr){
+var setFlag = function(cellnr){
     console.log('right mouse on cell nummer ' + cellnr);
 //add a flag to the cell and do nothing  
     var cellId = cellnr.toString();
@@ -160,6 +222,7 @@ $(chessBoard).bind('contextmenu', function(e){
 }, false);
 console.log(minelist);
 console.log(table);
+
 
 // var exBomb= new Image();
 // exBomb.src="img/explosion.png";
