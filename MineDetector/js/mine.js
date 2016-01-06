@@ -177,6 +177,7 @@ var openCell = function(cellnr){
         $('#'+cellId).addClass('red');
         minelist.forEach((function(cellnr){
         var id= cellnr.toString();
+        document.getElementById('start').setAttribute('src', 'img/sad.png');
         showMines(id);
         })); 
         //disable click
