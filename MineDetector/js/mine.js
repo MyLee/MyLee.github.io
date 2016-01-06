@@ -178,6 +178,7 @@ var openCell = function(cellnr){
         minelist.forEach((function(cellnr){
         var id= cellnr.toString();
         document.getElementById('start').setAttribute('src', 'img/sad.png');
+        document.getElementById('notice').innerText='You Lost!';
         showMines(id);
         })); 
         //disable click

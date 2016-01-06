@@ -9,7 +9,7 @@ body{
     font-weight: 600;
     align-items: center;
     justify-content: center; 
-    background: #fff;
+    background: #123646;
 }
 .white{
     background-color: #008080;
@@ -18,8 +18,7 @@ body{
 .black{
     background-color: lightseagreen;
 }
-img{
-    margin-left: 30px;
+img{   
     display: block;
     margin: auto;
     max-height: 3rem;
@@ -27,6 +26,7 @@ img{
 }
 #control{
     border: 0px solid #d3d3d3;
+    background: #123646;
 }
 table{
     margin: 0 auto;
@@ -35,6 +35,7 @@ table{
     border: 2px solid #d3d3d3;
     color: #FFF;
     table-layout: fixed;
+    background-color: #fff;
 }
 
 table td:hover{
@@ -71,9 +72,10 @@ canvas{
 
 #reflex{
     max-width: 600px;
+    color:#fff;
 }
 
 #notice{
-    color: red;
+    color: #fff;
     text-align: right;
 }
