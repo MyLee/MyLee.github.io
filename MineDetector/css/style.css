@@ -1,6 +1,13 @@
+#container{
+    max-width:1000px;
+	margin:0 auto;
+    padding:0;
+}
+
 body{
-    margin: 0, auto;
-     align-items: center;
+    padding: 0;
+    font-weight: 600;
+    align-items: center;
     justify-content: center; 
 }
 .white{
@@ -10,18 +17,20 @@ body{
 .black{
     background-color: lightseagreen;
 }
-#container{
-    padding:0;
-    margin: 0 auto;
+img{
+    display: block;
+    margin: auto;
+    max-height: 3rem;
+    cursor: pointer;
 }
-#chessBoard{
-   
-}
+
 table{
-    min-width: 100vh;
-    height: 100vh;
+    margin: 0 auto;
+    /*min-width: 90vh;
+    height: 90vh;*/
     border: 2px solid #d3d3d3;
     color: #FFF;
+    table-layout: fixed;
 }
 
 table td:hover{
@@ -30,9 +39,10 @@ table td:hover{
 }
 
 table td{
-    height: 5vh;
-    width: 5vh;
-   
+    height: 7vh;
+    width: 7vh;
+    text-align: center;
+    font-size: 1.5em;
 }
 
 .flag{
@@ -51,3 +61,16 @@ table td{
 canvas{
       border: 1px solid black;
     }
+    
+.red{
+    background-color: red;
+}
+
+#reflex{
+    max-width: 600px;
+}
+
+#notice{
+    color: red;
+    text-align: right;
+}

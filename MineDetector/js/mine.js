@@ -3,6 +3,7 @@ const row=9;
 var mineQty;
 var minelist = new Array;
 var inspectedlist= new Array;
+var openedCells= new Array;
 
 var chessBoard = document.querySelector('#chessBoard')
 var refreshBtn = document.getElementById('start');
@@ -52,12 +53,16 @@ var showMines=function(id){
     bomb.className='bomb';
     document.getElementById(id).appendChild(bomb);
 };
-    
+
+var winNotice = function(){    
+    document.getElementById('notice').innerText='You Win!';
+    document.getElementsByTagName('table')[1].style.pointerEvents ='none';
+}    
 
 // $('#chessBoardd td').addEventlistener
 var createMines= function(){
     var cells=row*column;    
-    var mineQty= Math.round(cells/row+3);
+    mineQty= Math.round(cells/row+3);
     //if mines in the list is not enough, create more
     while(minelist.length<mineQty){
         //create ramdom mine   
@@ -65,12 +70,7 @@ var createMines= function(){
         if(minelist.indexOf(mine)==-1){
             minelist.push(mine);
         }
-    }    
-     minelist.forEach((function(cellnr){
-        var id= cellnr.toString();
-        showMines(id);
-    }));
-    
+    }       
     minelist.sort(function(a, b){return a-b});  
     return minelist;
 }
@@ -151,6 +151,9 @@ var countMines = function(cellnr){
 
 var markCellasOpened = function(cellId){
     $('#'+cellId).addClass('opened');
+    if(openedCells.indexOf(cellId)==-1){
+        openedCells.push(cellId);
+    } 
     document.getElementById(cellId).style.pointerEvents ='none';
 };
 
@@ -165,10 +168,20 @@ var neighborHasMine = function(id, neigborlist){
 };
 
 var openCell = function(cellnr){   
-    console.log('left mouse on cell nummer ' + cellnr);
-    var cellId = cellnr.toString();    
-    if(hasMine(cellId)){ //animation explorate, reveal all mines and end the game  
-    console.log('Boooom!');       
+    // console.log('left mouse on cell nummer ' + cellnr);
+    var cellId = cellnr.toString();
+    if(openedCells.length==(column*row)-mineQty){
+                winNotice();
+            }     
+    if(hasMine(cellId)){ //animation explorate, reveal all mines and end the game
+        $('#'+cellId).addClass('red');
+        minelist.forEach((function(cellnr){
+        var id= cellnr.toString();
+        showMines(id);
+        })); 
+        //disable click
+        document.getElementsByTagName('table')[1].style.pointerEvents ='none';
+        // console.log('Boooom!');       
     }
     else{
         //the cell is empty, opend empty cell
@@ -184,8 +197,10 @@ var openCell = function(cellnr){
             var nrOfmine=countMines(inspectingCell);
             var id=inspectingCell.toString();
             //add cellnr to inspected list
-            inspectedlist.push(inspectingCell);
-            inspectedlist.sort(function(a, b){return a-b});  
+            if(inspectedlist.indexOf(inspectingCell)==-1){//prevent duplication
+                inspectedlist.push(inspectingCell);
+                inspectedlist.sort(function(a, b){return a-b});  
+            }                    
             //remove from inspectlist
             inspectlist.splice(0, 1);
             if(hasMine(inspectingCell)==false){                                                
@@ -204,13 +219,16 @@ var openCell = function(cellnr){
                     $('#'+id).text(nrOfmine);
                     markCellasOpened(id);  
                 }
-            }                   
+            }
+            if(openedCells.length==(column*row)-mineQty){
+                winNotice();
+            }                    
        }//end of while loop
     }//end of else the cell is empty       
 };
 
 var setFlag = function(cellnr){
-    console.log('right mouse on cell nummer ' + cellnr);
+    // console.log('right mouse on cell nummer ' + cellnr);
 //add a flag to the cell and do nothing  
     var cellId = cellnr.toString();
     $('#'+cellId).toggleClass('flag');  
@@ -221,7 +239,7 @@ $(chessBoard).bind('contextmenu', function(e){
     e.preventDefault();
 }, false);
 console.log(minelist);
-console.log(table);
+
 
 
 // var exBomb= new Image();
@@ -282,4 +300,3 @@ console.log(table);
 // });
 // 
 // bomb.render();
-

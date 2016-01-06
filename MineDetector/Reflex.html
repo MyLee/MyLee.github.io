@@ -1,26 +1,38 @@
 <!DOCTYPE html>
   <html>
     <head>  
-      <link type="text/css" rel="stylesheet" href="css/style.css"/>
-      <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+      <link type="text/css" rel="stylesheet" href="css/style.css"/>     
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <title>Reflex Mathematic Game</title>
       <meta charset="utf-8">
     </head>
 
-<body>  
+<body> 
+    <div id = 'container'> 
     <div id="reflex">
-        <p>Jag använd <a href="http://materializecss.com/">Materialize</a> för den här projekt.
-        Koden utgår från <a href="https://teamtreehouse.com/library/interactive-web-pages-with-javascript">Team Tree House</a> med funktioner t.ex spara funktion, clicka direkt 
-        på en task för att ändra content och ett annat utseende som passar bätter till olika skärmarstolek. 
+        <h2>Vad jag har gjort</h2>
+        <p>Jag bygger en Windows klassik spel "Mine sweeper" med javascript, html och css som man kan spela direkt i websida. 
+            Det är optimal för datorskärm bara, har inte fixat för annan typ av skärmen.
+            Med den här spelet kan användare lära sig strategi, theori och konsten av 
+            slum.
         </p>
-        <p>Försöker att använda så mycket ren javascript i min kod som möjligt för träining skull. </p>
-        <p>Fått tips från Alexandre att tydliggare att markera icons, tips från Hansi och Robert om hur man pajar funktioner och hur man förhindra att script kan skickas in. Kul att vetta! Tack för hjälpen allihoppa!  </p>
-   
+        <h2>Hur det går</h2>
+        <p>Det består av massor lucka då jag använder js för att  
+            skappa rutorna med id. Det är lättare för mig att använda vanlig tabel inte canvas.
+            Vad är svåraste med uppgiften är att bygga rätt loop som ska öppna tomma luckorna och visa nummer av bomb.
+            Det tar ganska mycket tid för 'debug' också dvs se till att spelet fungera som det ska.</p>
+        <h2>Om man har tid</h2>
+        <p>Om jag har med tid tänker jag lägga mer funktioner:
+            <ul>                
+                <li>Visa tiden som användare använd för att lösa gåtan</li>
+                <li>Visa hur många bomb kvar</li>
+                <li>Olika svårighets nivå t.ex lätt, svårt, mycket svårt genom storlek och bomb mängde</li>
+                <li>Användare kan bestämmer storlek av table</li>
+                <li>Spara lokal, och på server för att jämför med varandra, visa bäst tid rekord att lösa en gåta</li>
+                <!--<li>Animation effekt med canvas.</li>-->
+            </ul>     
+        </p>
     </div>
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>    
-    <script type="text/javascript" src="js/todo.js"></script>-->
+     </div>    
     </body>
 </html>
