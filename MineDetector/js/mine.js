@@ -38,14 +38,17 @@ for (var i = 1; i < row+1 ; i++) {
             td.className = "black";
         }
         td.id= (++cellnr).toString(); //id the same as cell number i chessboard
-        td.title=td.id; //for testing purpose
+        // td.title=td.id; //for testing purpose
         td.addEventListener('mouseup', userClick, false);
         tr.appendChild(td);
     }
     table.appendChild(tr);
 }
 chessBoard.appendChild(table);
-// <img src="img/fishes1.png" alt="fishes" class="fishes"/>
+
+var explosionSound = new Audio('sound/explosion.mp3');
+var triumpSound = new Audio('sound/triump.mp3');
+
 var showMines=function(id){
     var bomb=document.createElement('img');
     bomb.setAttribute('src', 'img/bomb.png');
@@ -55,6 +58,7 @@ var showMines=function(id){
 };
 
 var winNotice = function(){    
+    triumpSound.play();
     document.getElementById('notice').innerText='You Win!';
     document.getElementsByTagName('table')[1].style.pointerEvents ='none';
 }    
@@ -175,6 +179,7 @@ var openCell = function(cellnr){
             }     
     if(hasMine(cellId)){ //animation explorate, reveal all mines and end the game
         $('#'+cellId).addClass('red');
+        explosionSound.play();
         minelist.forEach((function(cellnr){
         var id= cellnr.toString();
         document.getElementById('start').setAttribute('src', 'img/sad.png');
