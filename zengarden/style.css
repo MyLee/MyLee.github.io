@@ -106,18 +106,19 @@ The vendor extensions are proprietary code. As such it will always be warning.
 #zen-preamble{  
   max-width: 1000px;
   padding: 1%;
-  background: url(img/car.png) no-repeat top left 450px, url(img/flight.png) no-repeat top left 500px,url(img/subway.png) no-repeat top left 550px; 
+  /*background: url(img/car.png) no-repeat top left 450px, url(img/flight.png) no-repeat top left 500px,url(img/subway.png) no-repeat top left 550px; */
   border-radius: 2px;  
 }
 
 #zen-preamble:hover{ 
-  background: url(img/road.jpg)center;
+  /*background: url(img/road.jpg)center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover;*/
   transition: 2s;
-  opacity: 1;
+  opacity: .8;
+  background: #000700;
 }
 
 #zen-supporting{
@@ -186,10 +187,10 @@ div #zen-supporting > div{
 #zen-requirements{
   float: left;
   width:62%;
-  background:url(img/setting.png) top left no-repeat, -webkit-linear-gradient(left,#007F8D, #000700, #000700, #000700,   #000700, #000700);
+  /*background:url(img/setting.png) top left no-repeat, -webkit-linear-gradient(left,#007F8D, #000700, #000700, #000700,   #000700, #000700);
   background:url(img/setting.png) top left no-repeat, -o-linear-gradient(right, #007F8D, #000700, #000700, #000700,  #000700, #000700); 
   background:url(img/setting.png) top left no-repeat, -moz-linear-gradient(right,#007F8D,  #000700, #000700, #000700,  #000700, #000700); 
-  background:url(img/setting.png) top left no-repeat, linear-gradient(to right,#007F8D,  #000700, #000700 , #000700, #000700, #000700); /* Standard syntax (must be last) */
+  background:url(img/setting.png) top left no-repeat, linear-gradient(to right,#007F8D,  #000700, #000700 , #000700, #000700, #000700);  Standard syntax (must be last) */
   background-position: 2% 2%;
 }
 

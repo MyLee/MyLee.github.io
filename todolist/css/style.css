@@ -1,19 +1,22 @@
 /*--------GENERAL------*/
+body {
+    font-family: 'Coming Soon', Calibri, Trebuchet, sans-serif !important;
+    color: #fff;
+  }
+
 #container{
-	max-width: 800px;
-	margin:0 auto;
-	background: #FFF;
-    min-height: 100vh; 
-    /*background: url(../img/paper.png) repeat;*/
+    padding-top: 0;
+   padding-left: 3%;
+   padding-right: 3%;
+    margin: 0 auto;
 }
 
 h1{
-    padding: 0;
-    margin:0;
+    text-align: center;
 }
 body{
 	background: #4682b4;
-    /*background: url(../img/stardust.png) repeat;*/
+    background: url(../img/stardust.png) repeat;
 	font-weight: 600;
 }
 .material-icons{
@@ -26,6 +29,9 @@ body{
     cursor: pointer;
 }
 
+.done{
+    color: #EE6E73;
+}
 .delBtn:hover{
 	color: #d50000;
     cursor: pointer;
@@ -53,11 +59,12 @@ body{
 
 #completed{
     border-left: 1px solid; 
-   
+
 }
 #completedlist{
-     color: #008080;
+     /*color:  #EE6E73;*/
     text-decoration: line-through;
+    color: #EE6E73;
 }
 
 #todo{
@@ -72,8 +79,13 @@ span.left,  span.right{
     font-size: 14px;
 }
 
-#completed li:nth-child(odd), #todolist li:nth-child(odd){
-    background-color: #F5F2F0 ;    
+/*#completed li:nth-child(even), #todolist li:nth-child(even){
+   background-color: #706D69 ;  
+    border-radius: 3px;   
+}*/
+
+#completed li, #todolist li{
+    border-bottom: solid 1px #706D69;
 }
 #completed li, #todolist li{
     overflow: auto;
@@ -86,7 +98,8 @@ ul li{
 }
 
 #todolist li:hover, #completed li:hover{
-    background-color: #fffaf0; 
+    /*background-color: #fffaf0; */
+    background-color: #A09D97;
 }
 
 #modal1{
@@ -98,6 +111,12 @@ ul li{
     position: fixed;
     bottom: 0;
     left: 0;
+}
+
+#menu{
+    position: fixed;
+    bottom: 0;
+    right: 0;
 }
 
 #toast-container {

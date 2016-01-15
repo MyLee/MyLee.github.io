@@ -49,7 +49,7 @@ chessBoard.appendChild(table);
 var explosionSound = new Audio('sound/explosion.mp3');
 var triumpSound = new Audio('sound/triump.mp3');
 
-var showMines=function(id){
+var showMine=function(id){
     var bomb=document.createElement('img');
     bomb.setAttribute('src', 'img/bomb.png');
     bomb.setAttribute('alt', 'bomb');
@@ -171,6 +171,19 @@ var neighborHasMine = function(id, neigborlist){
     }));
 };
 
+var click2Bomb = function(cellId){
+    $('#'+cellId).addClass('red');
+        explosionSound.play();
+        minelist.forEach((function(cellnr){
+            var id= cellnr.toString();        
+            showMine(id);
+        })); 
+        document.getElementById('start').setAttribute('src', 'img/sad.png');
+        document.getElementById('notice').innerText='You Lost!';
+        //disable table
+        document.getElementsByTagName('table')[1].style.pointerEvents ='none';   
+}
+
 var openCell = function(cellnr){   
     // console.log('left mouse on cell nummer ' + cellnr);
     var cellId = cellnr.toString();
@@ -178,17 +191,7 @@ var openCell = function(cellnr){
                 winNotice();
             }     
     if(hasMine(cellId)){ //animation explorate, reveal all mines and end the game
-        $('#'+cellId).addClass('red');
-        explosionSound.play();
-        minelist.forEach((function(cellnr){
-        var id= cellnr.toString();
-        document.getElementById('start').setAttribute('src', 'img/sad.png');
-        document.getElementById('notice').innerText='You Lost!';
-        showMines(id);
-        })); 
-        //disable click
-        document.getElementsByTagName('table')[1].style.pointerEvents ='none';
-        // console.log('Boooom!');       
+        click2Bomb(cellId);
     }
     else{
         //the cell is empty, opend empty cell
@@ -198,7 +201,7 @@ var openCell = function(cellnr){
             $('#'+cellId).text(mines);
         }
             markCellasOpened(cellId);            
-       //show the mines number               
+       //inspect neighbor cells             
        while(inspectlist.length!=0){                   
             var inspectingCell= inspectlist[0];               
             var nrOfmine=countMines(inspectingCell);
@@ -235,7 +238,6 @@ var openCell = function(cellnr){
 };
 
 var setFlag = function(cellnr){
-    // console.log('right mouse on cell nummer ' + cellnr);
 //add a flag to the cell and do nothing  
     var cellId = cellnr.toString();
     $('#'+cellId).toggleClass('flag');  
@@ -248,62 +250,3 @@ $(chessBoard).bind('contextmenu', function(e){
 console.log(minelist);
 
 
-
-// var exBomb= new Image();
-// exBomb.src="img/explosion.png";
-// 
-// function sprite(options){
-//     var that = {},
-//     frameIndex=0,
-//     tickCount=0,
-//     ticksPerFrame = 0,
-//     numberOfFrames = options.numberOfFrames ||1;
-//     
-//     that.context= options.context;
-//     that.width=options.width;
-//     that.height=options.height;
-//     that.image=options.image;
-//     that.loop = options.loop;
-//     
-//     that.render=function(){
-//         //Draw the animation
-//         that.context.drawImage(
-//             that.image,
-//             frameIndex*that.width/numberOfFrames,        
-//             0,
-//             0,
-//             that.width/numberOfFrames,
-//             that.height,
-//             0,
-//             0,
-//             that.width/numberOfFrames,
-//             that.height);
-//     };
-//     
-//     that.update=function(){
-//         tickCount +=1;
-//         //if the current frame index is in range
-//         if(tickCount>ticksPerFrame){
-//             tickCount=0;
-//             //go to next frame
-//             frameIndex ++;
-//         }else if(that.loop){
-//             frameIndex=0;
-//         }
-//     };
-//         
-//     return that;
-// }
-// 
-// var canvas=document.getElementById('explostion');
-// canvas.width=200;
-// canvas.heigh=200;
-// 
-// var bomb= sprite({
-//     context: canvas.getContext("2d"),
-//     width:200,
-//     heigh:200,
-//     image:exBomb
-// });
-// 
-// bomb.render();
