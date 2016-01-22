@@ -5,7 +5,7 @@ body {
   }
 
 #container{
-    padding-top: 0;
+   padding-top: 0;
    padding-left: 3%;
    padding-right: 3%;
     margin: 0 auto;
@@ -129,4 +129,18 @@ ul li{
     padding: 10%;
     max-width: 60%;
     color: #FFF;
+}
+
+@media all and (max-width: 992px) {  
+  #container{
+   padding-left: 1%;
+   padding-right: 1%;
+   }   
+}
+
+@media all and (max-width: 600px) {  
+   #container{
+   padding-left: 0;
+   padding-right: 0;
+   } 
 }
