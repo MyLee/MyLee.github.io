@@ -8,7 +8,7 @@ document.body.appendChild(canvas);
 
 var points, direction;
 var zombie = {
-    speed: 100   
+    speed: 40   
 }
 
 var winNotice = function(){
@@ -268,6 +268,12 @@ function drawRectangle(x,y,length,height, color ){
     // }   
     ctx.fill();
 }
+
+createjs.Ticker.on("tick", handleTick);
+   function handleTick(event) {
+       stage.update(event);
+   }
+
 
 function drawZombie(x,y, left){
     drawRectangle(x+3, y+30, 11,22, 'lightgreen'); 
