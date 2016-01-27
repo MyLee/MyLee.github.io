@@ -7,6 +7,8 @@ canvas.id='maingame';
 document.body.appendChild(canvas);
 
 var points, direction;
+var walls=[];
+var isMoving = true;
 var zombie = {
     speed: 100   
 }
@@ -118,20 +120,27 @@ var drawObstacle = function(t, color){
         ctx.rect(currentPos[0], currentPos[1], currentPos[2], currentPos[3]);
         ctx.fillStyle = color;
         ctx.fill();
+        walls.push(currentPos);
     }        
 }
 
 var reset = function(){
     zombie.x=370;
     zombie.y=730;    
-    zombie.left = true    
+    zombie.left = true;
+    zombie.isMoving = true;    
     points= 0;
 }
 
 var render = function(){
-    ctx.clearRect(0,0,800,800);
+    //ctx.clearRect(0,0,800,800);
+    drawZombie(zombie.x,zombie.y, zombie.left, zombie.isMoving);   
+   // keyboardControl(modifier);
+                   
+}
+
+
     drawObstacle(5,'green'); 
-    
     octagon();
     drawZombie(zombie.x,zombie.y, zombie.left);
     pentagon();
@@ -140,8 +149,7 @@ var render = function(){
     drawRectangle(600,235,30,80, 'deepskyblue');
     drawCircle(700,70,40,'blueviolet');
     star();
-    triangel();                  
-}
+    triangel();
 
 // setInterval(main, 1);
 
@@ -155,21 +163,46 @@ addEventListener('keydown', function(e){
 addEventListener('keyup', function(e){
     delete keysDown[e.keyCode];
 })
-var keyboardControl = function(modifier) {    
-    if(38 in keysDown){// up
+var keyboardControl = function(modifier) {        
+    var futureX = this.zombie.x;
+    var futureY = this.zombie.y;
+    
+    var futureTopY = futureY-15;
+    var futureBottomY = futureY+30;
+    var futureLeftX = futureX-18;
+    var futureRightX = futureX+24;
+    
+    //check if future position hits an obstable
+    //stop themovement and retuern false if so
+    for(var i in this.walls){
+        var wall = this.walls[i];
+        var wallTopY = wall[1];
+        var wallBottomY= wallTopY + wall[3];
+        var wallLeftX = wall[0];
+        var wallRightX = wallLeftX + wall[2];
+        if (futureRightX > wallLeftX && futureLeftX < wallRightX && futureBottomY > wallTopY && futureTopY < wallBottomY) {
+         this.zombie.isMoving = false;
+         return false;
+      }
+    }
+    if(this.zombie.isMoving){          
+        if(38 in keysDown){// up
         zombie.y -= zombie.speed*modifier;
-    }
-    if(40 in keysDown){// down
-        zombie.y += zombie.speed * modifier;
-    }
-    if(37 in keysDown){// left
-        zombie.x -= zombie.speed * modifier;
-        zombie.left=true;
-    }
-    if(39 in keysDown){//right
-        zombie.x += zombie.speed * modifier;
-        zombie.left = false;
-    }
+        }
+        if(40 in keysDown){// down
+            zombie.y += zombie.speed * modifier;
+        }
+        if(37 in keysDown){// left
+            zombie.x -= zombie.speed * modifier;
+            zombie.left=true;
+        }
+        if(39 in keysDown){//right
+            zombie.x += zombie.speed * modifier;
+            zombie.left = false;
+        }
+    }  
+    
+    //if no obstacles are hit, move the zombie
 
 }
 
@@ -194,7 +227,7 @@ var main = function(modifier){
 	requestAnimationFrame(main);
 };
 
-setInterval(main, 1);
+//setInterval(main, 1);
 
 //Update game object
 var update = function(modifier){    
