@@ -3,6 +3,16 @@ body{
     background-color: black;
 }
 
+#restart{
+    /*display: none;*/
+    position: absolute;
+    top: 350px;
+    left: 350px;
+    background-color: greenyellow;
+    width: 140px;
+    height: 60px;
+    font-size: 25px;
+}
 /*#maingame{
     border: 2px solid greenyellow;
 }*/

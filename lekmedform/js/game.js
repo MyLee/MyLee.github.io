@@ -12,9 +12,12 @@ var isMoving = true;
 var zombie = {
     speed: 100   
 }
-
+var restartBtn=  document.querySelector('#restart');
 var collisionSound = new Audio('sound/metal.mp3');
 var triumpSound = new Audio('sound/triump.mp3');
+var beepSound = new Audio('sound/beep.mp3');
+
+restartBtn.style.display = 'none';
 
 var notice = function(note){
     ctx.font = "24px Helvetica";
@@ -104,7 +107,7 @@ var formCoordinates = [
     ['circle',700,70,40],
     ['star',310,650,35],
     ['octagon',730,730,45]
-]
+];
 
 
 var drawObstacle = function(t, color){  
@@ -151,13 +154,27 @@ var resetZombiePos=function(){
     zombie.x=360;
     zombie.y=730;    
     zombie.left = true;
-    zombie.isMoving = true;
+    zombie.isMoving = true;    
+   
 }
 
 var reset = function(){
+    ctx.clearRect(0,0,800,800);
     resetZombiePos();      
     points= 0;
     findForm = randomForm();
+    restartBtn.style.display = 'none';
+    ctx.clearRect(800,0,400,400);
+     formCoordinates = [
+        ['pentagon', 150,550,45],
+        ['heptagon', 170,270,45],
+        ['square',310,270,50],
+        ['rectangle',600,235,30,80],
+        ['triangle',750,550,40],
+        ['circle',700,70,40],
+        ['star',310,650,35],
+        ['octagon',730,730,45]
+    ];
 }
 
 var render = function(){
@@ -242,6 +259,7 @@ var keyboardControl = function(modifier, speed) {
     if (futureRightX > formLeftX && futureLeftX < formRightX && futureBottomY >formTopY && futureTopY < formBottomY) {
         ctx.clearRect(800,0,400,400);
         points +=10;
+        beepSound.play();
         formCoordinates.splice(findForm,1);
         findForm = randomForm();
     }
@@ -249,6 +267,7 @@ var keyboardControl = function(modifier, speed) {
     if(points==80){
         triumpSound.play();
         notice('win');
+        restartBtn.style.display='block';
     }
 }
 
@@ -362,7 +381,14 @@ function drawZombie(x,y, left){
     }    
 }
 
+var bgMusic = new Audio('sound/bg.mp3');
+// bgMusic.addEventListener('ended', function(){
+//     this.currentTime = 0;
+//     this.play();
+// }, false);
+bgMusic.play();
 
+addEventListener('click', function(){window.location.reload();}, false);
 // Let's play this game!
 var then = Date.now();
 reset();
