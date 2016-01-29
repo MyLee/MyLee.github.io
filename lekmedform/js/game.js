@@ -383,10 +383,10 @@ function drawZombie(x,y, left){
 }
 
 var bgMusic = new Audio('sound/bg.mp3');
-// bgMusic.addEventListener('ended', function(){
-//     this.currentTime = 0;
-//     this.play();
-// }, false);
+bgMusic.addEventListener('ended', function(){
+    this.currentTime = 0;
+    this.play();
+}, false);
 bgMusic.play();
 
 addEventListener('click', function(){window.location.reload();}, false);
