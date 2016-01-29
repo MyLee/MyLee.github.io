@@ -13,6 +13,28 @@ body{
     height: 60px;
     font-size: 25px;
 }
+/*#container{
+    margin: 0, auto;
+}*/
+
+#reflex{
+    position: relative;
+    transform: translateY(50%);
+    margin: auto;
+    width: 60%;
+    font-size: 20px;
+    text-align: center;
+}
+
+#notice{
+    position: absolute;
+    top: 18%;
+    left: 12%;
+    color: hotpink;
+    font-size: 60px;
+    background-color: black;
+    /*opacity: .8;*/
+}
 /*#maingame{
     border: 2px solid greenyellow;
 }*/

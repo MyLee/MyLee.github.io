@@ -13,11 +13,12 @@ var zombie = {
     speed: 100   
 }
 var restartBtn=  document.querySelector('#restart');
+var congrats=  document.querySelector('#congrats');
 var collisionSound = new Audio('sound/metal.mp3');
 var triumpSound = new Audio('sound/triump.mp3');
 var beepSound = new Audio('sound/beep.mp3');
 
-restartBtn.style.display = 'none';
+congrats.style.display = 'none';
 
 var notice = function(note){
     ctx.font = "24px Helvetica";
@@ -163,7 +164,7 @@ var reset = function(){
     resetZombiePos();      
     points= 0;
     findForm = randomForm();
-    restartBtn.style.display = 'none';
+    congrats.style.display = 'none';
     ctx.clearRect(800,0,400,400);
      formCoordinates = [
         ['pentagon', 150,550,45],
@@ -267,7 +268,7 @@ var keyboardControl = function(modifier, speed) {
     if(points==80){
         triumpSound.play();
         notice('win');
-        restartBtn.style.display='block';
+        congrats.style.display='block';
     }
 }
 
