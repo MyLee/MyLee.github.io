@@ -183,7 +183,7 @@ var render = function(){
     ctx.clearRect(0,0,800,800);
     drawZombie(zombie.x,zombie.y, zombie.left);                      
 
-    drawObstacle(5,'green'); 
+    drawObstacle(8,'green'); 
     pentagon();
     heptagon();
     square();
@@ -211,7 +211,7 @@ var keyboardControl = function(modifier, speed) {
     var futureX = this.zombie.x;
     var futureY = this.zombie.y;
     
-    var futureTopY = futureY-15;
+    var futureTopY = futureY-9;
     var futureBottomY = futureY+50;
     var futureLeftX = futureX-10;
     var futureRightX = futureX+35;
@@ -220,10 +220,10 @@ var keyboardControl = function(modifier, speed) {
     //stop themovement and retuern false if so
     for(var i in this.walls){
         var wall = this.walls[i];
-        var wallTopY = wall[1]+6;
+        var wallTopY = wall[1]+4;
         var wallBottomY= wallTopY + wall[3]+4;
-        var wallLeftX = wall[0];
-        var wallRightX = wallLeftX + wall[2];
+        var wallLeftX = wall[0]-2;
+        var wallRightX = wallLeftX + wall[2]-2;
         if (futureRightX > wallLeftX && futureLeftX < wallRightX && futureBottomY > wallTopY && futureTopY < wallBottomY) {
          notice('lost');
          collisionSound.play();
