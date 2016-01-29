@@ -1,7 +1,7 @@
 //create the canvas
 var canvas = document.createElement('canvas');
 var ctx = canvas.getContext('2d');
-canvas.width=800;
+canvas.width=1100;
 canvas.height= 800;
 canvas.id='maingame';
 document.body.appendChild(canvas);
@@ -10,14 +10,25 @@ var points, direction;
 var walls=[];
 var isMoving = true;
 var zombie = {
-    speed: 40   
+    speed: 100   
 }
 
-var winNotice = function(){
+var collisionSound = new Audio('sound/metal.mp3');
+var triumpSound = new Audio('sound/triump.mp3');
+
+var notice = function(note){
     ctx.font = "24px Helvetica";
-	ctx.textAlign = "left";
+	ctx.textAlign = "right";
 	ctx.textBaseline = "top";
-	ctx.fillText("You made it!", 40,40);
+    if(note == 'win'){
+       ctx.fillText("You made it!", 1000,40);
+    }else if(note == 'lost'){
+       ctx.fillText("Don't touch the wall!", 1020,10);
+    }else {
+        ctx.fillText("Find a/an " + note, 1010,40);
+    }
+    ctx.fillText('Points = ' + points, 1000, 80 )
+	
 }
 
 //pentagon
@@ -29,10 +40,10 @@ var pentagon = function(){
     // ctx.stroke();
 }
 
-//diamond
-var diamond = function(){
+//heptagon
+var heptagon = function(){
     ctx.beginPath();
-    polygon(ctx,170,270,45,6,-Math.PI/2);
+    polygon(ctx,170,270,45,6,-Math.PI/3 );
     ctx.fillStyle="rgba(236,27,30,0.75)";
     ctx.fill();
     // ctx.stroke();
@@ -77,12 +88,24 @@ var octagon = function(){
     polygon(ctx,730,730,25,8,0,false);
     polygon(ctx, 730,730,45,8,0,true);
     ctx.fillStyle="rgba(227,11,93,0.75)";
-    ctx.shadowColor = 'rgba(0,0,0,0.75)';
-    ctx.shadowOffsetX = 8;
-    ctx.shadowOffsetY = 8;
-    ctx.shadowBlur = 10;
+    // ctx.shadowColor = 'rgba(0,0,0,0.75)';
+    // ctx.shadowOffsetX = 4;
+    // ctx.shadowOffsetY = 4;
+    // ctx.shadowBlur = 10;
     ctx.fill();
 }
+
+var formCoordinates = [
+    ['pentagon', 150,550,45],
+    ['heptagon', 170,270,45],
+    ['square',310,270,50],
+    ['rectangle',600,235,30,80],
+    ['triangle',750,550,40],
+    ['circle',700,70,40],
+    ['star',310,650,35],
+    ['octagon',730,730,45]
+]
+
 
 var drawObstacle = function(t, color){  
     var wallPositions = [
@@ -111,7 +134,7 @@ var drawObstacle = function(t, color){
         [250,700,150,t],
         [700,500,100,t],
         [600,600,100+t,t],
-        [500,700,100+t,t],
+        [520,700,80+t,t],
         [100,700,t,100]        
     ];
     for(var i = 0; i<wallPositions.length; i++){
@@ -124,35 +147,38 @@ var drawObstacle = function(t, color){
     }        
 }
 
-var reset = function(){
-    zombie.x=370;
+var resetZombiePos=function(){
+    zombie.x=360;
     zombie.y=730;    
     zombie.left = true;
-    zombie.isMoving = true;    
+    zombie.isMoving = true;
+}
+
+var reset = function(){
+    resetZombiePos();      
     points= 0;
+    findForm = randomForm();
 }
 
 var render = function(){
-    //ctx.clearRect(0,0,800,800);
-    drawZombie(zombie.x,zombie.y, zombie.left, zombie.isMoving);   
-   // keyboardControl(modifier);
-                   
-}
-
+    //ctx.clearRect(zombie.x-19,zombie.y-20,42,80);
+    ctx.clearRect(0,0,800,800);
+    drawZombie(zombie.x,zombie.y, zombie.left);                      
 
     drawObstacle(5,'green'); 
-    octagon();
-    drawZombie(zombie.x,zombie.y, zombie.left);
     pentagon();
-    diamond();
+    heptagon();
     square();
     drawRectangle(600,235,30,80, 'deepskyblue');
     drawCircle(700,70,40,'blueviolet');
     star();
     triangel();
-
-// setInterval(main, 1);
-
+    octagon();
+} 
+var randomForm = function(){
+    return Math.floor(Math.random()*(formCoordinates.length));
+}
+var findForm = randomForm();
 //Handle keyboard controls
 var keysDown = {};
 
@@ -163,26 +189,27 @@ addEventListener('keydown', function(e){
 addEventListener('keyup', function(e){
     delete keysDown[e.keyCode];
 })
-var keyboardControl = function(modifier) {        
+var keyboardControl = function(modifier, speed) {        
     var futureX = this.zombie.x;
     var futureY = this.zombie.y;
     
     var futureTopY = futureY-15;
-    var futureBottomY = futureY+30;
-    var futureLeftX = futureX-18;
-    var futureRightX = futureX+24;
+    var futureBottomY = futureY+50;
+    var futureLeftX = futureX-10;
+    var futureRightX = futureX+35;
     
     //check if future position hits an obstable
     //stop themovement and retuern false if so
     for(var i in this.walls){
         var wall = this.walls[i];
-        var wallTopY = wall[1];
-        var wallBottomY= wallTopY + wall[3];
+        var wallTopY = wall[1]+6;
+        var wallBottomY= wallTopY + wall[3]+4;
         var wallLeftX = wall[0];
         var wallRightX = wallLeftX + wall[2];
         if (futureRightX > wallLeftX && futureLeftX < wallRightX && futureBottomY > wallTopY && futureTopY < wallBottomY) {
-         this.zombie.isMoving = false;
-         return false;
+         notice('lost');
+         collisionSound.play();
+         resetZombiePos();
       }
     }
     if(this.zombie.isMoving){          
@@ -202,14 +229,33 @@ var keyboardControl = function(modifier) {
         }
     }  
     
-    //if no obstacles are hit, move the zombie
-
+    var formX =  formCoordinates[findForm][1];
+    var formY =  formCoordinates[findForm][2];
+    var formRadius =  formCoordinates[findForm][3];
+    var formTopY = formY - formRadius;
+    var formBottomY = formY + formRadius;
+    var formLeftX = formX - formRadius;
+    var formRightX = formX+ formRadius;
+    var formName = formCoordinates[findForm][0];
+    notice(formName);
+    //Check if find right FORM
+    if (futureRightX > formLeftX && futureLeftX < formRightX && futureBottomY >formTopY && futureTopY < formBottomY) {
+        ctx.clearRect(800,0,400,400);
+        points +=10;
+        formCoordinates.splice(findForm,1);
+        findForm = randomForm();
+    }
+    
+    if(points==80){
+        triumpSound.play();
+        notice('win');
+    }
 }
 
 var pointCounter = function(){
     
     if(points == 800){
-        winNotice();
+        notice('win');
         reset();
     }    
 }
@@ -231,7 +277,7 @@ var main = function(modifier){
 
 //Update game object
 var update = function(modifier){    
-    keyboardControl(modifier);
+    keyboardControl(modifier, 100);
     pointCounter();
 }
 
@@ -240,13 +286,6 @@ var update = function(modifier){
 // Cross-browser support for requestAnimationFrame
 // var w = window;
 // requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
-
-// Let's play this game!
-var then = Date.now();
-reset();
-main();
-
-
 
 function drawStar(ctx, x, y, r, p, m)
 {
@@ -302,10 +341,10 @@ function drawRectangle(x,y,length,height, color ){
     ctx.fill();
 }
 
-createjs.Ticker.on("tick", handleTick);
-   function handleTick(event) {
-       stage.update(event);
-   }
+// createjs.Ticker.on("tick", handleTick);
+//    function handleTick(event) {
+//        stage.update(event);
+//    }
 
 
 function drawZombie(x,y, left){
@@ -322,4 +361,11 @@ function drawZombie(x,y, left){
         drawRectangle(x+14,y+10,13,8,'gray'); 
     }    
 }
+
+
+// Let's play this game!
+var then = Date.now();
+reset();
+main();
+
 
