@@ -5,6 +5,83 @@ canvas.width=1100;
 canvas.height= 800;
 canvas.id='maingame';
 document.body.appendChild(canvas);
+var radius = 40;
+
+var forms =  [
+    ['pentagon'],
+    ['heptagon'],
+    ['square'],
+    ['triangle'],  
+    ['octagon'],
+    ['rectangle'],
+    ['star'],
+    ['circle']
+]
+
+var formCoordinates = [
+    [160,550],
+    [170,270],
+    [310,270],
+    [600,270],
+    [750,550],
+    [700,70],
+    [310,650],
+    [730,730]
+];
+
+var shuffle= function(array){
+    var currentIndex = array.length;
+    var tempValue, randomIndex;
+    // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    tempValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = tempValue;
+  }
+  return array;
+}
+
+shuffle(forms);
+
+var drawForms = function(){
+    for (var i = 0; i<forms.length; i++){
+        var form = forms[i][0];     
+        var x = formCoordinates[i][0];
+        var y = formCoordinates[i][1];
+        switch (form){
+            case 'star': 
+                star(x,y,radius-10);
+            break;
+            case 'rectangle':
+                drawRectangle(x-10,y-35,40,80, 'deepskyblue');
+                break;
+            case 'circle':
+                drawCircle(x,y,radius-3,'blueviolet');
+                break;
+            case 'octagon':
+                octagon(x,y,radius);
+                break;
+            case 'pentagon':
+                pentagon(x,y,radius);
+                break;
+            case 'heptagon':
+                heptagon(x,y,radius);
+                break;
+            case 'square':
+                square(x,y,radius);
+                break;
+            case 'triangle':
+                triangel(x,y,radius);
+                break;
+        }
+    }    
+}
 
 var points, direction;
 var walls=[];
@@ -36,61 +113,61 @@ var notice = function(note){
 }
 
 //pentagon
-var pentagon = function(){
+var pentagon = function(x,y,radius){
     ctx.beginPath();
-    polygon(ctx,170,550,45,5,-Math.PI/2);
+    polygon(ctx,x,y,radius,5,-Math.PI/2);
     ctx.fillStyle="rgba(0,128,0,0.75)";
     ctx.fill();
     // ctx.stroke();
 }
 
 //heptagon
-var heptagon = function(){
+var heptagon = function(x, y, radius){
     ctx.beginPath();
-    polygon(ctx,170,270,45,6,-Math.PI/3 );
+    polygon(ctx,x,y,radius,6,-Math.PI/3 );
     ctx.fillStyle="rgba(236,27,30,0.75)";
     ctx.fill();
     // ctx.stroke();
 } 
 
 //square
-var square = function(){
+var square = function(x,y,radius){
     ctx.beginPath();
-    polygon(ctx,310,270,50,4,-Math.PI/4);
+    polygon(ctx,x,y,radius,4,-Math.PI/4);
     ctx.fillStyle='lime';
     ctx.fill();
 }
 
 
 //rectangle
-drawRectangle(600,235,30,80, 'deepskyblue');
+//drawRectangle(600,235,30,80, 'deepskyblue');
 
 //triangle
-var triangel = function(){
+var triangel = function(x,y,radius){
     ctx.beginPath();
-    polygon(ctx,750,550,40,3,-Math.PI/2);
+    polygon(ctx,x,y,radius,3,-Math.PI/2);
     ctx.fillStyle="rgba(56,67,193,1)";
     ctx.fill();
 }
 
 
 //circle
-drawCircle(700,70,40,'blueviolet')
+//drawCircle(700,70,40,'blueviolet');
 
 //star
-var star = function(){
+var star = function(x, y, radius){
     ctx.beginPath();
-    drawStar(ctx,310,650,35,5,-Math.PI/2);
+    drawStar(ctx,x,y,radius,5,-Math.PI/2);
     ctx.fillStyle='hotpink';
     ctx.fill();
 }
 
 
 //octagon
-var octagon = function(){
+var octagon = function(x,y,radius){
     ctx.beginPath();
-    polygon(ctx,730,730,25,8,0,false);
-    polygon(ctx, 730,730,45,8,0,true);
+    polygon(ctx,x,y,radius-16,8,0,false);
+    polygon(ctx, x,y,radius,8,0,true);
     ctx.fillStyle="rgba(227,11,93,0.75)";
     // ctx.shadowColor = 'rgba(0,0,0,0.75)';
     // ctx.shadowOffsetX = 4;
@@ -98,18 +175,6 @@ var octagon = function(){
     // ctx.shadowBlur = 10;
     ctx.fill();
 }
-
-var formCoordinates = [
-    ['pentagon', 150,550,45],
-    ['heptagon', 170,270,45],
-    ['square',310,270,50],
-    ['rectangle',600,235,30,80],
-    ['triangle',750,550,40],
-    ['circle',700,70,40],
-    ['star',310,650,35],
-    ['octagon',730,730,45]
-];
-
 
 var drawObstacle = function(t, color){  
     var wallPositions = [
@@ -160,43 +225,37 @@ var resetZombiePos=function(){
 }
 
 var reset = function(){
+    //clear ladybrint
     ctx.clearRect(0,0,800,800);
     resetZombiePos();      
     points= 0;
     findForm = randomForm();
     congrats.style.display = 'none';
+    //clear notice board
     ctx.clearRect(800,0,400,400);
-     formCoordinates = [
-        ['pentagon', 150,550,45],
-        ['heptagon', 170,270,45],
-        ['square',310,270,50],
-        ['rectangle',600,235,30,80],
-        ['triangle',750,550,40],
-        ['circle',700,70,40],
-        ['star',310,650,35],
-        ['octagon',730,730,45]
-    ];
+    //  formCoordinates = [
+    //     ['pentagon', 150,550,45],
+    //     ['heptagon', 170,270,45],
+    //     ['square',310,270,50],
+    //     ['rectangle',600,235,30,80],
+    //     ['triangle',750,550,40],
+    //     ['circle',700,70,40],
+    //     ['star',310,650,35],
+    //     ['octagon',730,730,45]
+    // ];
 }
 
 var render = function(){
     //ctx.clearRect(zombie.x-19,zombie.y-20,42,80);
     ctx.clearRect(0,0,800,800);
     drawZombie(zombie.x,zombie.y, zombie.left);                      
-
-    drawObstacle(8,'green'); 
-    pentagon();
-    heptagon();
-    square();
-    drawRectangle(600,235,30,80, 'deepskyblue');
-    drawCircle(700,70,40,'blueviolet');
-    star();
-    triangel();
-    octagon();
+    drawObstacle(8,'green');    
+    drawForms();
 } 
 var randomForm = function(){
     return Math.floor(Math.random()*(formCoordinates.length));
 }
-var findForm = randomForm();
+var formIndex = randomForm();
 //Handle keyboard controls
 var keysDown = {};
 
@@ -246,23 +305,23 @@ var keyboardControl = function(modifier, speed) {
             zombie.left = false;
         }
     }  
-    
-    var formX =  formCoordinates[findForm][1];
-    var formY =  formCoordinates[findForm][2];
-    var formRadius =  formCoordinates[findForm][3];
-    var formTopY = formY - formRadius;
-    var formBottomY = formY + formRadius;
-    var formLeftX = formX - formRadius;
-    var formRightX = formX+ formRadius;
-    var formName = formCoordinates[findForm][0];
+    //check if zombie hit the right form
+    var formX =  formCoordinates[formIndex][0];
+    var formY =  formCoordinates[formIndex][1];   
+    var formTopY = formY - radius;
+    var formBottomY = formY + radius;
+    var formLeftX = formX - radius;
+    var formRightX = formX+ radius;
+    var formName = forms[formIndex][0];
     notice(formName);
-    //Check if find right FORM
+
     if (futureRightX > formLeftX && futureLeftX < formRightX && futureBottomY >formTopY && futureTopY < formBottomY) {
         ctx.clearRect(800,0,400,400);
         points +=10;
         beepSound.play();
-        formCoordinates.splice(findForm,1);
-        findForm = randomForm();
+        formCoordinates.splice(formIndex,1);
+        forms.splice(formIndex, 1);
+        formIndex = randomForm();
     }
     
     if(points==80){
