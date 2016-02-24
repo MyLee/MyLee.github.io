@@ -97,8 +97,9 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
   /*------------Jellyfish INFO------------*/  
  #jellyinfo{
    margin: auto;
-   /*padding-top:2rem;*/
-   color: #FFF;
+   /*padding-top:2rem;
+   color: #FFF;*/
+   background: url(../img/pattern1.png);
    text-align: center;
  }
 
