@@ -168,7 +168,7 @@ body,div .page-wrapper, h1, h2, h3, ui li, abbr, :link,:visited {
 /*-------------WEAPON------------------*/
 #weapon{
   clear: both;
-  padding-top:5rem;
+  /*padding-top:5rem;*/
   background:url(../img/fishes1.png) no-repeat 20px 0px, url(../img/fishes.png) no-repeat 600px ;
 }
 
