@@ -135,7 +135,7 @@
 		$(document).ready(function() {
 			$('[data-toggle="tooltip"]').tooltip()
 			try {
-				$('.box-wrapper, #poison, #jellyinfo').ripples({
+				$('.box-wrapper, #poison, body').ripples({
 					resolution: 512,					
 					perturbance: 0.05,
 				});				
@@ -145,18 +145,18 @@
 			}
 		
 			$('.js-ripples-disable').on('click', function() {
-				$('.box-wrapper, #poison, #jellyinfo').ripples('destroy');
+				$('.box-wrapper, #poison, body').ripples('destroy');
 				$(this).hide();
 				$('.js-ripples-pause').hide();
 				$('.js-ripples-play').hide();
 			});
 		
 			$('.js-ripples-play').on('click', function() {
-				$('.box-wrapper, #poison, #jellyinfo').ripples('play');
+				$('.box-wrapper, #poison, body').ripples('play');
 			});
 		
 			$('.js-ripples-pause').on('click', function() {
-				$('.box-wrapper, #poiso, #jellyinfo').ripples('pause');
+				$('.box-wrapper, #poiso, body').ripples('pause');
 			});					
 		});
 	</script>
