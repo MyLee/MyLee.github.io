@@ -1,2 +1,26 @@
 body { margin:0; padding:0; }
-        #map { position:absolute; top:0; bottom:0; width:100%; }
+       /*#map { position:absolute; top:0; bottom:0; width:100%; }*/
+
+ html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+#map {
+height: 80%;
+}
+
+.left{
+    max-width: 30%;
+    margin-left: 2%;
+    margin-top: 2%;
+}
+#googleMap{
+    min-width: 65vw;
+    height: 100vh;
+}
+
+.left{
+    position: relative;
+    float:left;
+}
