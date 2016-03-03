@@ -1,0 +1,71 @@
+/*-----------Main Colors-------------
+
+
+
+/*------------Reset CSS-----------------*/
+body,div .page-wrapper, h1, h2, h3, h5, ui li, abbr, :link,:visited {
+	margin:0; padding:0; font-size:100%; line-height:1; text-decoration: none;
+  }
+/*------------------GENERAL-------------*/  
+  body{
+    font-family: Georgia, 'sans-serif';  margin:0 auto;
+    background: url(../img/241.jpg) repeat !important;/* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+   
+  }
+  
+   #container{
+      max-width: 1000px;
+      margin:0 auto;
+     
+  }
+  
+  #searchbox{
+      position: relative; margin:0 auto;
+      height: 28vh;
+      box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 25px 0 rgba(0, 0, 0, 0.19);
+        /*background: #424242 !important;*/
+      color: #243e16;
+      border-radius: 10px;
+      float: left;
+  }
+  
+  #search{
+      position: relative; margin:0 auto;
+      height: 8vh;
+      /*margin-top: 7.5vh;*/
+      background: #fff;
+      border-radius:0px 10px 10px 0px; 
+      border:none !important;
+      font-size: 2em!important;
+      color: lightslategrey;
+  }
+  
+  #searchBtn{
+      height: 7.5vh!important;
+      margin-left: .8vh;
+  }
+  
+  #searchBtn img{
+      position: relative;
+      margin-top:1vh;
+  }
+  #searchlogo {
+      position: relative; 
+      height: 8.1vh;
+      margin-top: .1vh;
+      /*margin-left: .1vw;*/
+      border-radius: 10px 0px 0px 10px; 
+  }
+  
+  .title{
+      font-size: 3em;
+      color: #355723;
+      margin-bottom: 10vh;
+  }
+  
+  .btn{
+      border-radius: 10px  !important;
+  }
+  
+  
+ 
