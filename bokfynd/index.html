@@ -16,25 +16,24 @@
 
 <body >
     <div id="container">
-        <h1 class="title center-align"">bokfynd.nu</h1> 
+        <h1 class="title center-align""><img id="searchlogo" src="img/logo.png" alt="logo"/></h1> 
         <div class="row">       
-            <div class="col s12 valign-wrapper grey darken-3 z-depth-5" id="searchbox">
+            <div class="col s12 valign-wrapper grey darken-2" id="searchbox">
+                <!--<p class="col s12">Jämför priser på böcker</p>-->
                 <div class="col s1 valign"></div>
                 <div class="col s1 valign "> <img id="searchlogo" src="img/uggla.png" alt="uggla"/>
                     </div>   
-                <input id="search" class="right col s10 valign" placeholder="Sök efter namn, ISBN eller streckkod" >
-                                                                                                                    
-                    </input>
+                <input id="search" class="right col s10 valign " placeholder="Sök efter namn, ISBN eller streckkod" ></input>
                     <br>
-                    <a id="searchBtn" class="waves-effect waves-light btn btn-large z-depth-4 "><img class="responsive-img" src="img/search.png" alt="SEARCH"/>button</a>    
+                    <a id="searchBtn" class="waves-effect waves-light btn btn-large z-depth-4 grey " onclick="search()"><img class="responsive-img" src="img/search.png" alt="SEARCH"/>button</a>    
                 <div class="col s1 valign"></div>
             </div>        
             <div class=" col s1 right" id="advSearch">
-                <div class="switch center-align">
+                <div class="switch center-align ">
                     <label>
                     
                     <input type="checkbox">
-                    <span class="lever"></span>
+                    <span class="lever grey darken-2"></span>
                     <br><br>
                     Advanced Search
                     </label>
@@ -43,7 +42,12 @@
         </div>           
     </div>
 <script>
-    
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "http://libris.kb.se/xsearch?query=", false);
+    xhr.send();
+
+    console.log(xhr.status);
+    console.log(xhr.statusText);
 </script>
 </body>
 </html>

@@ -16,27 +16,26 @@ body,div .page-wrapper, h1, h2, h3, h5, ui li, abbr, :link,:visited {
    #container{
       max-width: 1000px;
       margin:0 auto;
-     
   }
   
   #searchbox{
       position: relative; margin:0 auto;
-      height: 28vh;
+      height: 26vh;
       box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 25px 0 rgba(0, 0, 0, 0.19);
         /*background: #424242 !important;*/
-      color: #243e16;
+      color: #243e16; 
       border-radius: 10px;
       float: left;
   }
   
   #search{
       position: relative; margin:0 auto;
-      height: 8vh;
+        height: 8vh;
       /*margin-top: 7.5vh;*/
       background: #fff;
       border-radius:0px 10px 10px 0px; 
       border:none !important;
-      font-size: 2em!important;
+      font-size: 1.8em!important;
       color: lightslategrey;
   }
   
@@ -47,18 +46,18 @@ body,div .page-wrapper, h1, h2, h3, h5, ui li, abbr, :link,:visited {
   
   #searchBtn img{
       position: relative;
-      margin-top:1vh;
+      margin-top:1.1vh;
   }
   #searchlogo {
       position: relative; 
       height: 8.1vh;
-      margin-top: .1vh;
+      margin-top: .2vh;
       /*margin-left: .1vw;*/
       border-radius: 10px 0px 0px 10px; 
   }
   
   .title{
-      font-size: 3em;
+      font-size: 2em;
       color: #355723;
       margin-bottom: 10vh;
   }
