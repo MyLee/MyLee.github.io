@@ -16,16 +16,16 @@
 
 <body >
     <div id="container">
-        <h1 class="title center-align""><img id="searchlogo" src="img/logo.png" alt="logo"/></h1> 
+        <h1 class="title center-align""><img class="responsive-img" id="logo" src="img/logo.png" alt="logo"/></h1> 
         <div class="row">       
-            <div class="col s12 valign-wrapper grey darken-2" id="searchbox">
+            <div class="col s12 valign-wrapper grey darken-2 " id="searchbox">
                 <!--<p class="col s12">Jämför priser på böcker</p>-->
                 <div class="col s1 valign"></div>
                 <div class="col s1 valign "> <img id="searchlogo" src="img/uggla.png" alt="uggla"/>
                     </div>   
                 <input id="search" class="right col s10 valign " placeholder="Sök efter namn, ISBN eller streckkod" ></input>
                     <br>
-                    <a id="searchBtn" class="waves-effect waves-light btn btn-large z-depth-4 grey " onclick="search()"><img class="responsive-img" src="img/search.png" alt="SEARCH"/>button</a>    
+                    <a id="searchBtn" class="waves-effect waves-light btn btn-large z-depth-3 grey " onclick="search()"><img class="responsive-img" src="img/search.png" alt="SEARCH"/>button</a>    
                 <div class="col s1 valign"></div>
             </div>        
             <div class=" col s1 right" id="advSearch">
@@ -38,8 +38,19 @@
                     Advanced Search
                     </label>
                 </div>
-            </div>              
-        </div>           
+            </div> 
+        </div>
+        <div class="row" id="popBook">
+            <h5 > Populära böcker</h5> <br>
+            <a href="#" class="col s3 m2"><img class="book" src="img/bok.jpg" alt="book" title="Såser"/><h6 class="center-align">Såser</h6></a>             
+            <a href="#" class="col s3 m2"><img class="book" src="img/bok1.jpg" alt="book" title="Axels tid"/><h6 class="center-align" >Axels tid</h6></a> 
+            <a href="#" class="col s3 m2"><img class="book" src="img/bok2.jpg" alt="book" title="Det som inte dödar oss - Millennium 4"/><h6 class="center-align" >Det som inte dödar oss - Millennium 4</h6></a> 
+            <a href="#" class="col s3 m2"><img class="book" src="img/bok3.jpg" alt="book" title="Rädslans fångar : Ett nytt fall för Maria Wern"/><h6 class=" center-align" ti>Rädslans fångar : Ett nytt fall för Maria Wern</h6></a>  
+            <a href="#" class="col s3 m2"><img class="book" src="img/bok4.jpg" alt="book" title="Barn som bråkar : Att hantera känslostarka barn i vardagen"/><h6 class="center-align" ti>Barn som bråkar : Att hantera känslostarka barn i vardagen</h6></a>  
+            <a href="#" class="col s3 m2"><img class="book" src="img/bok5.jpg" alt="book" title="Mera vego : mat för hela familjen"/><h6 class=" center-align" ti>Mera vego : mat för hela familjen</h6></a>  
+        </div>    
+             
+                   
     </div>
 <script>
     var xhr = new XMLHttpRequest();
