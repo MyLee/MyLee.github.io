@@ -14,8 +14,9 @@ body,div .page-wrapper, h1, h2, h3, h5, ui li, abbr, :link,:visited {
   }
   
    #container{
-      max-width: 1000px;
+      max-width: 1200px;
       margin:0 auto;
+     
   }
   
   #searchbox{
@@ -25,23 +26,26 @@ body,div .page-wrapper, h1, h2, h3, h5, ui li, abbr, :link,:visited {
         /*background: #424242 !important;*/
       color: #243e16; 
       border-radius: 10px;
-      float: left;
+      float: left;    
       
   }
   
-  #advSearch{
-      margin-bottom: 20vh;
+  /*#advSearch{      
       margin-top: 2vh;
-  }
-  #search{
+  }*/
+  #searchInput{     
       position: relative; margin:0 auto;
-        height: 8vh;
-      /*margin-top: 7.5vh;*/
+      height: 8vh;
       background: #fff;
-      border-radius:0px 10px 10px 0px; 
+      border-radius: 10px; 
       border:none !important;
       font-size: 1.8em!important;
       color: lightslategrey;
+  }
+  
+  #describle{
+     font-style: italic;
+     color: #355723;    
   }
   
   #searchBtn{
@@ -54,37 +58,125 @@ body,div .page-wrapper, h1, h2, h3, h5, ui li, abbr, :link,:visited {
       margin-top:1.1vh;
   }
   
-  #logo{
+  .mobi{
+      display: none;
+  }
+
+  #mobilogo{
+      min-height: 4vh;
       max-height: 7vh;
   }
   
   #searchlogo {
       position: relative;       
       height: 8vh;
-      margin-top: .2vh;
+      margin-top: .3vh;
       /*margin-left: .1vw;*/
       border-radius: 10px 0px 0px 10px; 
   }
-  
-  .title{
-      font-size: 2em;
-      color: #355723;
-      margin-bottom: 10vh;
-  }
-  
+   
   .btn{
       border-radius: 10px  !important;
   }
   
   h6{
-      font-size: 1em!important;
+      font-size: 1em !important;
   }
   
-  #popBook img{
+  #popBook{
+      margin-top: 25vh;
+      font-size: 1.2em;
+  }
+  #popBook img, #searchResult img{
       display: block;
       margin: auto;
       width: 45px;
       height: 60px;
   }
   
- 
+  #searchResult{
+      clear: both;
+      display: none;
+  }
+  
+  .hideMe{
+      display: none;
+  }
+  
+#popBook img:hover{
+      width: 55px;
+      height: 73px;
+      transition: .2s;
+  }  
+  
+.menu a{
+    display: block;
+    margin: auto;
+}  
+
+#bigMenu{
+    top: 45px !important;  
+}
+
+#logo{
+    border-radius: 10px; 
+    margin-bottom: 10vh;
+}
+
+#logo img{
+    display: block;
+    margin: auto;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    height: 4vw;
+}
+  
+.saturate {-webkit-filter: saturate(3); filter: saturate(3);}
+.grayscale {-webkit-filter: grayscale(100%); filter: grayscale(100%);}
+.contrast {-webkit-filter: contrast(160%); filter: contrast(160%);}
+.brightness {-webkit-filter: brightness(0.25); filter: brightness(0.25);}
+.blur {-webkit-filter: blur(3px); filter: blur(3px);}
+.invert {-webkit-filter: invert(100%); filter: invert(100%);}
+.sepia {-webkit-filter: sepia(100%); filter: sepia(100%);}
+.huerotate {-webkit-filter: hue-rotate(180deg); filter: hue-rotate(180deg);}
+.rss.opacity {-webkit-filter: opacity(50%); filter: opacity(50%);}
+
+@media all and (max-width: 1200px) {  
+   #container{
+       max-width: 95%; 
+   }
+}
+
+
+@media all and (max-width: 800px) { 
+    .mobi{
+        display: block;
+    }       
+   .big{
+       display: none;
+   }
+    #searchbox{
+        height: 21vh;
+    }
+   #searchInput{
+       height: 6vh!important;
+       font-size: 1.4em!important;
+   }
+   
+   #searchBtn{      
+       height: 5.5vh!important;
+  }
+  #logo{
+      margin-top: 1vh;
+      background: #bdbd94 !important;
+      margin-bottom: 0;
+      border-radius: 10px 10px 0px 0px;
+  }
+   #logo img{
+     height: 4vh;   
+   }
+   
+   #searchbox{
+       border-radius: 0px 0px 10px 10px;
+   }
+}
