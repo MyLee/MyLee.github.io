@@ -49,7 +49,7 @@
         <div class="row mobi"> 
             <form action="">                                                                                          
                 <div class="col s12 valign-wrapper grey darken-3" id="searchbox" title="Jämför priser på böcker">                   
-                    <input id="searchInput" class="right cols12 m10 valign " placeholder="Sök efter namn, ISBN eller streckkod"  ></input>
+                    <input id="searchInputmobi" class="right cols12 m10 valign" placeholder="Vi hjälper dig!" ></input>
                     <br>
                     <a id="searchBtn" class="waves-effect waves-light btn z-depth-3 grey" type="submit" value="Submit"><img class="responsive-img" src="img/search.png" alt="SEARCH"/>button</a>    
                 </div> 
@@ -61,7 +61,7 @@
                     <div class="col s0 m1 valign"></div>
                     <div class="col s0 m1 valign  "> <img id="searchlogo" src="img/uggla.png" alt="uggla"/>
                         </div>   
-                    <input id="searchInput" class="right cols12 m10 valign " placeholder=" Sök efter namn, ISBN eller streckkod"  ></input>
+                    <input id="searchInput" class="right cols12 m10 valign " type="text" value="" autocomplete="on"  ></input>
                         <br>
                         <a id="searchBtn" class="waves-effect waves-light btn btn-large z-depth-3 grey " type="submit"><img class="responsive-img" src="img/search.png" alt="SEARCH"/>button</a>    
                     <div class="col s0 m1 valign"></div>
@@ -110,13 +110,28 @@
     </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+<script src="js/superplaceholder.min.js"></script>
 <script>
     $(document).ready(function(){
         $('input').focus();
         $('.book').hover(function(){
             $(this).toggleClass('grayscale', 5000);
-        });      
-    });
+        });                   
+    });   
+    superplaceholder({
+			el: searchInput,
+			sentences: ['Skriv in här boksnamn ISBN, streckkod eller författares namn', 'tryck Enter eller Sök knapp.','Jämför priser på böcker, vi hjälper dig att hitta bästa svar!' ],
+			options: {
+				loop: true
+			}
+		});    
+      superplaceholder({
+			el: searchInputmobi,
+			sentences: ['Jämför priser på böcker', 'Skriv in här boksnamn,', 'ISBN, streckkod', 'eller författares namn' ],
+			options: {
+				loop: true
+			}
+		});   
 </script>
 </body>
 </html>

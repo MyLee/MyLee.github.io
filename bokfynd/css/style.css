@@ -158,7 +158,7 @@ body,div .page-wrapper, h1, h2, h3, h5, ui li, abbr, :link,:visited {
     #searchbox{
         height: 21vh;
     }
-   #searchInput{
+  input{
        height: 6vh!important;
        font-size: 1.4em!important;
    }
