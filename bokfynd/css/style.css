@@ -33,7 +33,7 @@ body,div .page-wrapper, h1, h2, h3, h5, ui li, abbr, :link,:visited {
   /*#advSearch{      
       margin-top: 2vh;
   }*/
-  #searchInput{     
+  #searchInput, #searchInputmobi{     
       position: relative; margin:0 auto;
       height: 8vh;
       background: #fff;
@@ -158,9 +158,10 @@ body,div .page-wrapper, h1, h2, h3, h5, ui li, abbr, :link,:visited {
     #searchbox{
         height: 21vh;
     }
-  input{
+  #searchInputmobi{
        height: 6vh!important;
-       font-size: 1.4em!important;
+       font-size: 1.3em!important;
+       border-radius: 7px;
    }
    
    #searchBtn{      
@@ -178,5 +179,16 @@ body,div .page-wrapper, h1, h2, h3, h5, ui li, abbr, :link,:visited {
    
    #searchbox{
        border-radius: 0px 0px 10px 10px;
+   }
+   
+   #searchBtn img{
+       height: 3vh;
+       right: 1.2vw;
+   }
+   
+   #searchBtn {
+       width: 4vw;
+       height: 6vh !important;
+       border-radius: 7px;
    }
 }
