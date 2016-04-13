@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<title>Bokfynd    </title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">	
-	<link type="text/css" rel="stylesheet" href="css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/loaders.min.css">	
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
     <link href='https://fonts.googleapis.com/css?family=Georgia' rel='stylesheet' type='text/css'>		
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -18,8 +18,8 @@
     <div id="container">                
          <!--Menu      -->
         <div class="fixed-action-btn click-to-toggle mobi menu" id="mobiMenu" >           
-            <a class="btn-floating btn-large red">
-                <i class="large mdi-navigation-menu"></i>
+            <a class="btn-floating btn-medium green">
+                <i class=" mdi-navigation-menu"></i>
             </a>
             <ul>                   
                 <li><a class="btn-floating yellow darken-1"><i class="material-icons">live_help</i></a><br>Hjälp</li>
@@ -29,9 +29,9 @@
             </ul>
         </div> 
         
-        <div class="fixed-action-btn click-to-toggle horizontal big menu" id="bigMenu" >           
-            <a class="btn-floating btn-large red">
-                <i class="large mdi-navigation-menu"></i>
+        <div class="fixed-action-btn click-to-toggle large horizontal big menu" id="bigMenu" >           
+            <a class="btn-floating btn-large black">
+                <i class="mdi-navigation-menu"></i>
             </a>
             <ul>                   
                 <li><a class="btn-floating yellow darken-1"><i class="material-icons">live_help</i></a><br>Hjälp</li>
@@ -61,42 +61,28 @@
                     <div class="col s0 m1 valign"></div>
                     <div class="col s0 m1 valign  "> <img id="searchlogo" src="img/uggla.png" alt="uggla"/>
                         </div>   
-                    <input id="searchInput" class="right cols12 m10 valign " type="text" value="" autocomplete="on"  ></input>
+                    <input id="searchInput" class="right cols12 m10 valign " type="text" placeholder="Jämför priser på böcker" autocomplete="on"  ></input>
                         <br>
                         <a id="searchBtn" class="waves-effect waves-light btn btn-large z-depth-3 grey" type="submit"><img class="responsive-img " src="img/search.png" alt="SEARCH"/>button</a>    
                     <div class="col s0 m1 valign"></div>
                 </div>  
             </form>
         </div>         
-             <p class="right" id="describle">Jämför priser på böcker</p> 
-             <div id="searchResult" class="hideMe">
-                <div class="row">
-                    <a href="#" class="col s3"><img class="book hoverable" src="img/bok2.jpg" alt="book" title="Axels tid"/><h6 class="center-align" >Axels tid</h6></a> 
-                    <a href="#" class="col s3"><img class="book hoverable" src="img/bok2.jpg" alt="book" title="Det som inte dödar oss - Millennium 4"/><h6 class="center-align" >Det som inte dödar oss - Millennium 4</h6></a> 
-                    <a href="#" class="col s3"><img class="book hoverable" src="img/bok2.jpg" alt="book" title="Rädslans fångar : Ett nytt fall för Maria Wern"/><h6 class=" center-align" ti>Rädslans fångar : Ett nytt fall för Maria Wern</h6></a>  
-                    <a href="#" class="col s3"><img class="book hoverable" src="img/bok2.jpg" alt="book" title="Barn som bråkar : Att hantera känslostarka barn i vardagen"/><h6 class="center-align" ti>Barn som bråkar : Att hantera känslostarka barn i vardagen</h6></a>  </div> <div class="row">
-                    <a href="#" class="col s3"><img class="book hoverable" src="img/bok2.jpg" alt="book" title="Mera vego : mat för hela familjen"/><h6 class=" center-align" ti>Mera vego : mat för hela familjen</h6></a>
-                    <a href="#" class="col s3"><img class="book hoverable" src="img/bok2.jpg" alt="book" title="Såser"/><h6 class="center-align">Såser</h6></a>               
-                    <a href="#" class="col s3"><img class="book hoverable" src="img/bok2.jpg" alt="book" title="Axels tid"/><h6 class="center-align" >Axels tid</h6></a> 
-                    <a href="#" class="col s3"><img class="book hoverable" src="img/bok2.jpg" alt="book" title="Det som inte dödar oss - Millennium 4"/><h6 class="center-align" >Det som inte dödar oss - Millennium 4</h6></a>  </div> <div class="row">
-                    <a href="#" class="col s3"><img class="book hoverable" src="img/bok2.jpg" alt="book" title="Rädslans fångar : Ett nytt fall för Maria Wern"/><h6 class=" center-align" ti>Rädslans fångar : Ett nytt fall för Maria Wern</h6></a>  
-                    <a href="#" class="col s3"><img class="book hoverable" src="img/bok2.jpg" alt="book" title="Barn som bråkar : Att hantera känslostarka barn i vardagen"/><h6 class="center-align" ti>Barn som bråkar : Att hantera känslostarka barn i vardagen</h6></a>  
-                    <a href="#" class="col s3"><img class="book hoverable" src="img/bok2.jpg" alt="book" title="Mera vego : mat för hela familjen"/><h6 class=" center-align" ti>Mera vego : mat för hela familjen</h6></a>
-                    <a href="#" class="col s3"><img class="book hoverable" src="img/bok2.jpg" alt="book" title="Såser"/><h6 class="center-align">Såser</h6></a>               
-                </div>
-             </div>
-            <!--<div class=" col s1 right" id="advSearch">
-                <div class="switch center-align ">
-                    <label>
-                    
-                    <input type="checkbox">
-                    <span class="lever grey darken-2"></span>
-                    <br><br>
-                    Advanced Search
-                    </label>
-                </div>
-            </div> -->
-         
+        <p class="center">
+            <input type="checkbox" id="author" />
+            <label for="author">Sök efter författare bara</label>
+        </p>
+        <div class="loaders">
+            <div id="info">     
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div id="searchResult">
+        
+        </div>
+
         <footer class="row" id="popBook">
             <a href="#"><h5 > Populära böcker</h5></a> <br>            
             <a href="#" class="col s4 m3 l2"><img class="book grayscale hoverable" src="img/bok1.jpg" alt="book" title="Axels tid"/><h6 class="center-align" >Axels tid</h6></a> 
@@ -111,27 +97,31 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 <script src="js/superplaceholder.min.js"></script>
+<script src="js/main.js"></script>
 <script>
     $(document).ready(function(){
         $('input').focus();
         $('.book').hover(function(){
             $(this).toggleClass('grayscale', 5000);
         });                   
-    });   
+       
     superplaceholder({
 			el: searchInput,
-			sentences: ['Skriv in här boksnamn ISBN, streckkod eller författares namn', 'tryck Enter eller Sök knapp.','Jämför priser på böcker, vi hjälper dig att hitta bästa svar!' ],
+			sentences: ['Sök efter title, ISBN, streckkod, författare, ämne osv', 'Jämför priser på böcker, vi hjälper dig!' ],
+            
 			options: {
 				loop: true
 			}
 		});    
       superplaceholder({
 			el: searchInputmobi,
-			sentences: ['Jämför priser på böcker', 'Skriv in här boksnamn,', 'ISBN, streckkod', 'eller författares namn' ],
+			sentences: ['Jämför priser på böcker', 'Sök efter namn,', 'ISBN, streckkod', 'eller författares namn' ],
 			options: {
 				loop: true
 			}
-		});   
+		}); 
+    });
+
 </script>
 </body>
 </html>

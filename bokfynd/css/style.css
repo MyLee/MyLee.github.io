@@ -48,6 +48,12 @@ body,div .page-wrapper, h1, h2, h3, h5, ui li, abbr, :link,:visited {
      color: #355723;    
   }
   
+  #info{
+  position: absolute;
+  left: 50% !important;
+  
+  }
+  
   #searchBtn{
       height: 7.5vh!important;
       margin-left: .8vh;
@@ -96,13 +102,15 @@ body,div .page-wrapper, h1, h2, h3, h5, ui li, abbr, :link,:visited {
   
   #searchResult{
       clear: both;
-      display: none;
+      
   }
   
   .hideMe{
       display: none;
   }
-  
+#searchInput, #searchInputmobi{
+    padding-left: 1%;
+}  
 #popBook img:hover{
       width: 55px;
       height: 73px;
